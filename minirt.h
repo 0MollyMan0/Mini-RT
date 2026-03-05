@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 14:04:04 by anfouger          #+#    #+#             */
-/*   Updated: 2026/03/05 09:57:14 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/03/05 11:23:01 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,9 @@
 # include <unistd.h>
 # include <math.h>
 
+# define WIN_WIDTH 800
+# define WIN_HEIGHT 600
+
 typedef struct s_img
 {
 	void	*img;
@@ -28,5 +31,17 @@ typedef struct s_img
 	int		line_len;
 	int		endian;
 }				t_img;
+
+typedef struct s_mlx
+{
+	void	*mlx;
+	void	*win;
+	t_img	*img;
+}				t_mlx;
+
+
+// --- MLX --- //
+t_mlx *init_mlx(void);
+
 
 #endif

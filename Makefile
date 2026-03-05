@@ -34,6 +34,7 @@ WHITE       = \033[0;37m
 # SOURCES
 # ----------------------------------
 SRC = $(SRC_DIR)/main.c \
+		$(SRC_DIR)/init.c \
 
 OBJ = $(SRC:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 

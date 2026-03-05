@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 10:33:52 by anfouger          #+#    #+#             */
-/*   Updated: 2026/03/05 10:01:37 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/03/05 10:47:01 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,11 @@
 
 int	main(int ac, char **av)
 {
+	t_mlx *mlx;
+	
 	(void)ac;
 	(void)av;
+	mlx = init_mlx();
+
 	return (0);
 }
