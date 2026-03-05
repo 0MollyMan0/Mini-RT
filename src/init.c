@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/05 10:41:24 by anfouger          #+#    #+#             */
-/*   Updated: 2026/03/05 11:32:54 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/03/05 14:08:17 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static int	init_img(t_mlx *mlx_data)
 	mlx_data->img = malloc(sizeof(t_img));
 	if (!mlx_data->img)
 		return (0);
-	mlx_data->img->img = mlx_new_image(mlx_data->mlx, WIN_HEIGHT, WIN_HEIGHT);
+	mlx_data->img->img = mlx_new_image(mlx_data->mlx, WIN_WIDTH, WIN_HEIGHT);
 	if (!mlx_data->img->img)
 		return (0);
 	mlx_data->img->addr = mlx_get_data_addr(

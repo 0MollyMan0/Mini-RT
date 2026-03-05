@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 14:04:04 by anfouger          #+#    #+#             */
-/*   Updated: 2026/03/05 12:07:56 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/03/05 13:40:08 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ t_mlx	*init_mlx(void);
 
 // --- Render --- //
 void	render(t_mlx *mlx);
+int		get_color(int red, int green, int blue);
 void	put_pixel(t_img *img, int x, int y, int color);
 
 // --- Controls --- //

@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/05 11:47:45 by anfouger          #+#    #+#             */
-/*   Updated: 2026/03/05 11:56:47 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/03/05 14:05:51 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,14 @@ void	render(t_mlx *mlx)
 	int y;
 	
 	y = 0;
-	while (y < 50)
+	while (y < WIN_HEIGHT)
 	{
 		x = 0;
-		while (x < 50)
+		while (x < WIN_WIDTH)
 		{
-			put_pixel(mlx->img, 400+x, 300+y, 0x00FF0000);
+			double nx = (double)x / (WIN_WIDTH - 1);
+			double ny = (double)y / (WIN_HEIGHT - 1);
+			put_pixel(mlx->img, x, y, get_color(nx * 255, ny * 255, 0));
 			x++;
 		}
 		y++;
