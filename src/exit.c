@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/05 12:03:35 by anfouger          #+#    #+#             */
-/*   Updated: 2026/03/05 12:05:27 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/03/05 13:30:44 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int	ft_exit(t_mlx *mlx)
 	if (mlx->img->img)
 		mlx_destroy_image(mlx->mlx, mlx->img->img);
 	mlx_destroy_display(mlx->mlx);
+	free(mlx->img);
 	free(mlx->mlx);
 	free(mlx);
 	exit(0);
