@@ -1,24 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   controls.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/13 10:33:52 by anfouger          #+#    #+#             */
-/*   Updated: 2026/03/05 12:08:14 by anfouger         ###   ########.fr       */
+/*   Created: 2026/03/05 12:02:00 by anfouger          #+#    #+#             */
+/*   Updated: 2026/03/05 12:08:11 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <minirt.h>
 
-int	main(void)
+void	set_controls(t_mlx *mlx)
 {
-	t_mlx *mlx;
+	mlx_hook(mlx->win, 17, 0, ft_exit, mlx);
+	mlx_hook(mlx->win, 2, 1L << 0, ft_key_pressed, mlx);
+}
 
-	mlx = init_mlx();
+int	ft_key_pressed(int keycode, t_mlx *mlx)
+{
+	if (keycode == 65307)
+		ft_exit(mlx);
 	render(mlx);
-	set_controls(mlx);
-	mlx_loop(mlx->mlx);
 	return (0);
 }

@@ -37,6 +37,8 @@ SRC = $(SRC_DIR)/main.c \
 		$(SRC_DIR)/init.c \
 		$(SRC_DIR)/render.c \
 		$(SRC_DIR)/render_utils.c \
+		$(SRC_DIR)/controls.c \
+		$(SRC_DIR)/exit.c \
 
 OBJ = $(SRC:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 
