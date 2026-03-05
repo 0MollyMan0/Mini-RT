@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/05 11:47:45 by anfouger          #+#    #+#             */
-/*   Updated: 2026/03/05 14:05:51 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/03/05 14:15:14 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,12 @@ void	render(t_mlx *mlx)
 		{
 			double nx = (double)x / (WIN_WIDTH - 1);
 			double ny = (double)y / (WIN_HEIGHT - 1);
-			put_pixel(mlx->img, x, y, get_color(nx * 255, ny * 255, 0));
+			double sx = 2.0 * nx - 1.0;
+			double sy = 1.0 - 2.0 * ny;
+			int red   = (int)((sx + 1) * 0.5 * 255);
+			int green = (int)((sy + 1) * 0.5 * 255);
+			int blue  = 0;
+			put_pixel(mlx->img, x, y, get_color(red, green, blue));
 			x++;
 		}
 		y++;
