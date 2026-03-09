@@ -6,11 +6,22 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/05 10:41:24 by anfouger          #+#    #+#             */
-/*   Updated: 2026/03/05 14:08:17 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/03/09 10:46:03 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <minirt.h>
+
+t_sphere	init_sphere(void)
+{
+	t_sphere	sphere;
+
+	sphere.c.x = 0;
+	sphere.c.y = 0;
+	sphere.c.z = 0.5;
+	sphere.r = 0.5;
+	return (sphere);
+}
 
 static int	init_img(t_mlx *mlx_data)
 {
