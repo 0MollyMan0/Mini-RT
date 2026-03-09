@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 14:04:04 by anfouger          #+#    #+#             */
-/*   Updated: 2026/03/09 09:17:04 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/03/09 09:53:11 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	render(t_mlx *mlx);
 
 
 // --- Render Utils--- //
-int		get_color(int red, int green, int blue);
+int		rgb_to_hex(int red, int green, int blue);
 void	put_pixel(t_img *img, int x, int y, int color);
 double	x_to_sx(int x);
 double	y_to_sy(int y);
