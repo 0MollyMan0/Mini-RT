@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 14:04:04 by anfouger          #+#    #+#             */
-/*   Updated: 2026/03/09 14:17:30 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/03/09 14:37:14 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,8 +79,7 @@ double	x_to_sx(int x);
 double	y_to_sy(int y);
 
 // --- Controls --- //
-void	set_controls(t_mlx *mlx);
-int		ft_key_pressed(int keycode, t_mlx *mlx);
+void	set_controls(t_data data);
 
 // --- Exit --- //
 int		ft_exit(t_mlx *mlx);

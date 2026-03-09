@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/05 11:47:45 by anfouger          #+#    #+#             */
-/*   Updated: 2026/03/09 14:14:53 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/03/09 14:43:29 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ double calc_c(t_sphere sphere, t_data data)
 
 static int	hit_sphere(t_ray ray, t_sphere sphere, t_data data)
 {
-	int	delta;
+	double	delta;
 
 	delta = calc_delta(calc_b(ray, sphere, data), calc_c(sphere, data));
 	if (delta >= 0)

@@ -33,13 +33,10 @@ all: $(NAME)
 
 # Archiver la lib
 $(NAME): $(OBJ_DIR) $(OBJ)
-	@echo "\033[1;34m[LIBFT] -> Creating $(NAME)...\033[0m"
 	@ar rcs $(NAME) $(OBJ)
-	@echo "\033[1;32m[OK] -> $(NAME) ready!\033[0m"
 
 # Compilation des .c en .o
 $(OBJ_DIR)/%.o: %.c | $(OBJ_DIR)
-	@echo "\033[1;33m[CC] -> $<\033[0m"
 	@$(CC) $(CFLAGS) $(HEADER) -c $< -o $@
 
 # Création du dossier obj si nécessaire
@@ -48,12 +45,10 @@ $(OBJ_DIR):
 
 # Nettoyage des objets
 clean:
-	@echo "\033[1;31m[CLEAN] -> Removing object files...\033[0m"
 	@rm -rf $(OBJ_DIR)
 
 # Nettoyage complet
 fclean: clean
-	@echo "\033[1;31m[FCLEAN] -> Removing archive...\033[0m"
 	@rm -f $(NAME)
 
 # Rebuild complet
