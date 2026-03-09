@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 14:04:04 by anfouger          #+#    #+#             */
-/*   Updated: 2026/03/09 14:37:14 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/03/09 14:56:44 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,22 +66,28 @@ typedef struct s_data
 
 // --- Init --- //
 t_mlx		*init_mlx(void);
-t_sphere	init_sphere(void);
 t_data		init_data(void);
 
+// --- Sphere --- //
+int			hit_sphere(t_ray ray, t_sphere sphere, t_data data);
+double		calc_c(t_sphere sphere, t_data data);
+t_sphere	init_sphere(void);
+double		calc_delta(double b, double c);
+double		calc_b(t_ray ray, t_sphere sphere, t_data data);
+
 // --- Render --- //
-void	render(t_data data);
+void		render(t_data data);
 
 // --- Render Utils--- //
-int		rgb_to_hex(int red, int green, int blue);
-void	put_pixel(t_img *img, int x, int y, int color);
-double	x_to_sx(int x);
-double	y_to_sy(int y);
+int			rgb_to_hex(int red, int green, int blue);
+void		put_pixel(t_img *img, int x, int y, int color);
+double		x_to_sx(int x);
+double		y_to_sy(int y);
 
 // --- Controls --- //
-void	set_controls(t_data data);
+void		set_controls(t_data data);
 
 // --- Exit --- //
-int		ft_exit(t_mlx *mlx);
+int			ft_exit(t_mlx *mlx);
 
 #endif

@@ -39,6 +39,7 @@ SRC = $(SRC_DIR)/main.c \
 		$(SRC_DIR)/render_utils.c \
 		$(SRC_DIR)/controls.c \
 		$(SRC_DIR)/exit.c \
+		$(SRC_DIR)/sphere.c \
 
 OBJ = $(SRC:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 

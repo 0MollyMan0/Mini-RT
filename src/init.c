@@ -6,22 +6,11 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/05 10:41:24 by anfouger          #+#    #+#             */
-/*   Updated: 2026/03/09 14:16:03 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/03/09 14:53:54 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <minirt.h>
-
-t_sphere	init_sphere(void)
-{
-	t_sphere	sphere;
-
-	sphere.c.x = 0;
-	sphere.c.y = 0;
-	sphere.c.z = -5;
-	sphere.r = 0.5;
-	return (sphere);
-}
 
 t_data init_data()
 {
