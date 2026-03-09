@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 14:04:04 by anfouger          #+#    #+#             */
-/*   Updated: 2026/03/09 10:45:32 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/03/09 14:17:30 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # include <math.h>
 
 # define WIN_WIDTH 800
-# define WIN_HEIGHT 600
+# define WIN_HEIGHT 800
 
 typedef struct s_img
 {
@@ -58,12 +58,19 @@ typedef struct s_sphere
 	t_vec3	c;
 }				t_sphere;
 
+typedef struct s_data
+{
+	t_mlx	*mlx;
+	t_vec3	cam;
+}				t_data;
+
 // --- Init --- //
 t_mlx		*init_mlx(void);
 t_sphere	init_sphere(void);
+t_data		init_data(void);
 
 // --- Render --- //
-void	render(t_mlx *mlx);
+void	render(t_data data);
 
 // --- Render Utils--- //
 int		rgb_to_hex(int red, int green, int blue);
