@@ -82,20 +82,20 @@ $(OBJ_DIR):
 # Compilation of libft
 $(LIBFT):
 	@echo "\033[1;34m[LIBFT] -> Compiling libft...\033[0m"
-	@$(MAKE) -C $(LIBFT_DIR)
+	@$(MAKE) -s -C $(LIBFT_DIR)
 	@echo "\033[1;32m[OK] -> libft ready!\033[0m"
 
 # Clean
 clean:
 	@echo "\033[1;31m[CLEAN] -> Removing object files...\033[0m"
 	@rm -rf $(OBJ_DIR)
-	@$(MAKE) -C lib/libft clean
+	@$(MAKE) -s -C lib/libft clean
 
 # Full Clean
 fclean: clean
 	@echo "\033[1;31m[FCLEAN] -> Removing executable...\033[0m"
 	@rm -f $(NAME)
-	@$(MAKE) -C lib/libft fclean
+	@$(MAKE) -s -C lib/libft fclean
 
 # Rebuild
 re: fclean all

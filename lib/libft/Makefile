@@ -1,6 +1,6 @@
-# ==============================
-# LIBFT MAKEFILE (bonus intégré)
-# ==============================
+# ==============
+# LIBFT MAKEFILE
+# ==============
 NAME = libft.a
 
 CC      = cc
@@ -9,7 +9,7 @@ CFLAGS  = -Wall -Wextra -Werror
 SRC_DIR = .
 OBJ_DIR = obj
 
-# SOURCES principales + "bonus"
+# SOURCES
 SRCS = ft_atoi.c ft_isdigit.c ft_memmove.c ft_split.c ft_strlcpy.c ft_strtrim.c \
        ft_bzero.c ft_isprint.c ft_memset.c ft_strchr.c ft_strlen.c ft_substr.c \
        ft_calloc.c ft_itoa.c ft_putchar_fd.c ft_strdup.c ft_strmapi.c ft_tolower.c \
@@ -20,38 +20,38 @@ SRCS = ft_atoi.c ft_isdigit.c ft_memmove.c ft_split.c ft_strlcpy.c ft_strtrim.c 
        ft_lstlast_bonus.c ft_lstadd_back_bonus.c ft_lstdelone_bonus.c \
        ft_lstclear_bonus.c ft_lstiter_bonus.c ft_lstmap_bonus.c ft_strcmp.c
 
-# OBJETS
+# OBJECTS
 OBJ = $(SRCS:%.c=$(OBJ_DIR)/%.o)
 
 HEADER = -I.
 
 # ==============================
-# REGLES
+# RULES
 # ==============================
 
 all: $(NAME)
 
-# Archiver la lib
+# LIB
 $(NAME): $(OBJ_DIR) $(OBJ)
 	@ar rcs $(NAME) $(OBJ)
 
-# Compilation des .c en .o
+# Compilation of .c in .o
 $(OBJ_DIR)/%.o: %.c | $(OBJ_DIR)
 	@$(CC) $(CFLAGS) $(HEADER) -c $< -o $@
 
-# Création du dossier obj si nécessaire
+# Creation of folder obj
 $(OBJ_DIR):
 	@mkdir -p $(OBJ_DIR)
 
-# Nettoyage des objets
+# clean .o
 clean:
 	@rm -rf $(OBJ_DIR)
 
-# Nettoyage complet
+# clean .o and exe
 fclean: clean
 	@rm -f $(NAME)
 
-# Rebuild complet
+# Rebuild
 re: fclean all
 
 # ==============================
