@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/09 14:53:04 by anfouger          #+#    #+#             */
-/*   Updated: 2026/03/09 14:55:10 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/03/16 10:42:07 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,31 +28,31 @@ double	calc_delta(double b, double c)
 	return ((b * b) - 4 * 1 * c);
 }
 
-double calc_b(t_ray ray, t_sphere sphere, t_data data)
+double calc_b(t_ray ray, t_sphere sphere, t_data *data)
 {
 	double	x;
 	double	y;	
 	double	z;
 
-	x = (data.cam.x - sphere.c.x) * ray.dir.x;
-	y = (data.cam.y - sphere.c.y) * ray.dir.y;
-	z = (data.cam.z - sphere.c.z) * ray.dir.z;
+	x = (data->cam.x - sphere.c.x) * ray.dir.x;
+	y = (data->cam.y - sphere.c.y) * ray.dir.y;
+	z = (data->cam.z - sphere.c.z) * ray.dir.z;
 	return (2 * (x + y + z));
 }
 
-double calc_c(t_sphere sphere, t_data data)
+double calc_c(t_sphere sphere, t_data *data)
 {
 	double	x;
 	double	y;	
 	double	z;
 
-	x = (data.cam.x - sphere.c.x) * (data.cam.x - sphere.c.x);
-	y = (data.cam.y - sphere.c.y) * (data.cam.y - sphere.c.y);
-	z = (data.cam.z - sphere.c.z) * (data.cam.z - sphere.c.z);
+	x = (data->cam.x - sphere.c.x) * (data->cam.x - sphere.c.x);
+	y = (data->cam.y - sphere.c.y) * (data->cam.y - sphere.c.y);
+	z = (data->cam.z - sphere.c.z) * (data->cam.z - sphere.c.z);
 	return (x + y + z - (sphere.r * sphere.r));
 }
 
-int	hit_sphere(t_ray ray, t_sphere sphere, t_data data)
+int	hit_sphere(t_ray ray, t_sphere sphere, t_data *data)
 {
 	double	delta;
 

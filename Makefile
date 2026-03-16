@@ -72,7 +72,7 @@ $(NAME): $(OBJ)
 
 # Compilation of .c in .o
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | $(OBJ_DIR)
-	@echo "\033[1;33m[CC] -> $<\033[0m"
+	@echo "$(CYAN)[COMPILING]$(RESET) $<"
 	@$(CC) $(CFLAGS) -I$(LIBFT_DIR) -I$(MLX_DIR) -c $< -o $@
 
 # Create obj dir

@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 10:33:52 by anfouger          #+#    #+#             */
-/*   Updated: 2026/03/09 14:37:18 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/03/16 10:48:58 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,16 @@
 
 int	main(void)
 {
-	t_mlx *mlx;
-	t_data	data;
+	t_data	*data;
 
-	mlx = init_mlx();
 	data = init_data();
-	data.mlx = mlx;
+	if (!data)
+	{
+		ft_exit(data);
+		return (1);
+	}
 	render(data);
 	set_controls(data);
-	mlx_loop(mlx->mlx);
+	mlx_loop(data->mlx->mlx);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/05 11:47:45 by anfouger          #+#    #+#             */
-/*   Updated: 2026/03/09 14:54:17 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/03/16 10:41:18 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static t_ray	calc_ray(double sx, double sy)
 	return (ray);
 }
 
-void	render(t_data data)
+void	render(t_data *data)
 {
 	int			x;
 	int			y;
@@ -45,11 +45,11 @@ void	render(t_data data)
 		{
 			ray = calc_ray(x_to_sx(x), y_to_sy(y));
 			int red = hit_sphere(ray, sphere, data) * 255;
-			put_pixel(data.mlx->img, x, y, rgb_to_hex(red, 0, 0));
+			put_pixel(data->mlx->img, x, y, rgb_to_hex(red, 0, 0));
 			x++;
 		}
 		y++;
 	}
-	mlx_put_image_to_window(data.mlx->mlx, data.mlx->win,
-		data.mlx->img->img, 0, 0);	
+	mlx_put_image_to_window(data->mlx->mlx, data->mlx->win,
+		data->mlx->img->img, 0, 0);	
 }
