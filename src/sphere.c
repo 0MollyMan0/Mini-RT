@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/09 14:53:04 by anfouger          #+#    #+#             */
-/*   Updated: 2026/03/16 10:42:07 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/03/17 08:16:09 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ t_sphere	init_sphere(void)
 
 	sphere.c.x = 0;
 	sphere.c.y = 0;
-	sphere.c.z = -5;
+	sphere.c.z = -1.5;
 	sphere.r = 0.5;
 	return (sphere);
 }

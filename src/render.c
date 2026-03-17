@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/05 11:47:45 by anfouger          #+#    #+#             */
-/*   Updated: 2026/03/16 10:41:18 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/03/17 08:27:08 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ static t_ray	calc_ray(double sx, double sy)
 	ray.dir.x /= len;
 	ray.dir.y /= len;
 	ray.dir.z /= len;
-
 	return (ray);
 }
 
@@ -44,8 +43,8 @@ void	render(t_data *data)
 		while (x < WIN_WIDTH)
 		{
 			ray = calc_ray(x_to_sx(x), y_to_sy(y));
-			int red = hit_sphere(ray, sphere, data) * 255;
-			put_pixel(data->mlx->img, x, y, rgb_to_hex(red, 0, 0));
+			put_pixel(data->mlx->img, x, y, 
+				rgb_to_hex(hit_sphere(ray, sphere, data) * 255, 0, 0));
 			x++;
 		}
 		y++;

@@ -66,9 +66,9 @@ banner :
 
 # Final link : libft + MLX
 $(NAME): $(OBJ)
-	@echo "\033[1;34m[LINK] -> Creating $(NAME)...\033[0m"
+	@echo "$(CYAN)[LINK] -> Creating $(NAME)...$(RESET)"
 	@$(CC) $(OBJ) $(LIBFT) $(MLX_FLAGS) -o $(NAME)
-	@echo "\033[1;32m[OK] -> $(NAME) ready!\033[0m"
+	@echo "$(GREEN)[OK] -> $(NAME) ready!$(RESET)"
 
 # Compilation of .c in .o
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | $(OBJ_DIR)
@@ -81,19 +81,19 @@ $(OBJ_DIR):
 
 # Compilation of libft
 $(LIBFT):
-	@echo "\033[1;34m[LIBFT] -> Compiling libft...\033[0m"
+	@echo "$(CYAN)[LIBFT] -> Compiling libft...$(RESET)"
 	@$(MAKE) -s -C $(LIBFT_DIR)
-	@echo "\033[1;32m[OK] -> libft ready!\033[0m"
+	@echo "$(GREEN)[OK] -> libft ready!$(RESET)"
 
 # Clean
 clean:
-	@echo "\033[1;31m[CLEAN] -> Removing object files...\033[0m"
+	@echo "$(RED)[CLEAN] -> Removing object files...$(RESET)"
 	@rm -rf $(OBJ_DIR)
 	@$(MAKE) -s -C lib/libft clean
 
 # Full Clean
 fclean: clean
-	@echo "\033[1;31m[FCLEAN] -> Removing executable...\033[0m"
+	@echo "$(RED)[FCLEAN] -> Removing executable...$(RESET)"
 	@rm -f $(NAME)
 	@$(MAKE) -s -C lib/libft fclean
 

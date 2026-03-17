@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 14:04:04 by anfouger          #+#    #+#             */
-/*   Updated: 2026/03/16 10:48:37 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/03/17 08:17:06 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # include <math.h>
 
 # define WIN_WIDTH 800
-# define WIN_HEIGHT 800
+# define WIN_HEIGHT 600
 
 typedef struct s_img
 {
