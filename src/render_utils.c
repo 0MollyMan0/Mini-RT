@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/05 11:37:51 by anfouger          #+#    #+#             */
-/*   Updated: 2026/03/17 08:25:45 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/03/17 11:16:24 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ double	x_to_sx(int x)
 	sx = 2.0 * nx - 1.0;
 	aspect_ratio = (double)WIN_WIDTH / WIN_HEIGHT;
 	sx *= aspect_ratio;
+	sx *= tan(60);
 	return (sx);
 }
 
@@ -45,5 +46,6 @@ double	y_to_sy(int y)
 
 	ny = ((double)y + 0.5) / (WIN_HEIGHT - 1);
 	sy = 1.0 - 2.0 * ny;
+	sy *= tan(60);
 	return (sy);
 }

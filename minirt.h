@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 14:04:04 by anfouger          #+#    #+#             */
-/*   Updated: 2026/03/17 08:17:06 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/03/17 10:50:45 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,9 @@ double		calc_c(t_sphere sphere, t_data *data);
 t_sphere	init_sphere(void);
 double		calc_delta(double b, double c);
 double		calc_b(t_ray ray, t_sphere sphere, t_data *data);
+
+// --- Rays --- //
+t_ray	calc_ray(double sx, double sy, t_data *data);
 
 // --- Render --- //
 void		render(t_data *data);

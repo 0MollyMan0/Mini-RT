@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/09 14:53:04 by anfouger          #+#    #+#             */
-/*   Updated: 2026/03/17 08:16:09 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/03/17 11:16:44 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ t_sphere	init_sphere(void)
 
 	sphere.c.x = 0;
 	sphere.c.y = 0;
-	sphere.c.z = -1.5;
+	sphere.c.z = -3;
 	sphere.r = 0.5;
 	return (sphere);
 }
@@ -28,7 +28,7 @@ double	calc_delta(double b, double c)
 	return ((b * b) - 4 * 1 * c);
 }
 
-double calc_b(t_ray ray, t_sphere sphere, t_data *data)
+double	calc_b(t_ray ray, t_sphere sphere, t_data *data)
 {
 	double	x;
 	double	y;	
@@ -40,7 +40,7 @@ double calc_b(t_ray ray, t_sphere sphere, t_data *data)
 	return (2 * (x + y + z));
 }
 
-double calc_c(t_sphere sphere, t_data *data)
+double	calc_c(t_sphere sphere, t_data *data)
 {
 	double	x;
 	double	y;	

@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/05 12:02:00 by anfouger          #+#    #+#             */
-/*   Updated: 2026/03/16 10:49:14 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/03/17 11:01:39 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@ static void move_cam(int keycode, t_data *data)
 		data->cam.x -= 0.1;
 	else if (keycode == 'd')
 		data->cam.x += 0.1;
-	else if (keycode == 's')
-		data->cam.y -= 0.1;
-	else if (keycode == 'w')
-		data->cam.y += 0.1;
 	else if (keycode == 'q')
-		data->cam.z -= 0.1;
+		data->cam.y -= 0.1;
 	else if (keycode == 'e')
+		data->cam.y += 0.1;
+	else if (keycode == 'w')
+		data->cam.z -= 0.1;
+	else if (keycode == 's')
 		data->cam.z += 0.1;
 }
 
