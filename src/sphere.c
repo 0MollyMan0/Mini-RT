@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/09 14:53:04 by anfouger          #+#    #+#             */
-/*   Updated: 2026/03/17 11:16:44 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/03/18 13:50:21 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,40 +23,40 @@ t_sphere	init_sphere(void)
 	return (sphere);
 }
 
-double	calc_delta(double b, double c)
+static double	calc_delta(double b, double c)
 {
 	return ((b * b) - 4 * 1 * c);
 }
 
-double	calc_b(t_ray ray, t_sphere sphere, t_data *data)
+static double	calc_b(t_ray ray, t_sphere sphere)
 {
 	double	x;
 	double	y;	
 	double	z;
 
-	x = (data->cam.x - sphere.c.x) * ray.dir.x;
-	y = (data->cam.y - sphere.c.y) * ray.dir.y;
-	z = (data->cam.z - sphere.c.z) * ray.dir.z;
+	x = (ray.origin.x - sphere.c.x) * ray.dir.x;
+	y = (ray.origin.y - sphere.c.y) * ray.dir.y;
+	z = (ray.origin.z - sphere.c.z) * ray.dir.z;
 	return (2 * (x + y + z));
 }
 
-double	calc_c(t_sphere sphere, t_data *data)
+static double	calc_c(t_ray ray, t_sphere sphere)
 {
 	double	x;
 	double	y;	
 	double	z;
 
-	x = (data->cam.x - sphere.c.x) * (data->cam.x - sphere.c.x);
-	y = (data->cam.y - sphere.c.y) * (data->cam.y - sphere.c.y);
-	z = (data->cam.z - sphere.c.z) * (data->cam.z - sphere.c.z);
+	x = (ray.origin.x - sphere.c.x) * (ray.origin.x - sphere.c.x);
+	y = (ray.origin.y - sphere.c.y) * (ray.origin.y - sphere.c.y);
+	z = (ray.origin.z - sphere.c.z) * (ray.origin.z - sphere.c.z);
 	return (x + y + z - (sphere.r * sphere.r));
 }
 
-int	hit_sphere(t_ray ray, t_sphere sphere, t_data *data)
+int	hit_sphere(t_ray ray, t_sphere sphere)
 {
 	double	delta;
 
-	delta = calc_delta(calc_b(ray, sphere, data), calc_c(sphere, data));
+	delta = calc_delta(calc_b(ray, sphere), calc_c(ray, sphere));
 	if (delta >= 0)
 		return (1);
 	return (0);
