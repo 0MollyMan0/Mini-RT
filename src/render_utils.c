@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/05 11:37:51 by anfouger          #+#    #+#             */
-/*   Updated: 2026/03/17 11:16:24 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/03/18 13:38:59 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,14 @@ double	x_to_sx(int x)
 	double	nx;
 	double	sx;
 	double	aspect_ratio;
+	double	fov_rad;
 
 	nx = ((double)x + 0.5) / (WIN_WIDTH - 1);
 	sx = 2.0 * nx - 1.0;
 	aspect_ratio = (double)WIN_WIDTH / WIN_HEIGHT;
 	sx *= aspect_ratio;
-	sx *= tan(60);
+	fov_rad = (FOV * M_PI) / 180.0;
+	sx *= tan(fov_rad / 2.0);
 	return (sx);
 }
 
@@ -43,9 +45,11 @@ double	y_to_sy(int y)
 {
 	double	ny;
 	double	sy;
+	double	fov_rad;
 
 	ny = ((double)y + 0.5) / (WIN_HEIGHT - 1);
 	sy = 1.0 - 2.0 * ny;
-	sy *= tan(60);
+	fov_rad = (FOV * M_PI) / 180.0;
+	sy *= tan(fov_rad / 2.0);
 	return (sy);
 }

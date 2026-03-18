@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 14:04:04 by anfouger          #+#    #+#             */
-/*   Updated: 2026/03/17 10:50:45 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/03/18 13:38:19 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@
 
 # define WIN_WIDTH 800
 # define WIN_HEIGHT 600
+# define FOV 60.0
+# define M_PI 3.14159265358979323846
 
 typedef struct s_img
 {
