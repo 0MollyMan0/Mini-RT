@@ -7,7 +7,7 @@ NAME = miniRT
 # COMPILATION AND FLAGS
 # ----------------------------------
 CC      = cc
-CFLAGS  = -Wall -Wextra -Werror -g -I ./
+CFLAGS  = -Wall -Wextra -Werror -g -I ./ -I lib/gnl
 
 # ----------------------------------
 # PATH
@@ -15,6 +15,7 @@ CFLAGS  = -Wall -Wextra -Werror -g -I ./
 SRC_DIR    = src
 OBJ_DIR    = obj
 LIBFT_DIR  = lib/libft
+GNL_DIR    = lib/gnl
 MLX_DIR    = lib/minilibx-linux
 
 # ----------------------------------
@@ -33,6 +34,9 @@ WHITE       = \033[0;37m
 # ----------------------------------
 # SOURCES
 # ----------------------------------
+GNL_SRC = $(GNL_DIR)/get_next_line.c \
+		  $(GNL_DIR)/get_next_line_utils.c
+
 SRC = $(SRC_DIR)/main.c \
 		$(SRC_DIR)/init.c \
 		$(SRC_DIR)/render.c \
@@ -41,6 +45,7 @@ SRC = $(SRC_DIR)/main.c \
 		$(SRC_DIR)/exit.c \
 		$(SRC_DIR)/sphere.c \
 		$(SRC_DIR)/rays.c \
+		$(GNL_SRC)
 
 OBJ = $(SRC:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 
