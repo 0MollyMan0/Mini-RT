@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 14:04:04 by anfouger          #+#    #+#             */
-/*   Updated: 2026/03/19 11:01:16 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/03/19 11:47:13 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <math.h>
+# include <fcntl.h>
 
 # define WIN_WIDTH 800
 # define WIN_HEIGHT 600
@@ -72,6 +73,9 @@ typedef struct s_data
 // --- Init --- //
 t_mlx		*init_mlx(void);
 t_data		*init_data(void);
+
+// --- Parsing --- //
+void	parse_file(char *name, t_data *data);
 
 // --- Sphere --- //
 int			hit_sphere(t_ray ray, t_sphere sphere);

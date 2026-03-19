@@ -1,19 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_is_empty.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/14 07:44:02 by anfouger          #+#    #+#             */
-/*   Updated: 2026/03/19 11:39:17 by anfouger         ###   ########.fr       */
+/*   Created: 2026/03/19 11:44:42 by anfouger          #+#    #+#             */
+/*   Updated: 2026/03/19 11:45:06 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isalpha(int x)
+#include <libft.h>
+
+int	is_empty(char *str)
 {
-	if ((x > 'a' && x < 'z') || (x > 'A' && x < 'Z'))
-		return (1);
-	else
-		return (0);
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		if (!ft_isspace(str[i]))
+			return (0);
+		i++;
+	}
+	return (1);
 }

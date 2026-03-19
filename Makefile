@@ -13,6 +13,7 @@ CFLAGS  = -Wall -Wextra -Werror -g -I ./ -I lib/gnl
 # PATH
 # ----------------------------------
 SRC_DIR    = src
+PARSE_DIR  = $(SRC_DIR)/parsing
 OBJ_DIR    = obj
 LIBFT_DIR  = lib/libft
 GNL_DIR    = lib/gnl
@@ -45,6 +46,8 @@ SRC = $(SRC_DIR)/main.c \
 		$(SRC_DIR)/exit.c \
 		$(SRC_DIR)/sphere.c \
 		$(SRC_DIR)/rays.c \
+		$(SRC_DIR)/parsing.c \
+		$(SRC_DIR)/parsing_utils.c \
 		$(GNL_SRC)
 
 OBJ = $(SRC:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
