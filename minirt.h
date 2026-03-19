@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 14:04:04 by anfouger          #+#    #+#             */
-/*   Updated: 2026/03/18 13:50:28 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/03/19 10:23:46 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 
 # define WIN_WIDTH 800
 # define WIN_HEIGHT 600
-# define FOV 60.0
+# define FOV 40.0
 # define M_PI 3.14159265358979323846
 
 typedef struct s_img
@@ -58,12 +58,14 @@ typedef struct s_sphere
 {
 	double	r;
 	t_vec3	c;
+	int		color;
 }				t_sphere;
 
 typedef struct s_data
 {
-	t_mlx	*mlx;
-	t_vec3	cam;
+	t_mlx			*mlx;
+	t_vec3			cam;
+	int				nb_spheres;
 }				t_data;
 
 // --- Init --- //
@@ -72,10 +74,7 @@ t_data		*init_data(void);
 
 // --- Sphere --- //
 int			hit_sphere(t_ray ray, t_sphere sphere);
-// double		calc_c(t_sphere sphere, t_data *data);
-t_sphere	init_sphere(void);
-// double		calc_delta(double b, double c);
-// double		calc_b(t_ray ray, t_sphere sphere, t_data *data);
+t_sphere	init_sphere(t_vec3 center, double r, int color);
 
 // --- Rays --- //
 t_ray	calc_ray(double sx, double sy, t_data *data);
