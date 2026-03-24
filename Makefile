@@ -47,7 +47,8 @@ SRC = $(SRC_DIR)/main.c \
 		$(SRC_DIR)/sphere.c \
 		$(SRC_DIR)/rays.c \
 		$(SRC_DIR)/parsing.c \
-		$(SRC_DIR)/parsing_utils.c \
+		$(SRC_DIR)/parsing_objects.c \
+		$(SRC_DIR)/parsing_scene.c \
 		$(GNL_SRC)
 
 OBJ = $(SRC:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)

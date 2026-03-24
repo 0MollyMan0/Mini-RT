@@ -1,32 +1,14 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   parsing_objects.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/13 10:33:52 by anfouger          #+#    #+#             */
-/*   Updated: 2026/03/24 08:54:18 by anfouger         ###   ########.fr       */
+/*   Created: 2026/03/24 08:46:07 by anfouger          #+#    #+#             */
+/*   Updated: 2026/03/24 08:46:16 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <minirt.h>
 
-int	main(int ac, char **av)
-{
-	t_data	*data;
-
-	if (ac != 2)
-		return (1);
-	data = init_data();
-	if (!data)
-	{
-		ft_exit(data, 2);
-		return (1);
-	}
-	parse_file(av[1], data);
-	render(data);
-	set_controls(data);
-	mlx_loop(data->mlx->mlx);
-	return (0);
-}

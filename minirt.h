@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 14:04:04 by anfouger          #+#    #+#             */
-/*   Updated: 2026/03/24 08:28:09 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/03/24 08:53:13 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,14 +108,14 @@ t_mlx		*init_mlx(void);
 t_data		*init_data(void);
 
 // --- Parsing --- //
-void	parse_file(char *name, t_data *data);
+void		parse_file(char *name, t_data *data);
 
 // --- Sphere --- //
 int			hit_sphere(t_ray ray, t_sphere sphere);
 t_sphere	init_sphere(t_vec3 center, double r, int color);
 
 // --- Rays --- //
-t_ray	calc_ray(double sx, double sy, t_data *data);
+t_ray		calc_ray(double sx, double sy, t_data *data);
 
 // --- Render --- //
 void		render(t_data *data);
@@ -130,6 +130,6 @@ double		y_to_sy(int y);
 void		set_controls(t_data *data);
 
 // --- Exit --- //
-int			ft_exit(t_data *data);
+int			ft_exit(t_data *data, int type);
 
 #endif

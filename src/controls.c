@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/05 12:02:00 by anfouger          #+#    #+#             */
-/*   Updated: 2026/03/17 11:01:39 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/03/24 08:55:24 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static void move_cam(int keycode, t_data *data)
 static int	ft_key_pressed(int keycode, t_data *data)
 {
 	if (keycode == 65307)
-		ft_exit(data);
+		ft_exit(data, 0);
 	else if (keycode == 'a' || keycode == 'd' || keycode == 's'
 		|| keycode == 'w' || keycode == 'e' || keycode == 'q')
 		move_cam(keycode, data);

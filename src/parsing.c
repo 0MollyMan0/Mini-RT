@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 10:52:04 by anfouger          #+#    #+#             */
-/*   Updated: 2026/03/24 08:40:30 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/03/24 08:56:29 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	print_str_tab(char **tab)
 	printf("\n");
 }
 
-static void	process_line(char *line, t_data *data)
+static int process_line(char *line, t_data *data)
 {
 	(void)data;
 	char **tab;
@@ -37,6 +37,7 @@ static void	process_line(char *line, t_data *data)
 	tab = ft_split(line, ' ');
 	print_str_tab(tab);
 	free(tab);
+	return (0);
 }
 
 void	parse_file(char *name, t_data *data)
@@ -46,7 +47,7 @@ void	parse_file(char *name, t_data *data)
 
 	fd = open(name, O_RDONLY);
 	if (fd < 0)
-		ft_exit(data);
+		ft_exit(data, 0);
 	while ((line = get_next_line(fd)))
 	{
 		if (is_empty(line))
@@ -54,7 +55,8 @@ void	parse_file(char *name, t_data *data)
 			free(line);
 			continue;
 		}
-		process_line(line, data);
+		if (!process_line(line, data))
+			ft_exit(data, 1);
 		free(line);
 	}
 	close(fd);
