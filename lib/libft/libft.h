@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 08:59:00 by anfouger          #+#    #+#             */
-/*   Updated: 2026/03/24 10:29:13 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/03/24 10:31:35 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,6 @@ int				str_tab_len(char **tab);
 char			**dup_str_tab(char **tab);
 void			free_str_tab(char **tab);
 void			clean_tab(char **tab, int i);
-
 t_list			*ft_lstnew(void *content);
 void			ft_lstadd_front(t_list **lst, t_list *new);
 int				ft_lstsize(t_list *lst);
