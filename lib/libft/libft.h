@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 08:59:00 by anfouger          #+#    #+#             */
-/*   Updated: 2026/03/19 11:45:34 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/03/24 10:29:13 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,11 @@ char			**ft_split(char const *s, char c);
 void			ft_putnbr_fd(int nb, int fd);
 int				digit_len(long n);
 int				is_in_str(char c, char const *set);
+char			*add_char(char *str, char c);
+int				str_tab_len(char **tab);
+char			**dup_str_tab(char **tab);
+void			free_str_tab(char **tab);
+void			clean_tab(char **tab, int i);
 
 t_list			*ft_lstnew(void *content);
 void			ft_lstadd_front(t_list **lst, t_list *new);
@@ -72,5 +77,6 @@ void			ft_lstclear(t_list **lst, void (*del)(void*));
 void			ft_lstiter(t_list *lst, void (*f)(void *));
 t_list			*ft_lstmap(t_list *lst, void *(*f)(void *),
 					void (*del)(void *));
+					
 
 #endif

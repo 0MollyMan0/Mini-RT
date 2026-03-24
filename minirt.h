@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 14:04:04 by anfouger          #+#    #+#             */
-/*   Updated: 2026/03/24 08:53:13 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/03/24 09:27:18 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,6 +109,8 @@ t_data		*init_data(void);
 
 // --- Parsing --- //
 void		parse_file(char *name, t_data *data);
+int			parse_scene(t_data *data, char **tab);
+int			parse_objects(t_data *data, char **tab);
 
 // --- Sphere --- //
 int			hit_sphere(t_ray ray, t_sphere sphere);
@@ -130,6 +132,6 @@ double		y_to_sy(int y);
 void		set_controls(t_data *data);
 
 // --- Exit --- //
-int			ft_exit(t_data *data, int type);
+int			ft_exit(t_data *data);
 
 #endif

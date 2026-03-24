@@ -1,32 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   add_char.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/13 10:33:52 by anfouger          #+#    #+#             */
-/*   Updated: 2026/03/24 09:27:39 by anfouger         ###   ########.fr       */
+/*   Created: 2026/03/24 10:08:38 by anfouger          #+#    #+#             */
+/*   Updated: 2026/03/24 10:19:46 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <minirt.h>
+#include <libft.h>
 
-int	main(int ac, char **av)
+char	*add_char(char *str, char c)
 {
-	t_data	*data;
+	char	*new_str;
+	int		i;
 
-	if (ac != 2)
-		return (1);
-	data = init_data();
-	if (!data)
+	new_str = malloc(sizeof(char) * (ft_strlen(str) + c + 1));
+	if (!new_str)
+		return (NULL);
+	i = 0;
+	while (str[i])
 	{
-		ft_exit(data);
-		return (1);
+		new_str[i] = str[i];
+		i++;
 	}
-	parse_file(av[1], data);
-	render(data);
-	set_controls(data);
-	mlx_loop(data->mlx->mlx);
-	return (0);
+	new_str[i] = c;
+	new_str[i + 1] = '\0';
+	free(str);
+	return (new_str);
 }

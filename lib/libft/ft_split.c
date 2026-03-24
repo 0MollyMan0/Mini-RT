@@ -6,13 +6,13 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 10:52:37 by anfouger          #+#    #+#             */
-/*   Updated: 2025/11/08 12:11:39 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/03/24 10:21:21 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./libft.h"
 
-static void	free_tab(char **s)
+void	free_str_tab(char **s)
 {
 	int	i;
 
@@ -81,7 +81,7 @@ static int	fill_tab(char **new, char const *s, char c)
 			new[j] = worddup(&s[i], c);
 			if (!new[j])
 			{
-				free_tab(new);
+				free_str_tab(new);
 				return (0);
 			}
 			j++;

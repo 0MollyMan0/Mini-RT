@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 10:52:04 by anfouger          #+#    #+#             */
-/*   Updated: 2026/03/24 08:56:29 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/03/24 10:27:36 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,14 +30,26 @@ void	print_str_tab(char **tab)
 
 static int process_line(char *line, t_data *data)
 {
-	(void)data;
-	char **tab;
-	
-	line = ft_strtrim(line, "\n");
+	char	**tab;
+	char	*tmp;
+	int		res;
+
+	tmp = ft_strtrim(line, "\n");
+	free(line);
+	line = tmp;
 	tab = ft_split(line, ' ');
+	free(line);
 	print_str_tab(tab);
-	free(tab);
-	return (0);
+	if (!ft_strcmp(tab[0], "sp") || !ft_strcmp(tab[0], "pl")
+		|| !ft_strcmp(tab[0], "cy"))
+		res = parse_objects(data, tab);
+	else if (!ft_strcmp(tab[0], "A") || !ft_strcmp(tab[0], "C")
+		|| !ft_strcmp(tab[0], "L"))
+		res = parse_scene(data, tab);
+	else
+		res = 0;
+	free_str_tab(tab);
+	return (res);
 }
 
 void	parse_file(char *name, t_data *data)
@@ -47,7 +59,7 @@ void	parse_file(char *name, t_data *data)
 
 	fd = open(name, O_RDONLY);
 	if (fd < 0)
-		ft_exit(data, 0);
+		ft_exit(data);
 	while ((line = get_next_line(fd)))
 	{
 		if (is_empty(line))
@@ -55,9 +67,8 @@ void	parse_file(char *name, t_data *data)
 			free(line);
 			continue;
 		}
-		if (!process_line(line, data))
-			ft_exit(data, 1);
-		free(line);
+		else if (!process_line(line, data))
+			ft_exit(data);
 	}
 	close(fd);
 }
