@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 14:04:04 by anfouger          #+#    #+#             */
-/*   Updated: 2026/03/24 09:27:18 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/03/27 10:03:21 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,34 +64,46 @@ typedef struct s_ray
     t_vec3 dir;
 }				t_ray;
 
-typedef struct s_sphere
+typedef struct s_sp
 {
 	double	r;
 	t_vec3	c;
 	int		color;
-}				t_sphere;
+}				t_sp;
+
+typedef struct s_pl
+{
+	t_vec3	vec;
+	t_vec3	p;
+	int		color;
+}				t_pl;
+
+typedef struct s_cy
+{
+	t_vec3	vec;
+	t_vec3	c;
+	float	diameter;
+	float	height;
+	int		color;
+}				t_cy;
 
 typedef struct s_object
 {
-	double				r;
-	t_vec3				c;
-	t_vec3				n_n_vec;
-	t_vec3				axis_cy;
-	int					color;
 	t_object_type		type;
-	struct t_object		*next;
+	void				*shape;
+	struct s_object		*next;
 }				t_object;
 
 typedef struct s_scene
 {
-	double	al_brightness;		// [0.0,1.0]
-	int		al_color;			// [0,255]
+	double	al_brightness;
+	int		al_color;
 	t_vec3	cam_pos;
-	t_vec3	cam_n_orientation;	// [-1,1]
-	int		cam_fov;			// [0.0,180]
+	t_vec3	cam_n_orientation;
+	int		cam_fov;
 	t_vec3	l_pos;
-	double	l_brightness;		// [0.0,1.0]
-	int		l_color;			// [0,255]
+	double	l_brightness;
+	int		l_color;
 }				t_scene;
 
 typedef struct s_data
@@ -113,11 +125,14 @@ int			parse_scene(t_data *data, char **tab);
 int			parse_objects(t_data *data, char **tab);
 
 // --- Sphere --- //
-int			hit_sphere(t_ray ray, t_sphere sphere);
-t_sphere	init_sphere(t_vec3 center, double r, int color);
+int			hit_sphere(t_ray ray, t_sp sphere);
+t_sp		init_sphere(t_vec3 center, double r, int color);
 
 // --- Rays --- //
 t_ray		calc_ray(double sx, double sy, t_data *data);
+
+// --- Objects ---xs
+void	obj_add_back(t_object **lst, t_object *new);
 
 // --- Render --- //
 void		render(t_data *data);
