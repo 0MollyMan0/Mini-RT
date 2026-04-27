@@ -1,33 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   exit.c                                             :+:      :+:    :+:   */
+/*   init_2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/05 12:03:35 by anfouger          #+#    #+#             */
-/*   Updated: 2026/04/27 11:58:50 by anfouger         ###   ########.fr       */
+/*   Created: 2026/04/27 11:45:48 by anfouger          #+#    #+#             */
+/*   Updated: 2026/04/27 12:02:31 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <minirt.h>
 
-static void	free_mlx(t_mlx *mlx)
+t_vec3	init_vec(int x, int y, int z)
 {
-	if (mlx->win)
-		mlx_destroy_window(mlx->mlx, mlx->win);
-	if (mlx->img->img)
-		mlx_destroy_image(mlx->mlx, mlx->img->img);
-	if (mlx->mlx)
-		mlx_destroy_display(mlx->mlx);
-	free(mlx->img);
-	free(mlx->mlx);
-	free(mlx);
-}
+	t_vec3	vec;
 
-int	ft_exit(t_data *data)
-{
-	free_mlx(data->mlx);
-	free(data);
-	exit(1);
+	vec.x = x;
+	vec.y = y;
+	vec.z = z;
+	return (vec);
 }
