@@ -38,17 +38,21 @@ WHITE       = \033[0;37m
 GNL_SRC = $(GNL_DIR)/get_next_line.c \
 		  $(GNL_DIR)/get_next_line_utils.c
 
-SRC = $(SRC_DIR)/main.c \
-		$(SRC_DIR)/init.c \
-		$(SRC_DIR)/render.c \
-		$(SRC_DIR)/render_utils.c \
-		$(SRC_DIR)/controls.c \
+SRC = $(SRC_DIR)/controls.c \
 		$(SRC_DIR)/exit.c \
-		$(SRC_DIR)/sphere.c \
-		$(SRC_DIR)/rays.c \
-		$(SRC_DIR)/parsing.c \
+		$(SRC_DIR)/init.c \
+		$(SRC_DIR)/main.c \
+		$(SRC_DIR)/objects_lst.c \
 		$(SRC_DIR)/parsing_objects.c \
 		$(SRC_DIR)/parsing_scene.c \
+		$(SRC_DIR)/parsing_utils.c \
+		$(SRC_DIR)/parsing.c \
+		$(SRC_DIR)/random_utils.c \
+		$(SRC_DIR)/rays.c \
+		$(SRC_DIR)/render_utils.c \
+		$(SRC_DIR)/render.c \
+		$(SRC_DIR)/sphere.c \
+		$(SRC_DIR)/vec_utils.c \
 		$(GNL_SRC)
 
 OBJ = $(SRC:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)

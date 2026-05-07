@@ -1,37 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vec_utils.c                                        :+:      :+:    :+:   */
+/*   random_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/27 11:45:48 by anfouger          #+#    #+#             */
-/*   Updated: 2026/05/07 13:39:05 by anfouger         ###   ########.fr       */
+/*   Created: 2026/05/07 13:20:07 by anfouger          #+#    #+#             */
+/*   Updated: 2026/05/07 14:48:02 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <minirt.h>
 
-t_vec3	init_vec(int x, int y, int z)
+int	ft_strlen_until(char *str, char c)
 {
-	t_vec3	vec;
-
-	vec.x = x;
-	vec.y = y;
-	vec.z = z;
-	return (vec);
+	int	i;
+	
+	if (!str || !str[0] || !c)
+		return (-1);
+	i = 0;
+	while (str[i] && str[i] != c)
+		i++;
+	return (i);
 }
 
-t_vec3	parse_vec(char *str)
+int	is_int_in_range(int x, int min, int max)
 {
-	int		i;
-	t_vec3	vec;
+	if (x < min || x > max)
+		return (0);
+	return (1);
+}
 
-	i = 0;
-	vec.x = ft_atof(str + i);
-	i = ft_strlen_until(str, ',') + 1;
-	vec.y = ft_atof(str + i);
-	i += ft_strlen_until(str + i, ',') + 1;
-	vec.z = ft_atof(str + i);
-	return (vec);
+int	is_double_in_range(double x, double min, double max)
+{
+	if (x < min || x > max)
+		return (0);
+	return (1);
 }

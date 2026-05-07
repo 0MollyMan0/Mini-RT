@@ -6,11 +6,11 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/07 11:56:46 by anfouger          #+#    #+#             */
-/*   Updated: 2026/05/07 11:59:38 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/05/07 13:52:16 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#include "libft.h"
 
 static int	prepare(char *str, int *sign, double *res, int *div)
 {

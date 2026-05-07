@@ -1,37 +1,13 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vec_utils.c                                        :+:      :+:    :+:   */
+/*   parsing_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/27 11:45:48 by anfouger          #+#    #+#             */
-/*   Updated: 2026/05/07 13:39:05 by anfouger         ###   ########.fr       */
+/*   Created: 2026/05/07 14:44:46 by anfouger          #+#    #+#             */
+/*   Updated: 2026/05/07 14:46:04 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <minirt.h>
-
-t_vec3	init_vec(int x, int y, int z)
-{
-	t_vec3	vec;
-
-	vec.x = x;
-	vec.y = y;
-	vec.z = z;
-	return (vec);
-}
-
-t_vec3	parse_vec(char *str)
-{
-	int		i;
-	t_vec3	vec;
-
-	i = 0;
-	vec.x = ft_atof(str + i);
-	i = ft_strlen_until(str, ',') + 1;
-	vec.y = ft_atof(str + i);
-	i += ft_strlen_until(str + i, ',') + 1;
-	vec.z = ft_atof(str + i);
-	return (vec);
-}

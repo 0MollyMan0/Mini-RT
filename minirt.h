@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 14:04:04 by anfouger          #+#    #+#             */
-/*   Updated: 2026/04/27 11:47:53 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/05/07 14:48:35 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,7 +109,6 @@ typedef struct s_scene
 typedef struct s_data
 {
 	t_mlx		*mlx;
-	t_vec3		cam;
 	int			nb_spheres;
 	t_scene		scene;
 	t_object	*objects;
@@ -118,6 +117,9 @@ typedef struct s_data
 // --- Init --- //
 t_mlx	*init_mlx(void);
 t_data	*init_data(void);
+
+// --- Vec Utils --- //
+t_vec3	parse_vec(char *str);
 t_vec3	init_vec(int x, int y, int z);
 
 // --- Parsing --- //
@@ -133,7 +135,7 @@ t_sp		init_sphere(t_vec3 center, double r, int color);
 t_ray		calc_ray(double sx, double sy, t_data *data);
 
 // --- Objects ---xs
-void	obj_add_back(t_object **lst, t_object *new);
+void		obj_add_back(t_object **lst, t_object *new);
 
 // --- Render --- //
 void		render(t_data *data);
@@ -149,5 +151,10 @@ void		set_controls(t_data *data);
 
 // --- Exit --- //
 int			ft_exit(t_data *data);
+
+// --- Random Utils --- //
+int			ft_strlen_until(char *str, char c);
+int			is_double_in_range(double x, double min, double max);
+int			is_int_in_range(int x, int min, int max);
 
 #endif

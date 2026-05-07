@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 10:52:04 by anfouger          #+#    #+#             */
-/*   Updated: 2026/04/27 14:14:12 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/05/07 15:30:35 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,6 @@ void	print_str_tab(char **tab)
 	printf("\n");
 }
 
-int	verif_line(char **tab)
-{
-	
-	return (0);
-}
-
 static int process_line(char *line, t_data *data)
 {
 	char	**tab;
@@ -45,9 +39,9 @@ static int process_line(char *line, t_data *data)
 	line = tmp;
 	tab = ft_split(line, ' ');
 	free(line);
-	print_str_tab(tab);
-	if (verif_line(tab))
+	if (!verif_line(tab))
 		ft_exit(data);
+	print_str_tab(tab);
 	if (!ft_strcmp(tab[0], "sp") || !ft_strcmp(tab[0], "pl")
 		|| !ft_strcmp(tab[0], "cy"))
 		res = parse_objects(data, tab);

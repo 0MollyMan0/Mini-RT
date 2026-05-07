@@ -6,11 +6,11 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/07 13:14:46 by anfouger          #+#    #+#             */
-/*   Updated: 2026/05/07 13:18:43 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/05/07 13:52:08 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#include "libft.h"
 
 char	*ft_strndup(char *str, int n)
 {
