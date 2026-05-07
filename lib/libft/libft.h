@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 08:59:00 by anfouger          #+#    #+#             */
-/*   Updated: 2026/05/07 11:58:19 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/05/07 13:19:25 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ void			*ft_memchr(const void *s, int c, size_t n);
 void			*ft_memmove(void *dest, const void *src, size_t n);
 void			*ft_calloc(size_t nmemb, size_t size);
 char			*ft_strdup(const char *s);
+char			*ft_strndup(char *str, int n);
 char			*ft_substr(const char *s, unsigned int start, size_t len);
 char			*ft_itoa(int n);
 void			ft_putchar_fd(char c, int fd);
