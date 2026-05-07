@@ -33,6 +33,7 @@ char	*gnl_extract(char *s, int end)
 	sub[x] = '\0';
 	return (sub);
 }
+
 int	gnl_strlen(char *s)
 {
 	int	i;

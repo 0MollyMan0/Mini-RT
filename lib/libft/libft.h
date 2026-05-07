@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 08:59:00 by anfouger          #+#    #+#             */
-/*   Updated: 2026/03/24 10:31:35 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/05/07 11:58:19 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ typedef struct s_list
 }					t_list;
 
 int				ft_atoi(const char *str);
+double			ft_atof(char *str);
 int				ft_isalnum(int x);
 int				ft_isalpha(int x);
 int				ft_isascii(int x);
@@ -76,6 +77,5 @@ void			ft_lstclear(t_list **lst, void (*del)(void*));
 void			ft_lstiter(t_list *lst, void (*f)(void *));
 t_list			*ft_lstmap(t_list *lst, void *(*f)(void *),
 					void (*del)(void *));
-					
 
 #endif

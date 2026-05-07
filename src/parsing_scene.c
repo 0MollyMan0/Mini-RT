@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 08:46:37 by anfouger          #+#    #+#             */
-/*   Updated: 2026/03/24 09:53:40 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/04/27 14:09:47 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,11 @@ static int	parse_light(t_data *data, char **tab)
 static int	parse_cam(t_data *data, char **tab)
 {
 	(void)data;
-	(void)tab;
+	char	**tab_pos;
+
+	tab_pos = ft_split(tab[1], ',');
+	data->cam = init_vec(ft_atof(tab_pos[0]),
+		ft_atof(tab_pos[1]), ft_atof(tab_pos[2]));
 	printf("detect cam\n");
 	return (1);
 }
