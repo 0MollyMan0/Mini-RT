@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 14:04:04 by anfouger          #+#    #+#             */
-/*   Updated: 2026/05/07 14:48:35 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/05/07 16:28:51 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,20 @@
 # define WIN_HEIGHT 600
 # define FOV 40.0
 # define M_PI 3.14159265358979323846
+
+typedef enum e_parse_error
+{
+	ERR_AMBIENT_LIGHT,
+	ERR_LIGHT,
+	ERR_CAM,
+    ERR_SPHERE,
+	ERR_PLANE,
+	ERR_CYLINDER,
+    ERR_RGB,
+    ERR_FOV,
+	ERR_LIGHT_RATIO,
+    ERR_N_VECTOR,
+} t_parse_error;
 
 typedef enum e_object_type
 {

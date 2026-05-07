@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/09 14:53:04 by anfouger          #+#    #+#             */
-/*   Updated: 2026/05/07 13:44:03 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/05/07 16:01:14 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 // 	return (sphere);
 // }
 
-// static double	calc_delta(double b, double c)
+// static inline double	calc_delta(double b, double c)
 // {
 // 	return ((b * b) - 4 * 1 * c);
 // }
