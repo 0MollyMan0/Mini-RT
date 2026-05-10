@@ -6,35 +6,35 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/07 15:28:37 by anfouger          #+#    #+#             */
-/*   Updated: 2026/05/10 09:14:33 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/05/10 10:13:26 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <minirt.h>
 
-int	verif_scene(char **tab)
+static int	verif_scene(char **tab)
 {
 	int	res;
 
 	if (!ft_strcmp(tab[0], "A"))
-		res = parse_al(tab);
+		res = verif_al(tab);
 	else if (!ft_strcmp(tab[0], "L"))
-		res = parse_light(tab);
+		res = verif_light(tab);
 	else
-		res = parse_cam(tab);
+		res = verif_cam(tab);
 	return (res);
 }
 
-int	verif_objects(char **tab)
+static int	verif_objects(char **tab)
 {
 	int	res;
 
 	if (!ft_strcmp(tab[0], "cy"))
-		res = parse_cylinder(tab);
+		res = verif_cylinder(tab);
 	else if (!ft_strcmp(tab[0], "sp"))
-		res = parse_sphere(tab);
+		res = verif_sphere(tab);
 	else
-		res = parse_plane(tab);
+		res = verif_plane(tab);
 	return (res);
 }
 

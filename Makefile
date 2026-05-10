@@ -14,6 +14,7 @@ CFLAGS  = -Wall -Wextra -Werror -g -I ./ -I lib/gnl
 # ----------------------------------
 SRC_DIR    = src
 PARSE_DIR  = $(SRC_DIR)/parsing
+VERIF_PARSE_DIR = $(PARSE_DIR)/verif_parsing
 OBJ_DIR    = obj
 LIBFT_DIR  = lib/libft
 GNL_DIR    = lib/gnl
@@ -43,12 +44,14 @@ SRC = $(SRC_DIR)/controls.c \
 		$(SRC_DIR)/init.c \
 		$(SRC_DIR)/main.c \
 		$(SRC_DIR)/objects_lst.c \
-		$(SRC_DIR)/parsing_objects.c \
-		$(SRC_DIR)/parsing_scene.c \
-		$(SRC_DIR)/parsing_utils.c \
-		$(SRC_DIR)/parsing_verif.c \
-		$(SRC_DIR)/parsing_utils.c \
-		$(SRC_DIR)/parsing.c \
+		$(PARSE_DIR)/parsing_objects.c \
+		$(PARSE_DIR)/parsing_scene.c \
+		$(PARSE_DIR)/parsing_utils.c \
+		$(PARSE_DIR)/parsing.c \
+		$(VERIF_PARSE_DIR)/parsing_verif_object.c \
+		$(VERIF_PARSE_DIR)/parsing_verif_scene.c \
+		$(VERIF_PARSE_DIR)/parsing_verif_utils.c \
+		$(VERIF_PARSE_DIR)/parsing_verif.c \
 		$(SRC_DIR)/print_error.c \
 		$(SRC_DIR)/random_utils.c \
 		$(SRC_DIR)/rays.c \
@@ -90,6 +93,7 @@ $(NAME): $(OBJ)
 # Compilation of .c in .o
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | $(OBJ_DIR)
 	@echo "$(CYAN)[COMPILING]$(RESET) $<"
+	@mkdir -p $(dir $@)
 	@$(CC) $(CFLAGS) -I$(LIBFT_DIR) -I$(MLX_DIR) -c $< -o $@
 
 # Create obj dir

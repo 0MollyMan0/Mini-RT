@@ -6,13 +6,13 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/10 09:13:30 by anfouger          #+#    #+#             */
-/*   Updated: 2026/05/10 09:13:56 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/05/10 09:28:05 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <minirt.h>
 
-static int	verif_cylinder(char **tab)
+int	verif_cylinder(char **tab)
 {
 	if (!verif_n_vec(tab[2]))
 	{
@@ -27,7 +27,7 @@ static int	verif_cylinder(char **tab)
 	return (1);
 }
 
-static int	verif_sphere(char **tab)
+int	verif_sphere(char **tab)
 {
 	if (!verif_rgb(tab[3]))
 	{
@@ -37,7 +37,7 @@ static int	verif_sphere(char **tab)
 	return (1);
 }
 
-static int	verif_plane(char **tab)
+int	verif_plane(char **tab)
 {	
 	if (!verif_n_vec(tab[2]))
 	{

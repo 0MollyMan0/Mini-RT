@@ -6,18 +6,11 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/05 10:41:24 by anfouger          #+#    #+#             */
-/*   Updated: 2026/03/16 11:58:13 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/05/10 09:36:17 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <minirt.h>
-
-static void	init_cam(t_data *data)
-{
-	data->cam.x = 0;
-	data->cam.y = 0;
-	data->cam.z = 0;
-}
 
 t_data *init_data(void)
 {
@@ -26,7 +19,6 @@ t_data *init_data(void)
 	data = malloc(sizeof(t_data));
 	if (!data)
 		return (NULL);
-	init_cam(data);
 	data->mlx = init_mlx();
 	return (data);
 }

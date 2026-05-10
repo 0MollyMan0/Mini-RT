@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 14:04:04 by anfouger          #+#    #+#             */
-/*   Updated: 2026/05/10 09:02:37 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/05/10 10:13:40 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@
 
 # define WIN_WIDTH 800
 # define WIN_HEIGHT 600
-# define FOV 40.0
 # define M_PI 3.14159265358979323846
 
 typedef enum e_parse_error
@@ -142,8 +141,18 @@ int			parse_scene(t_data *data, char **tab);
 int			parse_objects(t_data *data, char **tab);
 
 // --- Verif Parsing --- //
+int			verif_line(char **tab);
+int			verif_cylinder(char **tab);
+int			verif_sphere(char **tab);
+int			verif_plane(char **tab);
+int			verif_al(char **tab);
+int			verif_light(char **tab);
+int			verif_cam(char **tab);
+// - Utils - //
 int			verif_n_vec(char *str);
 int			verif_rgb(char *str);
+int			verif_FOV(char *str);
+int			verif_light_ratio(char *str);
 
 // --- Sphere --- //
 int			hit_sphere(t_ray ray, t_sp sphere);

@@ -6,15 +6,15 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/10 09:14:15 by anfouger          #+#    #+#             */
-/*   Updated: 2026/05/10 09:14:35 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/05/10 09:32:31 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <minirt.h>
 
-static int	verif_al(char **tab)
+int	verif_al(char **tab)
 {
-	if (!is_double_in_range(ft_atof(tab[1]), 0, 1))
+	if (!verif_light_ratio(tab[1]))
 	{
 		print_error(ERR_AMBIENT_LIGHT, ERR_LIGHT_RATIO);
 		return (0);	
@@ -27,9 +27,9 @@ static int	verif_al(char **tab)
 	return (1);
 }
 
-static int	verif_light(char **tab)
+int	verif_light(char **tab)
 {
-	if (!is_double_in_range(ft_atof(tab[1]), 0, 1))
+	if (!verif_light_ratio(tab[2]))
 	{
 		print_error(ERR_LIGHT, ERR_LIGHT_RATIO);
 		return (0);	
@@ -42,14 +42,14 @@ static int	verif_light(char **tab)
 	return (1);
 }
 
-static int	verif_cam(char **tab)
+int	verif_cam(char **tab)
 {
 	if (!verif_n_vec(tab[2]))
 	{
 		print_error(ERR_CAM, ERR_N_VECTOR);
 		return (0);
 	}
-	if (!is_int_in_range(ft_atoi(tab[3]), 0, 180))
+	if (!verif_FOV(tab[3]))
 	{
 		print_error(ERR_CAM, ERR_FOV);
 		return (0);	

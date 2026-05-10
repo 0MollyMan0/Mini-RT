@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/10 08:59:16 by anfouger          #+#    #+#             */
-/*   Updated: 2026/05/10 09:01:43 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/05/10 09:32:37 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,5 +49,25 @@ int	verif_n_vec(char *str)
 		i++;
 	}
 	free_str_tab(sub_tab);
+	return (1);
+}
+
+int	verif_light_ratio(char *str)
+{
+	double	light_ratio;
+
+	light_ratio = ft_atof(str);
+	if (!is_double_in_range(light_ratio, 0, 1))
+		return (0);	
+	return (1);
+}
+
+int	verif_FOV(char *str)
+{
+	int	FOV;
+
+	FOV = ft_atoi(str);
+	if (!is_int_in_range(FOV, 0, 180))
+		return (0);	
 	return (1);
 }
