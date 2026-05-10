@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 14:04:04 by anfouger          #+#    #+#             */
-/*   Updated: 2026/05/10 10:33:02 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/05/10 10:46:58 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,13 @@ typedef struct s_vec3
     double z;
 }				t_vec3;
 
+typedef struct s_color
+{
+    double r;
+    double g;
+    double b;
+} t_color;
+
 typedef struct s_ray
 {
     t_vec3 origin;
@@ -81,23 +88,23 @@ typedef struct s_sp
 {
 	double	r;
 	t_vec3	c;
-	int		color;
+	t_color	color;
 }				t_sp;
 
 typedef struct s_pl
 {
 	t_vec3	vec;
 	t_vec3	p;
-	int		color;
+	t_color	color;
 }				t_pl;
 
 typedef struct s_cy
 {
 	t_vec3	vec;
 	t_vec3	c;
-	float	diameter;
-	float	height;
-	int		color;
+	double	diameter;
+	double	height;
+	t_color	color;
 }				t_cy;
 
 typedef struct s_object
@@ -107,16 +114,31 @@ typedef struct s_object
 	struct s_object		*next;
 }				t_object;
 
+typedef struct s_cam
+{
+	t_vec3	pos;
+	t_vec3	n_orientation;
+	int		fov;
+}				t_cam;
+
+typedef struct s_al
+{
+	double	brightness;
+	t_color	color;
+}				t_al;
+
+typedef struct s_light
+{
+	t_vec3	pos;
+	double	brightness;
+	t_color	color;
+}				t_light;
+
 typedef struct s_scene
 {
-	double	al_brightness;
-	int		al_color;
-	t_vec3	cam_pos;
-	t_vec3	cam_n_orientation;
-	int		cam_fov;
-	t_vec3	l_pos;
-	double	l_brightness;
-	int		l_color;
+	t_al		al;
+	t_cam		cam;	
+	t_light		light;
 }				t_scene;
 
 typedef struct s_data
@@ -132,13 +154,15 @@ t_mlx		*init_mlx(void);
 t_data		*init_data(void);
 
 // --- Vec Utils --- //
-t_vec3		parse_vec(char *str);
-t_vec3		init_vec(int x, int y, int z);
+t_vec3		init_vec(double x, double y, double z);
 
 // --- Parsing --- //
 void		parse_file(char *name, t_data *data);
 void		parse_scene(t_data *data, char **tab);
 void		parse_objects(t_data *data, char **tab);
+// - Utils - //
+t_color		parse_color(char *str);
+t_vec3		parse_vec(char *str);
 
 // --- Verif Parsing --- //
 int			verif_line(char **tab);

@@ -6,40 +6,41 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 08:46:37 by anfouger          #+#    #+#             */
-/*   Updated: 2026/05/10 10:32:45 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/05/10 10:47:41 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <minirt.h>
 
-static void	parse_al(t_data *data, char **tab)
+static void	parse_al(t_al *al, char **tab)
 {
-	(void)data;
-	(void)tab;
+	al->brightness = ft_atof(tab[1]);
+	al->color = parse_color(tab[2]);
 	printf("detect ambient light\n");
 }
 
-static void	parse_light(t_data *data, char **tab)
+static void	parse_light(t_light *light, char **tab)
 {
-	(void)data;
-	(void)tab;
+	light->pos = parse_vec(tab[1]);
+	light->brightness = ft_atof(tab[2]);
+	light->color = parse_color(tab[3]);
 	printf("detect light\n");
 }
 
-static void	parse_cam(t_data *data, char **tab)
+static void	parse_cam(t_cam *cam, char **tab)
 {
-	data->scene.cam_pos = parse_vec(tab[1]);
-	data->scene.cam_n_orientation = parse_vec(tab[2]);
-	data->scene.cam_fov = ft_atoi(tab[3]);
+	cam->pos = parse_vec(tab[1]);
+	cam->n_orientation = parse_vec(tab[2]);
+	cam->fov = ft_atoi(tab[3]);
 	printf("detect cam\n");
 }
 
 void	parse_scene(t_data *data, char **tab)
 {
 	if (!ft_strcmp(tab[0], "A"))
-		parse_al(data, tab);
+		parse_al(&data->scene.al, tab);
 	else if (!ft_strcmp(tab[0], "L"))
-		parse_light(data, tab);
+		parse_light(&data->scene.light, tab);
 	else
-		parse_cam(data, tab);
+		parse_cam(&data->scene.cam, tab);
 }
