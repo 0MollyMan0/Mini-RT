@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 14:04:04 by anfouger          #+#    #+#             */
-/*   Updated: 2026/05/10 11:02:20 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/05/10 11:31:14 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,23 +86,23 @@ typedef struct s_ray
 
 typedef struct s_sp
 {
-	double	r;
-	t_vec3	c;
+	double	dia;
+	t_vec3	pos;
 	t_color	color;
 }				t_sp;
 
 typedef struct s_pl
 {
-	t_vec3	vec;
-	t_vec3	p;
+	t_vec3	pos;
+	t_vec3	n_vec;
 	t_color	color;
 }				t_pl;
 
 typedef struct s_cy
 {
-	t_vec3	vec;
-	t_vec3	c;
-	double	diameter;
+	t_vec3	pos;
+	t_vec3	n_vec;
+	double	dia;
 	double	height;
 	t_color	color;
 }				t_cy;

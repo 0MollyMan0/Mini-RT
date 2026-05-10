@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/05 12:03:35 by anfouger          #+#    #+#             */
-/*   Updated: 2026/04/27 11:58:50 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/05/10 11:23:08 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ static void	free_mlx(t_mlx *mlx)
 int	ft_exit(t_data *data)
 {
 	free_mlx(data->mlx);
+	// free_objects();
 	free(data);
 	exit(1);
 }
