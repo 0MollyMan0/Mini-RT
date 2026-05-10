@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 14:04:04 by anfouger          #+#    #+#             */
-/*   Updated: 2026/05/10 10:13:40 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/05/10 10:33:02 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,8 +137,8 @@ t_vec3		init_vec(int x, int y, int z);
 
 // --- Parsing --- //
 void		parse_file(char *name, t_data *data);
-int			parse_scene(t_data *data, char **tab);
-int			parse_objects(t_data *data, char **tab);
+void		parse_scene(t_data *data, char **tab);
+void		parse_objects(t_data *data, char **tab);
 
 // --- Verif Parsing --- //
 int			verif_line(char **tab);

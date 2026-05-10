@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/07 15:28:37 by anfouger          #+#    #+#             */
-/*   Updated: 2026/05/10 10:13:26 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/05/10 10:30:26 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ int	verif_line(char **tab)
 {
 	int	res;
 
+	if (!tab)
+		return (0);
 	if (!ft_strcmp(tab[0], "sp") || !ft_strcmp(tab[0], "pl")
 		|| !ft_strcmp(tab[0], "cy"))
 		res = verif_objects(tab);

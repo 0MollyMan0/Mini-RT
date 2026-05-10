@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 10:52:04 by anfouger          #+#    #+#             */
-/*   Updated: 2026/05/07 15:30:35 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/05/10 10:31:51 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,10 @@ void	print_str_tab(char **tab)
 	printf("\n");
 }
 
-static int process_line(char *line, t_data *data)
+static void process_line(char *line, t_data *data)
 {
 	char	**tab;
 	char	*tmp;
-	int		res;
 
 	tmp = ft_strtrim(line, "\n");
 	free(line);
@@ -40,18 +39,18 @@ static int process_line(char *line, t_data *data)
 	tab = ft_split(line, ' ');
 	free(line);
 	if (!verif_line(tab))
-		ft_exit(data);
+	{
+		free_str_tab(tab);
+		ft_exit(data);	
+	}
 	print_str_tab(tab);
 	if (!ft_strcmp(tab[0], "sp") || !ft_strcmp(tab[0], "pl")
 		|| !ft_strcmp(tab[0], "cy"))
-		res = parse_objects(data, tab);
+		parse_objects(data, tab);
 	else if (!ft_strcmp(tab[0], "A") || !ft_strcmp(tab[0], "C")
 		|| !ft_strcmp(tab[0], "L"))
-		res = parse_scene(data, tab);
-	else
-		res = 0;
+		parse_scene(data, tab);
 	free_str_tab(tab);
-	return (res);
 }
 
 void	parse_file(char *name, t_data *data)
@@ -69,8 +68,8 @@ void	parse_file(char *name, t_data *data)
 			free(line);
 			continue;
 		}
-		else if (!process_line(line, data))
-			ft_exit(data);
+		else
+			process_line(line, data);
 	}
 	close(fd);
 }
