@@ -46,6 +46,8 @@ SRC = $(SRC_DIR)/controls.c \
 		$(SRC_DIR)/parsing_objects.c \
 		$(SRC_DIR)/parsing_scene.c \
 		$(SRC_DIR)/parsing_utils.c \
+		$(SRC_DIR)/parsing_verif.c \
+		$(SRC_DIR)/parsing_utils.c \
 		$(SRC_DIR)/parsing.c \
 		$(SRC_DIR)/print_error.c \
 		$(SRC_DIR)/random_utils.c \

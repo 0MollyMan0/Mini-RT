@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 14:04:04 by anfouger          #+#    #+#             */
-/*   Updated: 2026/05/07 16:28:51 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/05/10 09:02:37 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,12 @@
 
 typedef enum e_parse_error
 {
-	ERR_AMBIENT_LIGHT,
-	ERR_LIGHT,
-	ERR_CAM,
     ERR_SPHERE,
 	ERR_PLANE,
 	ERR_CYLINDER,
+	ERR_AMBIENT_LIGHT,
+	ERR_LIGHT,
+	ERR_CAM,
     ERR_RGB,
     ERR_FOV,
 	ERR_LIGHT_RATIO,
@@ -129,17 +129,21 @@ typedef struct s_data
 }				t_data;
 
 // --- Init --- //
-t_mlx	*init_mlx(void);
-t_data	*init_data(void);
+t_mlx		*init_mlx(void);
+t_data		*init_data(void);
 
 // --- Vec Utils --- //
-t_vec3	parse_vec(char *str);
-t_vec3	init_vec(int x, int y, int z);
+t_vec3		parse_vec(char *str);
+t_vec3		init_vec(int x, int y, int z);
 
 // --- Parsing --- //
 void		parse_file(char *name, t_data *data);
 int			parse_scene(t_data *data, char **tab);
 int			parse_objects(t_data *data, char **tab);
+
+// --- Verif Parsing --- //
+int			verif_n_vec(char *str);
+int			verif_rgb(char *str);
 
 // --- Sphere --- //
 int			hit_sphere(t_ray ray, t_sp sphere);
@@ -165,6 +169,9 @@ void		set_controls(t_data *data);
 
 // --- Exit --- //
 int			ft_exit(t_data *data);
+
+// --- Error Handling --- //
+void		print_error(t_parse_error concerned, t_parse_error problem);
 
 // --- Random Utils --- //
 int			ft_strlen_until(char *str, char c);
