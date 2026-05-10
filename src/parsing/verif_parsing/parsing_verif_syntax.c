@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/10 13:55:24 by anfouger          #+#    #+#             */
-/*   Updated: 2026/05/10 14:38:17 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/05/10 15:18:02 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ int	verif_rgb_syntax(char *str)
 		{
 			if (!ft_isdigit(sub_tab[i][j]))
 			{
-				printf("%c", sub_tab[i][j]);
 				free_str_tab(sub_tab);
 				return (0);
 			}
@@ -45,7 +44,6 @@ int	verif_vec_syntax(char *str)
 {
 	char	**tab;
 	int		i;
-	int		j;
 
 	tab = ft_split(str, ',');
 	i = 0;
@@ -53,16 +51,10 @@ int	verif_vec_syntax(char *str)
 		return (0);
 	while (tab[i])
 	{
-		j = 0;
-		while (tab[i][j])
+		if (!is_valid_double(tab[i]))
 		{
-			if (!(tab[i][j] == '-' && tab[i][j + 1] && ft_isdigit(tab[i][j + 1]))
-			&& tab[i][j] != '.' && !ft_isdigit(tab[i][j]))
-			{
-				free_str_tab(tab);
-				return (0);
-			}
-			j++;
+			free_str_tab(tab);
+			return (0);
 		}
 		i++;
 	}

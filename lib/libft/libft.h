@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 08:59:00 by anfouger          #+#    #+#             */
-/*   Updated: 2026/05/10 12:58:20 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/05/10 15:15:17 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ int				ft_isascii(int x);
 int				ft_isdigit(int x);
 int				ft_isprint(int x);
 int				ft_isspace(int x);
+int				is_valid_double(char *str);
 int				is_empty(char *str);
 int				ft_memcmp(const void *s1, const void *s2, size_t n);
 void			*ft_memcpy(void *dest, const void *src, unsigned int n);
