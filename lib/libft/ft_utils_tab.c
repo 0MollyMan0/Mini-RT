@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 10:07:13 by anfouger          #+#    #+#             */
-/*   Updated: 2026/03/24 10:29:27 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/05/10 12:56:42 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,20 @@ void	clean_tab(char **tab, int i)
 	while (i > 0)
 		free(tab[--i]);
 	free(tab);
+}
+
+void	print_str_tab(char **tab)
+{
+	int	i;
+
+	i = 0;
+	while (tab[i])
+	{
+		if (i == 0)
+			printf("[%s]", tab[i]);
+		else
+			printf(", [%s]", tab[i]);
+		i++;
+	}
+	printf("\n");
 }

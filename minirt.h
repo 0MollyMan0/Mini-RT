@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 14:04:04 by anfouger          #+#    #+#             */
-/*   Updated: 2026/05/10 11:31:14 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/05/10 14:04:10 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@
 
 typedef enum e_parse_error
 {
+	ERR_INVALID_ID,
+	ERR_SYNTAX,
     ERR_SPHERE,
 	ERR_PLANE,
 	ERR_CYLINDER,
@@ -39,6 +41,7 @@ typedef enum e_parse_error
     ERR_FOV,
 	ERR_LIGHT_RATIO,
     ERR_N_VECTOR,
+	ERR_NONE,
 } t_parse_error;
 
 typedef enum e_object_type
@@ -177,6 +180,10 @@ int			verif_n_vec(char *str);
 int			verif_rgb(char *str);
 int			verif_FOV(char *str);
 int			verif_light_ratio(char *str);
+// - Syntax - //
+int			verif_vec_syntax(char *str);
+int			verif_rgb_syntax(char *str);
+int			verif_double_syntax(char *str);
 
 // --- Sphere --- //
 int			hit_sphere(t_ray ray, t_sp sphere);
@@ -204,7 +211,7 @@ void		set_controls(t_data *data);
 int			ft_exit(t_data *data);
 
 // --- Error Handling --- //
-void		print_error(t_parse_error concerned, t_parse_error problem);
+int			print_error(t_parse_error concerned, t_parse_error problem, char *str);
 
 // --- Random Utils --- //
 int			ft_strlen_until(char *str, char c);

@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/07 15:28:37 by anfouger          #+#    #+#             */
-/*   Updated: 2026/05/10 10:30:26 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/05/10 13:11:37 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,9 @@ int	verif_line(char **tab)
 		|| !ft_strcmp(tab[0], "L"))
 		res = verif_scene(tab);
 	else
-		res = 0;
+	{
+		print_error(ERR_INVALID_ID, ERR_NONE, tab[0]);
+		res = 0;	
+	}
 	return (res);
 }

@@ -6,27 +6,11 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 10:52:04 by anfouger          #+#    #+#             */
-/*   Updated: 2026/05/10 10:31:51 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/05/10 12:56:28 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <minirt.h>
-
-void	print_str_tab(char **tab)
-{
-	int	i;
-
-	i = 0;
-	while (tab[i])
-	{
-		if (i == 0)
-			printf("[%s]", tab[i]);
-		else
-			printf(", [%s]", tab[i]);
-		i++;
-	}
-	printf("\n");
-}
 
 static void process_line(char *line, t_data *data)
 {
@@ -43,7 +27,6 @@ static void process_line(char *line, t_data *data)
 		free_str_tab(tab);
 		ft_exit(data);	
 	}
-	print_str_tab(tab);
 	if (!ft_strcmp(tab[0], "sp") || !ft_strcmp(tab[0], "pl")
 		|| !ft_strcmp(tab[0], "cy"))
 		parse_objects(data, tab);

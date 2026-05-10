@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 10:33:52 by anfouger          #+#    #+#             */
-/*   Updated: 2026/05/10 11:02:09 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/05/10 12:43:04 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,9 @@ int	main(int ac, char **av)
 void	print_al(t_al al)
 {
 	printf("// --- Ambient Light --- //\n");
-	printf("al.brightness = %f",
+	printf("al.brightness = %f\n",
 		al.brightness);
-	printf("al.color: R = %f, G = %f, B = %f",
+	printf("al.color: R = %f, G = %f, B = %f\n",
 		al.color.r, al.color.g, al.color.b);
 }
 

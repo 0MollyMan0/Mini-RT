@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 08:59:00 by anfouger          #+#    #+#             */
-/*   Updated: 2026/05/07 13:19:25 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/05/10 12:58:20 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define LIBFT_H
 # include <stdlib.h>
 # include <unistd.h>
+# include <stdio.h>
 
 typedef struct s_list
 {
@@ -68,6 +69,7 @@ int				str_tab_len(char **tab);
 char			**dup_str_tab(char **tab);
 void			free_str_tab(char **tab);
 void			clean_tab(char **tab, int i);
+void			print_str_tab(char **tab);
 t_list			*ft_lstnew(void *content);
 void			ft_lstadd_front(t_list **lst, t_list *new);
 int				ft_lstsize(t_list *lst);

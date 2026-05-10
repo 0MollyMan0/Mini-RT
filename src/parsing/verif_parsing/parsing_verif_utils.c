@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/10 08:59:16 by anfouger          #+#    #+#             */
-/*   Updated: 2026/05/10 09:32:37 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/05/10 14:20:44 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,10 @@ int	verif_rgb(char *str)
 	char	**sub_tab;
 	int		i;
 
+	if (!verif_rgb_syntax(str))
+		return (0);
 	sub_tab = ft_split(str, ',');
-	i = 0;
+	i = 0;	
 	while (sub_tab[i])
 	{
 		if (!is_int_in_range(ft_atof(sub_tab[i]), 0, 255))
@@ -37,6 +39,9 @@ int	verif_n_vec(char *str)
 	char	**sub_tab;
 	int		i;
 
+	i = 0;
+	if (!verif_vec_syntax(str))
+		return (0);
 	sub_tab = ft_split(str, ',');
 	i = 0;
 	while (sub_tab[i])
@@ -55,7 +60,15 @@ int	verif_n_vec(char *str)
 int	verif_light_ratio(char *str)
 {
 	double	light_ratio;
-
+	int		i;
+		
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] != '.' && !ft_isdigit(str[i]))
+			return (0);
+		i++;
+	}
 	light_ratio = ft_atof(str);
 	if (!is_double_in_range(light_ratio, 0, 1))
 		return (0);	
@@ -65,7 +78,15 @@ int	verif_light_ratio(char *str)
 int	verif_FOV(char *str)
 {
 	int	FOV;
-
+	int		i;
+		
+	i = 0;
+	while (str[i])
+	{
+		if (!ft_isdigit(str[i]))
+			return (0);
+		i++;
+	}
 	FOV = ft_atoi(str);
 	if (!is_int_in_range(FOV, 0, 180))
 		return (0);	

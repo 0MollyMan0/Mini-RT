@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 08:46:07 by anfouger          #+#    #+#             */
-/*   Updated: 2026/05/10 11:31:35 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/05/10 12:55:57 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ static void	*parse_sphere(t_data *data, char **tab)
 	sphere->pos = parse_vec(tab[1]);
 	sphere->dia = ft_atof(tab[2]);
 	sphere->color = parse_color(tab[3]);
-	printf("detect sphere\n");
 	return (sphere);
 }
 
@@ -36,7 +35,6 @@ static void	*parse_plane(t_data *data, char **tab)
 	plane->pos = parse_vec(tab[1]);
 	plane->n_vec = parse_vec(tab[2]);
 	plane->color = parse_color(tab[3]);
-	printf("detect plane\n");
 	return (plane);
 }
 
@@ -52,7 +50,6 @@ static void	*parse_cylinder(t_data *data, char **tab)
 	cylinder->dia = ft_atof(tab[3]);
 	cylinder->height = ft_atof(tab[4]);
 	cylinder->color = parse_color(tab[5]);
-	printf("detect cylinder\n");
 	return (cylinder);
 }
 
@@ -79,5 +76,5 @@ void	parse_objects(t_data *data, char **tab)
 		obj->type = CYLINDER;
 		shape = parse_cylinder(data, tab);
 	}
-	objects_add_back(data->objects, obj);
+	obj_add_back(&data->objects, obj);
 }

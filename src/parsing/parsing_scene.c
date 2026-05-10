@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 08:46:37 by anfouger          #+#    #+#             */
-/*   Updated: 2026/05/10 10:47:41 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/05/10 12:55:48 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ static void	parse_al(t_al *al, char **tab)
 {
 	al->brightness = ft_atof(tab[1]);
 	al->color = parse_color(tab[2]);
-	printf("detect ambient light\n");
 }
 
 static void	parse_light(t_light *light, char **tab)
@@ -24,7 +23,6 @@ static void	parse_light(t_light *light, char **tab)
 	light->pos = parse_vec(tab[1]);
 	light->brightness = ft_atof(tab[2]);
 	light->color = parse_color(tab[3]);
-	printf("detect light\n");
 }
 
 static void	parse_cam(t_cam *cam, char **tab)
@@ -32,7 +30,6 @@ static void	parse_cam(t_cam *cam, char **tab)
 	cam->pos = parse_vec(tab[1]);
 	cam->n_orientation = parse_vec(tab[2]);
 	cam->fov = ft_atoi(tab[3]);
-	printf("detect cam\n");
 }
 
 void	parse_scene(t_data *data, char **tab)

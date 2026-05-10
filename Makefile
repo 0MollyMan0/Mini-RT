@@ -50,6 +50,7 @@ SRC = $(SRC_DIR)/controls.c \
 		$(PARSE_DIR)/parsing.c \
 		$(VERIF_PARSE_DIR)/parsing_verif_object.c \
 		$(VERIF_PARSE_DIR)/parsing_verif_scene.c \
+		$(VERIF_PARSE_DIR)/parsing_verif_syntax.c \
 		$(VERIF_PARSE_DIR)/parsing_verif_utils.c \
 		$(VERIF_PARSE_DIR)/parsing_verif.c \
 		$(SRC_DIR)/print_error.c \
