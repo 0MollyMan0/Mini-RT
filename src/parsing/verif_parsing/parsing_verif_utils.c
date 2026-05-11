@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/10 08:59:16 by anfouger          #+#    #+#             */
-/*   Updated: 2026/05/10 14:20:44 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/05/11 14:23:07 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	verif_n_vec(char *str)
 	i = 0;
 	while (sub_tab[i])
 	{
-		if (!is_double_in_range(ft_atof(sub_tab[i]), 0, 1))
+		if (!is_double_in_range(ft_atof(sub_tab[i]), -1, 1))
 		{
 			free_str_tab(sub_tab);
 			return (0);	

@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 14:04:04 by anfouger          #+#    #+#             */
-/*   Updated: 2026/05/10 15:19:13 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/05/11 10:26:16 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ typedef struct s_ray
 typedef struct s_sp
 {
 	double	dia;
-	t_vec3	pos;
+	t_vec3	c;
 	t_color	color;
 }				t_sp;
 
@@ -200,8 +200,8 @@ void		render(t_data *data);
 // --- Render Utils--- //
 int			rgb_to_hex(int red, int green, int blue);
 void		put_pixel(t_img *img, int x, int y, int color);
-double		x_to_sx(int x);
-double		y_to_sy(int y);
+double		x_to_sx(int x, int FOV);
+double		y_to_sy(int y, int FOV);
 
 // --- Controls --- //
 void		set_controls(t_data *data);

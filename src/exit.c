@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/05 12:03:35 by anfouger          #+#    #+#             */
-/*   Updated: 2026/05/11 10:15:52 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/05/11 14:25:56 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,11 @@ static void	free_objects(t_object *obj)
 
 int	ft_exit(t_data *data)
 {
-	free_mlx(data->mlx);
-	free_objects(data->objects);
-	free(data);
+	if (data->mlx)
+		free_mlx(data->mlx);
+	if (data->objects)
+		free_objects(data->objects);
+	if (data)
+		free(data);
 	exit(1);
 }

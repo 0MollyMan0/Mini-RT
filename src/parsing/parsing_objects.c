@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 08:46:07 by anfouger          #+#    #+#             */
-/*   Updated: 2026/05/11 10:18:06 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/05/11 10:22:38 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static void	*parse_sphere(t_data *data, char **tab)
 	sphere = malloc(sizeof(t_sp));
 	if (!sphere)
 		ft_exit(data);
-	sphere->pos = parse_vec(tab[1]);
+	sphere->c = parse_vec(tab[1]);
 	sphere->dia = ft_atof(tab[2]);
 	sphere->color = parse_color(tab[3]);
 	return (sphere);
