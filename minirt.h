@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 14:04:04 by anfouger          #+#    #+#             */
-/*   Updated: 2026/05/11 10:26:16 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/05/11 14:34:22 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -147,9 +147,10 @@ typedef struct s_scene
 typedef struct s_data
 {
 	t_mlx		*mlx;
-	int			nb_spheres;
 	t_scene		scene;
 	t_object	*objects;
+	int			fd;
+	int			is_fd_open;
 }				t_data;
 
 // --- Init --- //

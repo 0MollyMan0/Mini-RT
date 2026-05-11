@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/05 10:41:24 by anfouger          #+#    #+#             */
-/*   Updated: 2026/05/11 10:18:59 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/05/11 14:34:41 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ t_data *init_data(void)
 		return (NULL);
 	data->mlx = init_mlx();
 	data->objects = NULL;
+	data->is_fd_open = 0;
 	return (data);
 }
 
