@@ -23,6 +23,7 @@ MLX_DIR    = lib/minilibx-linux
 # ----------------------------------
 # COLORS
 # ----------------------------------
+# NORMAL
 RESET       = \033[0m
 BLACK       = \033[0;30m
 RED         = \033[0;31m
@@ -32,6 +33,16 @@ BLUE        = \033[0;34m
 MAGENTA     = \033[0;35m
 CYAN        = \033[0;36m
 WHITE       = \033[0;37m
+# BOLD
+BRESET       = \033[1m
+BBLACK       = \033[1;30m
+BRED         = \033[1;31m
+BGREEN       = \033[1;32m
+BYELLOW      = \033[1;33m
+BBLUE        = \033[1;34m
+BMAGENTA     = \033[1;35m
+BCYAN        = \033[1;36m
+BWHITE       = \033[1;37m
 
 # ----------------------------------
 # SOURCES
@@ -89,7 +100,7 @@ banner :
 $(NAME): $(OBJ)
 	@echo "$(CYAN)[LINK] -> Creating $(NAME)...$(RESET)"
 	@$(CC) $(OBJ) $(LIBFT) $(MLX_FLAGS) -o $(NAME)
-	@echo "$(GREEN)[OK] -> $(NAME) ready!$(RESET)"
+	@echo "$(BGREEN)[OK] -> $(NAME) ready!$(RESET)"
 
 # Compilation of .c in .o
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | $(OBJ_DIR)
@@ -105,17 +116,17 @@ $(OBJ_DIR):
 $(LIBFT):
 	@echo "$(CYAN)[LIBFT] -> Compiling libft...$(RESET)"
 	@$(MAKE) -s -C $(LIBFT_DIR)
-	@echo "$(GREEN)[OK] -> libft ready!$(RESET)"
+	@echo "$(BGREEN)[OK] -> libft ready!$(RESET)"
 
 # Clean
 clean:
-	@echo "$(RED)[CLEAN] -> Removing object files...$(RESET)"
+	@echo "$(BRED)[CLEAN] -> Removing object files...$(RESET)"
 	@rm -rf $(OBJ_DIR)
 	@$(MAKE) -s -C lib/libft clean
 
 # Full Clean
 fclean: clean
-	@echo "$(RED)[FCLEAN] -> Removing executable...$(RESET)"
+	@echo "$(BRED)[FCLEAN] -> Removing executable...$(RESET)"
 	@rm -f $(NAME)
 	@$(MAKE) -s -C lib/libft fclean
 
