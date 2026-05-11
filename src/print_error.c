@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/07 16:10:41 by anfouger          #+#    #+#             */
-/*   Updated: 2026/05/10 14:19:49 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/05/11 14:47:07 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,14 +67,27 @@ void	print_error_problem(t_parse_error problem)
 	}
 }
 
+void	print_error_special(t_parse_error concerned, char *str)
+{
+	if (concerned == ERR_INVALID_ID)
+	{
+		ft_putstr_fd(str, 2);
+		ft_putstr_fd("\e[0m: is not a valid identifier\n", 2);
+	}
+	else if (concerned == ERR_FILE_NAME)
+	{
+		ft_putstr_fd(str, 2);
+		ft_putstr_fd("\e[0m: is not a valid file name\n", 2);
+	}
+}
+
 int	print_error(t_parse_error concerned, t_parse_error problem, char *str)
 {
 	ft_putstr_fd("\e[1;31m", 2);
 	ft_putstr_fd("Error\n", 2);
-	if (concerned == ERR_INVALID_ID)
+	if (problem == ERR_SPECIAL)
 	{
-		ft_putstr_fd(str, 2);
-		ft_putstr_fd(": is not a valid identifier\e[0m\n", 2);
+		print_error_special(concerned, str);
 		return (0);
 	}
 	ft_putstr_fd("\e[1;37m", 2);

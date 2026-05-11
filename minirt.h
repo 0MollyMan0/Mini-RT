@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 14:04:04 by anfouger          #+#    #+#             */
-/*   Updated: 2026/05/11 14:34:22 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/05/11 14:48:54 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@
 typedef enum e_parse_error
 {
 	ERR_INVALID_ID,
+	ERR_FILE_NAME,
+	ERR_SPECIAL,
 	ERR_SYNTAX,
     ERR_SPHERE,
 	ERR_PLANE,
@@ -170,6 +172,7 @@ t_vec3		parse_vec(char *str);
 
 // --- Verif Parsing --- //
 int			verif_line(char **tab);
+int			verif_file_name(char *str);
 int			verif_cylinder(char **tab);
 int			verif_sphere(char **tab);
 int			verif_plane(char **tab);

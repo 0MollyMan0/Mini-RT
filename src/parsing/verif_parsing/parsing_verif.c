@@ -6,11 +6,26 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/07 15:28:37 by anfouger          #+#    #+#             */
-/*   Updated: 2026/05/10 13:11:37 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/05/11 14:49:01 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <minirt.h>
+
+int	verif_file_name(char *name)
+{
+	int	len;
+	
+	len = ft_strlen(name);
+	if (name[len-2] != '.'
+		|| name[len-1] != 'r'
+		|| name[len] != 't')
+	{
+		print_error(ERR_FILE_NAME, ERR_SPECIAL, name);
+		return (0);	
+	}
+	return (1);
+}
 
 static int	verif_scene(char **tab)
 {
@@ -52,7 +67,7 @@ int	verif_line(char **tab)
 		res = verif_scene(tab);
 	else
 	{
-		print_error(ERR_INVALID_ID, ERR_NONE, tab[0]);
+		print_error(ERR_INVALID_ID, ERR_SPECIAL, tab[0]);
 		res = 0;	
 	}
 	return (res);
