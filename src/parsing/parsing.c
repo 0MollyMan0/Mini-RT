@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 10:52:04 by anfouger          #+#    #+#             */
-/*   Updated: 2026/05/10 12:56:28 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/05/11 09:59:37 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static void process_line(char *line, t_data *data)
 	if (!verif_line(tab))
 	{
 		free_str_tab(tab);
-		ft_exit(data);	
+		ft_exit(data);
 	}
 	if (!ft_strcmp(tab[0], "sp") || !ft_strcmp(tab[0], "pl")
 		|| !ft_strcmp(tab[0], "cy"))

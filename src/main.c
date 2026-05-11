@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 10:33:52 by anfouger          #+#    #+#             */
-/*   Updated: 2026/05/10 12:43:04 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/05/11 10:08:39 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ int	main(int ac, char **av)
 	// render(data);
 	// set_controls(data);
 	// mlx_loop(data->mlx->mlx);
+	ft_exit(data);
 	return (0);
 }
 

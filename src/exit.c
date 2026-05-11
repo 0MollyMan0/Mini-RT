@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/05 12:03:35 by anfouger          #+#    #+#             */
-/*   Updated: 2026/05/10 11:23:08 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/05/11 10:15:52 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,25 @@ static void	free_mlx(t_mlx *mlx)
 	free(mlx);
 }
 
+static void	free_objects(t_object *obj)
+{
+	t_object	*next;
+
+	while (obj->next)
+	{
+		next = obj->next;
+		free(obj->shape);
+		free(obj);
+		obj = next;
+	}
+	free(obj->shape);
+	free(obj);
+}
+
 int	ft_exit(t_data *data)
 {
 	free_mlx(data->mlx);
-	// free_objects();
+	free_objects(data->objects);
 	free(data);
 	exit(1);
 }

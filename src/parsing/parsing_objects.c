@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 08:46:07 by anfouger          #+#    #+#             */
-/*   Updated: 2026/05/10 12:55:57 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/05/11 10:18:06 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,26 +55,26 @@ static void	*parse_cylinder(t_data *data, char **tab)
 
 void	parse_objects(t_data *data, char **tab)
 {
-	void		*shape;
 	t_object	*obj;
 
 	obj = malloc(sizeof(t_object));
 	if (!obj)
 		ft_exit(data);
+	obj->next = NULL;
 	if (!ft_strcmp(tab[0], "pl"))
 	{
 		obj->type = PLANE;
-		shape = parse_plane(data, tab);
+		obj->shape = parse_plane(data, tab);
 	}
 	else if (!ft_strcmp(tab[0], "sp"))
 	{
 		obj->type = SPHERE;
-		shape = parse_sphere(data, tab);
+		obj->shape = parse_sphere(data, tab);
 	}
 	else
 	{
 		obj->type = CYLINDER;
-		shape = parse_cylinder(data, tab);
+		obj->shape = parse_cylinder(data, tab);
 	}
 	obj_add_back(&data->objects, obj);
 }
