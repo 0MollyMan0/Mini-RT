@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vec_utils.c                                        :+:      :+:    :+:   */
+/*   init_helpers.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/27 11:45:48 by anfouger          #+#    #+#             */
-/*   Updated: 2026/05/10 10:22:34 by anfouger         ###   ########.fr       */
+/*   Created: 2026/05/12 10:10:41 by anfouger          #+#    #+#             */
+/*   Updated: 2026/05/12 10:12:04 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,4 +20,14 @@ t_vec3	init_vec(double x, double y, double z)
 	vec.y = y;
 	vec.z = z;
 	return (vec);
+}
+
+t_color init_color(double r, double g, double b)
+{
+	t_color	color;
+
+	color.r = r;
+	color.g = g;
+	color.b = b;
+	return (color);
 }

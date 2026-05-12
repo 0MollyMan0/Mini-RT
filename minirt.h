@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 14:04:04 by anfouger          #+#    #+#             */
-/*   Updated: 2026/05/12 10:03:53 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/05/12 10:12:37 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -171,8 +171,9 @@ typedef struct s_data
 t_mlx		*init_mlx(void);
 t_data		*init_data(void);
 
-// --- Vec Utils --- //
+// --- Init Helpers --- //
 t_vec3		init_vec(double x, double y, double z);
+t_color		init_color(double r, double g, double b);
 
 // --- Parsing --- //
 void		parse_file(char *name, t_data *data);

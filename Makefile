@@ -13,6 +13,8 @@ CFLAGS  = -Wall -Wextra -Werror -g -I ./ -I lib/gnl
 # PATH
 # ----------------------------------
 SRC_DIR    = src
+GRAPH_DIR  = $(SRC_DIR)/graph_engine
+RANDOM_DIR  = $(SRC_DIR)/random
 PARSE_DIR  = $(SRC_DIR)/parsing
 VERIF_PARSE_DIR = $(PARSE_DIR)/verif_parsing
 OBJ_DIR    = obj
@@ -50,11 +52,13 @@ BWHITE       = \033[1;37m
 GNL_SRC = $(GNL_DIR)/get_next_line.c \
 		  $(GNL_DIR)/get_next_line_utils.c
 
-SRC = $(SRC_DIR)/controls.c \
-		$(SRC_DIR)/exit.c \
-		$(SRC_DIR)/init.c \
-		$(SRC_DIR)/main.c \
-		$(SRC_DIR)/objects_lst.c \
+SRC = $(SRC_DIR)/main.c \
+		$(RANDOM_DIR)/exit.c \
+		$(RANDOM_DIR)/init.c \
+		$(RANDOM_DIR)/init_helpers.c \
+		$(RANDOM_DIR)/print_error.c \
+		$(RANDOM_DIR)/random_utils.c \
+		$(RANDOM_DIR)/objects_lst.c \
 		$(PARSE_DIR)/parsing_objects.c \
 		$(PARSE_DIR)/parsing_scene.c \
 		$(PARSE_DIR)/parsing_utils.c \
@@ -64,13 +68,11 @@ SRC = $(SRC_DIR)/controls.c \
 		$(VERIF_PARSE_DIR)/parsing_verif_syntax.c \
 		$(VERIF_PARSE_DIR)/parsing_verif_utils.c \
 		$(VERIF_PARSE_DIR)/parsing_verif.c \
-		$(SRC_DIR)/print_error.c \
-		$(SRC_DIR)/random_utils.c \
-		$(SRC_DIR)/rays.c \
-		$(SRC_DIR)/render_utils.c \
-		$(SRC_DIR)/render.c \
-		$(SRC_DIR)/sphere.c \
-		$(SRC_DIR)/vec_utils.c \
+		$(GRAPH_DIR)/rays.c \
+		$(GRAPH_DIR)/render_utils.c \
+		$(GRAPH_DIR)/render.c \
+		$(GRAPH_DIR)/sphere.c \
+		$(GRAPH_DIR)/controls.c \
 		$(GNL_SRC)
 
 OBJ = $(SRC:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
