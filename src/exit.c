@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/05 12:03:35 by anfouger          #+#    #+#             */
-/*   Updated: 2026/05/11 14:35:40 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/05/12 09:42:13 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	ft_exit(t_data *data)
 		free_mlx(data->mlx);
 	if (data->objects)
 		free_objects(data->objects);
-	if (data->is_fd_open)
+	if (data->is.fd_open)
 		close(data->fd);
 	if (data)
 		free(data);

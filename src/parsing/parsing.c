@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 10:52:04 by anfouger          #+#    #+#             */
-/*   Updated: 2026/05/11 14:49:20 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/05/12 09:43:07 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	parse_file(char *name, t_data *data)
 	char	*line;
 
 	data->fd = open(name, O_RDONLY);
-	data->is_fd_open = 1;
+	data->is.fd_open = 1;
 	if (data->fd < 0 || !verif_file_name(name))
 		ft_exit(data);
 	while ((line = get_next_line(data->fd)))
@@ -54,6 +54,8 @@ void	parse_file(char *name, t_data *data)
 		else
 			process_line(line, data);
 	}
+	if (!verif_complete(data->is))
+		ft_exit(data);
 	close(data->fd);
-	data->is_fd_open = 0;
+	data->is.fd_open = 0;
 }

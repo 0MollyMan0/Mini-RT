@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 14:04:04 by anfouger          #+#    #+#             */
-/*   Updated: 2026/05/11 14:48:54 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/05/12 09:43:22 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -146,13 +146,24 @@ typedef struct s_scene
 	t_light		light;
 }				t_scene;
 
+typedef struct s_is
+{
+	int		al;
+	int		cam;	
+	int		light;
+	int		plane;
+	int		sphere;
+	int		cylinder;
+	int		fd_open;
+}				t_is;
+
 typedef struct s_data
 {
 	t_mlx		*mlx;
 	t_scene		scene;
 	t_object	*objects;
+	t_is		is;
 	int			fd;
-	int			is_fd_open;
 }				t_data;
 
 // --- Init --- //
@@ -173,6 +184,7 @@ t_vec3		parse_vec(char *str);
 // --- Verif Parsing --- //
 int			verif_line(char **tab);
 int			verif_file_name(char *str);
+int			verif_complete(t_is is);
 int			verif_cylinder(char **tab);
 int			verif_sphere(char **tab);
 int			verif_plane(char **tab);

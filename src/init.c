@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/05 10:41:24 by anfouger          #+#    #+#             */
-/*   Updated: 2026/05/11 14:34:41 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/05/12 09:41:55 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,22 @@ t_data *init_data(void)
 		return (NULL);
 	data->mlx = init_mlx();
 	data->objects = NULL;
-	data->is_fd_open = 0;
+	data->is = init_is();
 	return (data);
+}
+
+static t_is	init_is(void)
+{
+	t_is	is;
+
+	is.al = 0;
+	is.cam = 0;
+	is.cylinder = 0;
+	is.fd_open = 0;
+	is.light = 0;
+	is.plane = 0;
+	is.sphere = 0;
+	return (is);
 }
 
 static int	init_img(t_mlx *mlx_data)

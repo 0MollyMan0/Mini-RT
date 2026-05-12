@@ -6,11 +6,18 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/07 15:28:37 by anfouger          #+#    #+#             */
-/*   Updated: 2026/05/11 14:49:01 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/05/12 09:44:39 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <minirt.h>
+
+int	verif_complete(t_is	is)
+{
+	if (!is.al || !is.cam || !is.light)
+		return (0);
+	return (1);
+}
 
 int	verif_file_name(char *name)
 {
