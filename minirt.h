@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 14:04:04 by anfouger          #+#    #+#             */
-/*   Updated: 2026/05/12 14:31:42 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/05/12 15:45:11 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -159,6 +159,12 @@ typedef struct s_is
 	int		fd_open;
 }				t_is;
 
+typedef struct s_hit
+{
+	t_color		color;
+	double		dst;
+}				t_hit;
+
 typedef struct s_data
 {
 	t_mlx		*mlx;
@@ -204,7 +210,7 @@ int			verif_vec_syntax(char *str);
 int			verif_rgb_syntax(char *str);
 
 // --- Sphere --- //
-double		hit_sphere(t_ray ray, t_sp sphere);
+double		hit_sphere(t_ray ray, t_sp *sphere);
 
 // --- Rays --- //
 t_ray		calc_ray(double sx, double sy, t_data *data);

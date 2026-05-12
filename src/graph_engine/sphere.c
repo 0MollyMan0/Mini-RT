@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/09 14:53:04 by anfouger          #+#    #+#             */
-/*   Updated: 2026/05/12 14:27:50 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/05/12 15:51:02 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ static double	calc_c(t_ray ray, t_sp sphere)
 	return (x + y + z - ((sphere.dia/2) * (sphere.dia/2)));
 }
 
-double	hit_sphere(t_ray ray, t_sp sphere)
+double	is_hit_sphere(t_ray ray, t_sp *sphere)
 {
 	double	delta;
 	double	t1;
@@ -49,8 +49,8 @@ double	hit_sphere(t_ray ray, t_sp sphere)
 	double	b;
 	double	c;
 
-	b = calc_b(ray, sphere);
-	c = calc_c(ray, sphere);
+	b = calc_b(ray, *sphere);
+	c = calc_c(ray, *sphere);
 	delta = calc_delta(b, c);
 	if (delta < 0)
 		return (-1);
@@ -61,4 +61,13 @@ double	hit_sphere(t_ray ray, t_sp sphere)
 	if (t2 > 0.001)
 		return (t2);
 	return (-1);
+}
+
+t_hit	hit_sphere(t_ray ray, t_sp *sphere)
+{
+	if (is_hit_sphere(ray, sphere))
+	{
+		/* code */
+	}
+	
 }
