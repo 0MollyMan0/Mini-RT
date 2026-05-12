@@ -6,13 +6,13 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/07 16:10:41 by anfouger          #+#    #+#             */
-/*   Updated: 2026/05/11 14:47:07 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/05/12 10:06:08 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <minirt.h>
 
-void	print_error_concerned(t_parse_error concerned)
+static void	print_error_concerned(t_parse_error concerned)
 {
 	switch (concerned)
 	{
@@ -39,7 +39,22 @@ void	print_error_concerned(t_parse_error concerned)
 	}
 }
 
-void	print_error_problem(t_parse_error problem)
+static void	print_error_problem_2(t_parse_error problem)
+{
+	switch (problem)
+	{
+	case ERR_NONE:
+		ft_putstr_fd("Not enougth\n", 2);
+		break;
+	case ERR_TOO_MUCH:
+		ft_putstr_fd("Too much\n", 2);
+		break;
+	default:
+		break;
+	}
+}
+
+static void	print_error_problem(t_parse_error problem)
 {
 	switch (problem)
 	{
@@ -67,7 +82,7 @@ void	print_error_problem(t_parse_error problem)
 	}
 }
 
-void	print_error_special(t_parse_error concerned, char *str)
+static void	print_error_special(t_parse_error concerned, char *str)
 {
 	if (concerned == ERR_INVALID_ID)
 	{

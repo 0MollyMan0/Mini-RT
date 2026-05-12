@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/07 15:28:37 by anfouger          #+#    #+#             */
-/*   Updated: 2026/05/12 09:44:39 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/05/12 10:06:51 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,18 @@
 
 int	verif_complete(t_is	is)
 {
-	if (!is.al || !is.cam || !is.light)
-		return (0);
+	if (!is.al)
+		return (print_error(ERR_AMBIENT_LIGHT, ERR_NONE, NULL));
+	else if (!is.cam)
+		return (print_error(ERR_CAM, ERR_NONE, NULL));
+	else if (!is.light)
+		return (print_error(ERR_LIGHT, ERR_NONE, NULL));
+	else if (is.al > 1)
+		return (print_error(ERR_AMBIENT_LIGHT, ERR_TOO_MUCH, NULL));
+	else if (is.cam > 1)
+		return (print_error(ERR_CAM, ERR_TOO_MUCH, NULL));
+	else if (is.light > 1)
+		return (print_error(ERR_LIGHT, ERR_TOO_MUCH, NULL));
 	return (1);
 }
 
