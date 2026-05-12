@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/10 08:59:16 by anfouger          #+#    #+#             */
-/*   Updated: 2026/05/11 14:23:07 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/05/12 11:35:23 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,13 @@ int	verif_rgb(char *str)
 	if (!verif_rgb_syntax(str))
 		return (0);
 	sub_tab = ft_split(str, ',');
-	i = 0;	
+	i = 0;
 	while (sub_tab[i])
 	{
 		if (!is_int_in_range(ft_atof(sub_tab[i]), 0, 255))
 		{
 			free_str_tab(sub_tab);
-			return (0);	
+			return (0);
 		}
 		i++;
 	}
@@ -49,7 +49,7 @@ int	verif_n_vec(char *str)
 		if (!is_double_in_range(ft_atof(sub_tab[i]), -1, 1))
 		{
 			free_str_tab(sub_tab);
-			return (0);	
+			return (0);
 		}
 		i++;
 	}
@@ -61,7 +61,7 @@ int	verif_light_ratio(char *str)
 {
 	double	light_ratio;
 	int		i;
-		
+
 	i = 0;
 	while (str[i])
 	{
@@ -71,15 +71,15 @@ int	verif_light_ratio(char *str)
 	}
 	light_ratio = ft_atof(str);
 	if (!is_double_in_range(light_ratio, 0, 1))
-		return (0);	
+		return (0);
 	return (1);
 }
 
-int	verif_FOV(char *str)
+int	verif_fov(char *str)
 {
-	int	FOV;
-	int		i;
-		
+	int	fov;
+	int	i;
+
 	i = 0;
 	while (str[i])
 	{
@@ -87,8 +87,8 @@ int	verif_FOV(char *str)
 			return (0);
 		i++;
 	}
-	FOV = ft_atoi(str);
-	if (!is_int_in_range(FOV, 0, 180))
-		return (0);	
+	fov = ft_atoi(str);
+	if (!is_int_in_range(fov, 0, 180))
+		return (0);
 	return (1);
 }

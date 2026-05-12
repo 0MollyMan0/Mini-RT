@@ -6,13 +6,13 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 10:52:04 by anfouger          #+#    #+#             */
-/*   Updated: 2026/05/12 09:43:07 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/05/12 11:31:46 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <minirt.h>
 
-static void process_line(char *line, t_data *data)
+static void	process_line(char *line, t_data *data)
 {
 	char	**tab;
 	char	*tmp;
@@ -44,12 +44,14 @@ void	parse_file(char *name, t_data *data)
 	data->is.fd_open = 1;
 	if (data->fd < 0 || !verif_file_name(name))
 		ft_exit(data);
-	while ((line = get_next_line(data->fd)))
+	line = " ";
+	while (line)
 	{
+		line = get_next_line(data->fd);
 		if (is_empty(line))
 		{
 			free(line);
-			continue;
+			continue ;
 		}
 		else
 			process_line(line, data);

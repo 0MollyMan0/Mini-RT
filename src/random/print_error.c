@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/07 16:10:41 by anfouger          #+#    #+#             */
-/*   Updated: 2026/05/12 10:06:08 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/05/12 10:22:42 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ static void	print_error_problem_2(t_parse_error problem)
 
 static void	print_error_problem(t_parse_error problem)
 {
+	print_error_problem_2(problem);
 	switch (problem)
 	{
 	case ERR_RGB:

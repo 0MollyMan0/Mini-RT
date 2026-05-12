@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 08:46:37 by anfouger          #+#    #+#             */
-/*   Updated: 2026/05/12 10:07:18 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/05/12 11:32:07 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	parse_scene(t_data *data, char **tab)
 		data->is.al++;
 	}
 	else if (!ft_strcmp(tab[0], "L"))
-	{	
+	{
 		parse_light(&data->scene.light, tab);
 		data->is.light++;
 	}

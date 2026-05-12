@@ -6,24 +6,11 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/05 10:41:24 by anfouger          #+#    #+#             */
-/*   Updated: 2026/05/12 09:41:55 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/05/12 10:21:58 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <minirt.h>
-
-t_data *init_data(void)
-{
-	t_data	*data;
-
-	data = malloc(sizeof(t_data));
-	if (!data)
-		return (NULL);
-	data->mlx = init_mlx();
-	data->objects = NULL;
-	data->is = init_is();
-	return (data);
-}
 
 static t_is	init_is(void)
 {
@@ -37,6 +24,19 @@ static t_is	init_is(void)
 	is.plane = 0;
 	is.sphere = 0;
 	return (is);
+}
+
+t_data *init_data(void)
+{
+	t_data	*data;
+
+	data = malloc(sizeof(t_data));
+	if (!data)
+		return (NULL);
+	data->mlx = init_mlx();
+	data->objects = NULL;
+	data->is = init_is();
+	return (data);
 }
 
 static int	init_img(t_mlx *mlx_data)

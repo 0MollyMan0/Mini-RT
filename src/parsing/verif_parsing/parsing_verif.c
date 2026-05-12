@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/07 15:28:37 by anfouger          #+#    #+#             */
-/*   Updated: 2026/05/12 10:06:51 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/05/12 11:35:09 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,14 +32,14 @@ int	verif_complete(t_is	is)
 int	verif_file_name(char *name)
 {
 	int	len;
-	
+
 	len = ft_strlen(name);
-	if (name[len-2] != '.'
-		|| name[len-1] != 'r'
+	if (name[len - 2] != '.'
+		|| name[len - 1] != 'r'
 		|| name[len] != 't')
 	{
 		print_error(ERR_FILE_NAME, ERR_SPECIAL, name);
-		return (0);	
+		return (0);
 	}
 	return (1);
 }
@@ -85,7 +85,7 @@ int	verif_line(char **tab)
 	else
 	{
 		print_error(ERR_INVALID_ID, ERR_SPECIAL, tab[0]);
-		res = 0;	
+		res = 0;
 	}
 	return (res);
 }

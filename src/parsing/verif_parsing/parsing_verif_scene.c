@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/10 09:14:15 by anfouger          #+#    #+#             */
-/*   Updated: 2026/05/10 14:18:50 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/05/12 11:35:42 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int	verif_cam(char **tab)
 		res = print_error(ERR_CAM, ERR_SYNTAX, tab[1]);
 	if (!verif_n_vec(tab[2]))
 		res = print_error(ERR_CAM, ERR_N_VECTOR, tab[2]);
-	if (!verif_FOV(tab[3]))
+	if (!verif_fov(tab[3]))
 		res = print_error(ERR_CAM, ERR_FOV, tab[3]);
 	return (res);
 }
