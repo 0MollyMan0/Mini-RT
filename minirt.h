@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 14:04:04 by anfouger          #+#    #+#             */
-/*   Updated: 2026/05/12 11:35:42 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/05/12 14:28:03 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -203,8 +203,7 @@ int			verif_vec_syntax(char *str);
 int			verif_rgb_syntax(char *str);
 
 // --- Sphere --- //
-int			hit_sphere(t_ray ray, t_sp sphere);
-t_sp		init_sphere(t_vec3 center, double r, int color);
+double		hit_sphere(t_ray ray, t_sp sphere);
 
 // --- Rays --- //
 t_ray		calc_ray(double sx, double sy, t_data *data);
