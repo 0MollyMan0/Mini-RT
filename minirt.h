@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 14:04:04 by anfouger          #+#    #+#             */
-/*   Updated: 2026/05/13 11:30:11 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/05/13 14:03:46 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@
 # define WIN_WIDTH 800
 # define WIN_HEIGHT 600
 # define M_PI 3.14159265358979323846
+# define MOUSE_SENSI 0.1
+# define KEY_SENSI 0.1
 
 typedef enum e_parse_error
 {
@@ -129,6 +131,8 @@ typedef struct s_cam
 	t_vec3	forward;
 	t_vec3	up;
 	t_vec3	right;
+	double	yaw;
+	double	pitch;
 }				t_cam;
 
 typedef struct s_al
