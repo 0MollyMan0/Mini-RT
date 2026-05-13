@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/05 11:37:51 by anfouger          #+#    #+#             */
-/*   Updated: 2026/05/11 10:25:50 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/05/13 08:13:17 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ int inline	rgb_to_hex(int red, int green, int blue)
 	return ((red << 16) | (green << 8) | blue);
 }
 
+/* Converts the x-coordinate of a pixel on the screen to
+the x-coordinate of a normalized mathematical plane*/
 double	x_to_sx(int x, int FOV)
 {
 	double	nx;
@@ -41,6 +43,8 @@ double	x_to_sx(int x, int FOV)
 	return (sx);
 }
 
+/* Converts the y-coordinate of a pixel on the screen to
+the y-coordinate of a normalized mathematical plane*/
 double	y_to_sy(int y, int FOV)
 {
 	double	ny;

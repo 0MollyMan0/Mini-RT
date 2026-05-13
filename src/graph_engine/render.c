@@ -6,12 +6,13 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/05 11:47:45 by anfouger          #+#    #+#             */
-/*   Updated: 2026/05/12 15:49:53 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/05/13 08:11:12 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <minirt.h>
 
+/*Tells who hit the ray*/
 static t_color	who_hit(t_ray ray, t_data* data, t_object *obj)
 {
 	t_object	*ptr;
@@ -35,6 +36,7 @@ static t_color	who_hit(t_ray ray, t_data* data, t_object *obj)
 	}
 }
 
+/*Give the color for each pixel*/
 static int	get_color(t_ray ray, t_data* data)
 {
 	t_color color;
@@ -45,7 +47,7 @@ static int	get_color(t_ray ray, t_data* data)
 	return (color.hex);
 }
 
-
+/*main loop to render*/
 void	render(t_data *data)
 {
 	int			x;
