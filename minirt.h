@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 14:04:04 by anfouger          #+#    #+#             */
-/*   Updated: 2026/05/12 15:45:11 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/05/13 08:36:54 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -165,13 +165,20 @@ typedef struct s_hit
 	double		dst;
 }				t_hit;
 
+typedef struct s_parsing
+{
+	int			fd;
+	char		*line;
+}				t_parsing;
+
+
 typedef struct s_data
 {
 	t_mlx		*mlx;
 	t_scene		scene;
 	t_object	*objects;
 	t_is		is;
-	int			fd;
+	t_parsing	parsing;
 }				t_data;
 
 // --- Init --- //
@@ -210,7 +217,7 @@ int			verif_vec_syntax(char *str);
 int			verif_rgb_syntax(char *str);
 
 // --- Sphere --- //
-double		hit_sphere(t_ray ray, t_sp *sphere);
+t_hit		hit_sphere(t_ray ray, t_sp *sphere);
 
 // --- Rays --- //
 t_ray		calc_ray(double sx, double sy, t_data *data);

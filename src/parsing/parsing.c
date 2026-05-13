@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 10:52:04 by anfouger          #+#    #+#             */
-/*   Updated: 2026/05/12 11:31:46 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/05/13 08:39:46 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,26 +38,23 @@ static void	process_line(char *line, t_data *data)
 
 void	parse_file(char *name, t_data *data)
 {
-	char	*line;
-
-	data->fd = open(name, O_RDONLY);
-	data->is.fd_open = 1;
-	if (data->fd < 0 || !verif_file_name(name))
+	data->parsing.fd = open(name, O_RDONLY);
+	if (data->parsing.fd < 0 || !verif_file_name(name))
 		ft_exit(data);
-	line = " ";
-	while (line)
+	data->is.fd_open = 1;
+	data->parsing.line = " ";
+	while (data->parsing.line)
 	{
-		line = get_next_line(data->fd);
-		if (is_empty(line))
-		{
-			free(line);
-			continue ;
-		}
+		data->parsing.line = get_next_line(data->parsing.fd);
+		if (!data->parsing.line)
+			break ;
+		if (!is_empty(data->parsing.line))
+			process_line(data->parsing.line, data);
 		else
-			process_line(line, data);
+			free(data->parsing.line);
 	}
 	if (!verif_complete(data->is))
 		ft_exit(data);
-	close(data->fd);
+	close(data->parsing.fd);
 	data->is.fd_open = 0;
 }

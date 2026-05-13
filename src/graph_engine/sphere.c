@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/09 14:53:04 by anfouger          #+#    #+#             */
-/*   Updated: 2026/05/12 15:51:02 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/05/13 08:17:08 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,9 +65,10 @@ double	is_hit_sphere(t_ray ray, t_sp *sphere)
 
 t_hit	hit_sphere(t_ray ray, t_sp *sphere)
 {
-	if (is_hit_sphere(ray, sphere))
-	{
-		/* code */
-	}
-	
+	t_hit	hit;
+
+	hit.dst = is_hit_sphere(ray, sphere);
+	if (hit.dst)
+		hit.color = sphere->color;
+	return (hit);
 }

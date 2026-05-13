@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/05 12:03:35 by anfouger          #+#    #+#             */
-/*   Updated: 2026/05/12 09:42:13 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/05/13 08:38:30 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,9 @@ int	ft_exit(t_data *data)
 	if (data->objects)
 		free_objects(data->objects);
 	if (data->is.fd_open)
-		close(data->fd);
+		close(data->parsing.fd);
+	if (data->parsing.line)
+		free(data->parsing.line);
 	if (data)
 		free(data);
 	exit(1);

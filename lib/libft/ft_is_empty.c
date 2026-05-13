@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 11:44:42 by anfouger          #+#    #+#             */
-/*   Updated: 2026/03/19 11:45:06 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/05/13 08:34:05 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ int	is_empty(char *str)
 	int	i;
 
 	i = 0;
+	if (!str)
+		return (1);
 	while (str[i])
 	{
 		if (!ft_isspace(str[i]))

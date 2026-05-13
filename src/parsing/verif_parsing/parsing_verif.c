@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/07 15:28:37 by anfouger          #+#    #+#             */
-/*   Updated: 2026/05/12 11:35:09 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/05/13 08:41:29 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,14 @@ int	verif_complete(t_is	is)
 
 int	verif_file_name(char *name)
 {
-	int	len;
+	int	i;
 
-	len = ft_strlen(name);
-	if (name[len - 2] != '.'
-		|| name[len - 1] != 'r'
-		|| name[len] != 't')
+	i = 0;
+	while (name[i+3])
+		i++;
+	if (name[i] == '.' && name[i+1] == 'r' && name[i+2] == 't')
+		return (1);
+	else
 	{
 		print_error(ERR_FILE_NAME, ERR_SPECIAL, name);
 		return (0);
