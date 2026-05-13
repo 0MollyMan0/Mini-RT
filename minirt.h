@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 14:04:04 by anfouger          #+#    #+#             */
-/*   Updated: 2026/05/13 08:36:54 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/05/13 08:51:01 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -216,8 +216,10 @@ int			verif_light_ratio(char *str);
 int			verif_vec_syntax(char *str);
 int			verif_rgb_syntax(char *str);
 
-// --- Sphere --- //
+// --- Shapes --- //
 t_hit		hit_sphere(t_ray ray, t_sp *sphere);
+t_hit		hit_plane(t_ray ray, t_pl *plane);
+t_hit		hit_cylinder(t_ray ray, t_cy *cylinder);
 
 // --- Rays --- //
 t_ray		calc_ray(double sx, double sy, t_data *data);

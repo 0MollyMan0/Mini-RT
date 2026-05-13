@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/09 14:53:04 by anfouger          #+#    #+#             */
-/*   Updated: 2026/05/13 08:17:08 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/05/13 08:46:32 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ t_hit	hit_sphere(t_ray ray, t_sp *sphere)
 	t_hit	hit;
 
 	hit.dst = is_hit_sphere(ray, sphere);
-	if (hit.dst)
+	if (hit.dst > 0)
 		hit.color = sphere->color;
 	return (hit);
 }
