@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/12 10:10:41 by anfouger          #+#    #+#             */
-/*   Updated: 2026/05/12 14:33:23 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/05/13 08:59:32 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,6 @@ t_color init_color(double r, double g, double b)
 	color.r = r;
 	color.g = g;
 	color.b = b;
-	color.hex = rgb_to_hex(r, g, b);
+	color.hex = rgb_to_hex((int)r, (int)g, (int)b);
 	return (color);
 }

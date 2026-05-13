@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/05 11:47:45 by anfouger          #+#    #+#             */
-/*   Updated: 2026/05/13 08:47:30 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/05/13 09:01:59 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static t_hit	who_hit(t_ray ray, t_data* data, t_object *obj)
 	
 	ptr = obj;
 	hit.dst = INFINITY;
-	hit.color = init_color(0, 0, 0);
+	hit.color = init_color(50, 50, 50);
 	while (ptr)
 	{
 		if (ptr->type == SPHERE)

@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/13 08:47:45 by anfouger          #+#    #+#             */
-/*   Updated: 2026/05/13 08:49:39 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/05/13 08:57:01 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 t_hit hit_cylinder(t_ray ray, t_cy *cylinder)
 {
+	(void)cylinder;
+	(void)ray;
 	t_hit	hit;
 
 	hit.dst = -1;
