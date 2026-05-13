@@ -6,13 +6,13 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/13 09:48:57 by anfouger          #+#    #+#             */
-/*   Updated: 2026/05/13 10:22:40 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/05/13 14:26:24 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <minirt.h>
 
-double inline	vec_dot(t_vec3 a, t_vec3 b)
+double vec_dot(t_vec3 a, t_vec3 b)
 {
 	return (
 		a.x * b.x +
@@ -21,7 +21,7 @@ double inline	vec_dot(t_vec3 a, t_vec3 b)
 	);
 }
 
-t_vec3 inline	vec_cross(t_vec3 a, t_vec3 b)
+t_vec3 vec_cross(t_vec3 a, t_vec3 b)
 {
 	return ((t_vec3){
 		a.y * b.z - a.z * b.y,
@@ -30,7 +30,7 @@ t_vec3 inline	vec_cross(t_vec3 a, t_vec3 b)
 	});
 }
 
-double inline	vec_distance(t_vec3 a, t_vec3 b)
+double vec_distance(t_vec3 a, t_vec3 b)
 {
 	return (vec_length(vec_sub(b, a)));
 }

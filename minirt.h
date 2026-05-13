@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 14:04:04 by anfouger          #+#    #+#             */
-/*   Updated: 2026/05/13 14:03:46 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/05/13 14:58:13 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,8 +131,6 @@ typedef struct s_cam
 	t_vec3	forward;
 	t_vec3	up;
 	t_vec3	right;
-	double	yaw;
-	double	pitch;
 }				t_cam;
 
 typedef struct s_al
@@ -177,7 +175,6 @@ typedef struct s_parsing
 	int			fd;
 	char		*line;
 }				t_parsing;
-
 
 typedef struct s_data
 {
@@ -229,19 +226,21 @@ t_hit		hit_plane(t_ray ray, t_pl *plane);
 t_hit		hit_cylinder(t_ray ray, t_cy *cylinder);
 
 // --- Vector Utils --- //
-t_vec3			vec_add(t_vec3 a, t_vec3 b);
-t_vec3			vec_sub(t_vec3 a, t_vec3 b);
-t_vec3			vec_normalize(t_vec3 v);
-t_vec3			vec_mult(t_vec3 v, double k);
-t_vec3			vec_negate(t_vec3 vec);
-t_vec3			vec_clamp(t_vec3 vec, double min, double max);
-double inline	vec_length(t_vec3 v);
-double inline	vec_dot(t_vec3 a, t_vec3 b);
-double inline	vec_distance(t_vec3 a, t_vec3 b);
-t_vec3 inline	vec_cross(t_vec3 a, t_vec3 b);
+t_vec3		vec_add(t_vec3 a, t_vec3 b);
+t_vec3		vec_sub(t_vec3 a, t_vec3 b);
+t_vec3		vec_normalize(t_vec3 v);
+t_vec3		vec_mult(t_vec3 v, double k);
+t_vec3		vec_negate(t_vec3 vec);
+t_vec3		vec_clamp(t_vec3 vec, double min, double max);
+t_vec3		vec_cross(t_vec3 a, t_vec3 b);
+double		vec_length(t_vec3 v);
+double		vec_dot(t_vec3 a, t_vec3 b);
+double		vec_distance(t_vec3 a, t_vec3 b);
 
 // --- Rays --- //
 t_ray		calc_ray(double sx, double sy, t_data *data);
+t_vec3		calc_up(t_vec3 forward, t_vec3 right);
+t_vec3		calc_right(t_vec3 forward, t_vec3 up);
 
 // --- Objects ---//
 void		obj_add_back(t_object **lst, t_object *new);

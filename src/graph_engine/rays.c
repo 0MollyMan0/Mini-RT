@@ -6,18 +6,18 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 10:49:13 by anfouger          #+#    #+#             */
-/*   Updated: 2026/05/13 11:41:05 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/05/13 14:52:26 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <minirt.h>
 
-static inline t_vec3	calc_up(t_vec3 forward, t_vec3 right)
+t_vec3	calc_up(t_vec3 forward, t_vec3 right)
 {
 	return (vec_normalize(vec_cross(right, forward)));
 }
 
-static inline t_vec3	calc_right(t_vec3 forward, t_vec3 up)
+t_vec3	calc_right(t_vec3 forward, t_vec3 up)
 {
 	return (vec_normalize(vec_cross(forward, up)));
 }
