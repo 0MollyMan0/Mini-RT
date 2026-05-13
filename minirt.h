@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 14:04:04 by anfouger          #+#    #+#             */
-/*   Updated: 2026/05/13 10:23:17 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/05/13 11:30:11 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,6 +126,9 @@ typedef struct s_cam
 	t_vec3	pos;
 	t_vec3	n_orientation;
 	int		fov;
+	t_vec3	forward;
+	t_vec3	up;
+	t_vec3	right;
 }				t_cam;
 
 typedef struct s_al

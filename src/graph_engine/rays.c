@@ -6,29 +6,34 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 10:49:13 by anfouger          #+#    #+#             */
-/*   Updated: 2026/05/11 10:25:04 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/05/13 11:41:05 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <minirt.h>
 
+static inline t_vec3	calc_up(t_vec3 forward, t_vec3 right)
+{
+	return (vec_normalize(vec_cross(right, forward)));
+}
+
+static inline t_vec3	calc_right(t_vec3 forward, t_vec3 up)
+{
+	return (vec_normalize(vec_cross(forward, up)));
+}
+
 t_ray	calc_ray(double sx, double sy, t_data *data)
 {
 	t_ray	ray;
-	double	len;
-	t_vec3	point;
 
 	ray.origin = data->scene.cam.pos;
-	point.x = data->scene.cam.pos.x + sx;
-	point.y = data->scene.cam.pos.y + sy;
-	point.z = data->scene.cam.pos.z - 1.0;
-	ray.dir.x = point.x - data->scene.cam.pos.x;
-	ray.dir.y = point.y - data->scene.cam.pos.y;
-	ray.dir.z = point.z - data->scene.cam.pos.z;
-	len = sqrt(ray.dir.x*ray.dir.x + ray.dir.y*ray.dir.y
-		+ ray.dir.z*ray.dir.z);
-	ray.dir.x /= len;
-	ray.dir.y /= len;
-	ray.dir.z /= len;
+	data->scene.cam.forward = vec_normalize(data->scene.cam.n_orientation);
+	data->scene.cam.up = init_vec(0, 1, 0);
+	data->scene.cam.right = calc_right(data->scene.cam.forward, 
+		data->scene.cam.up);
+	data->scene.cam.up = calc_up(data->scene.cam.forward, 
+		data->scene.cam.right);
+	ray.dir = vec_normalize(vec_add(data->scene.cam.forward, vec_add(vec_mult
+		(data->scene.cam.right, sx), vec_mult(data->scene.cam.up, sy))));
 	return (ray);
 }
