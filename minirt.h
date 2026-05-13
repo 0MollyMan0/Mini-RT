@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 14:04:04 by anfouger          #+#    #+#             */
-/*   Updated: 2026/05/13 08:51:01 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/05/13 10:23:17 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -221,16 +221,27 @@ t_hit		hit_sphere(t_ray ray, t_sp *sphere);
 t_hit		hit_plane(t_ray ray, t_pl *plane);
 t_hit		hit_cylinder(t_ray ray, t_cy *cylinder);
 
+// --- Vector Utils --- //
+t_vec3			vec_add(t_vec3 a, t_vec3 b);
+t_vec3			vec_sub(t_vec3 a, t_vec3 b);
+t_vec3			vec_normalize(t_vec3 v);
+t_vec3			vec_mult(t_vec3 v, double k);
+t_vec3			vec_negate(t_vec3 vec);
+t_vec3			vec_clamp(t_vec3 vec, double min, double max);
+double inline	vec_length(t_vec3 v);
+double inline	vec_dot(t_vec3 a, t_vec3 b);
+double inline	vec_distance(t_vec3 a, t_vec3 b);
+t_vec3 inline	vec_cross(t_vec3 a, t_vec3 b);
+
 // --- Rays --- //
 t_ray		calc_ray(double sx, double sy, t_data *data);
 
-// --- Objects ---xs
+// --- Objects ---//
 void		obj_add_back(t_object **lst, t_object *new);
 
 // --- Render --- //
 void		render(t_data *data);
-
-// --- Render Utils--- //
+// - Utils - //
 int			rgb_to_hex(int red, int green, int blue);
 void		put_pixel(t_img *img, int x, int y, int color);
 double		x_to_sx(int x, int FOV);
