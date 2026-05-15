@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 14:04:04 by anfouger          #+#    #+#             */
-/*   Updated: 2026/05/15 11:15:06 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/05/15 13:51:25 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -171,6 +171,7 @@ typedef struct s_hit
 	t_vec3	light_dir;
 	double	diffuse;
 	double	dst;
+	int		is_hit;
 }				t_hit;
 
 typedef struct s_parsing
@@ -241,6 +242,7 @@ double		vec_dot(t_vec3 a, t_vec3 b);
 double		vec_distance(t_vec3 a, t_vec3 b);
 
 // --- Color Utils --- //
+t_color		color_mix(t_color color1, t_color color2, double brightness);
 t_color color_mult(t_color color, double mult);
 
 // --- Rays --- //
