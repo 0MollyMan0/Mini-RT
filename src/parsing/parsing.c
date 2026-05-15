@@ -6,22 +6,21 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 10:52:04 by anfouger          #+#    #+#             */
-/*   Updated: 2026/05/13 08:39:46 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/05/15 11:09:11 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <minirt.h>
 
-static void	process_line(char *line, t_data *data)
+static void	process_line(t_data *data)
 {
 	char	**tab;
 	char	*tmp;
 
-	tmp = ft_strtrim(line, "\n");
-	free(line);
-	line = tmp;
-	tab = ft_split(line, ' ');
-	free(line);
+	tmp = ft_strtrim(data->parsing.line, "\n");
+	free(data->parsing.line);
+	data->parsing.line = tmp;
+	tab = ft_split(data->parsing.line, ' ');
 	if (!verif_line(tab))
 	{
 		free_str_tab(tab);
@@ -48,8 +47,8 @@ void	parse_file(char *name, t_data *data)
 		data->parsing.line = get_next_line(data->parsing.fd);
 		if (!data->parsing.line)
 			break ;
-		if (!is_empty(data->parsing.line))
-			process_line(data->parsing.line, data);
+		if (!is_empty(data->parsing.line) && data->parsing.line[0] != '#') // SUPP THE SECOND CONDITION BEFORE FINAL PUSH
+			process_line(data);
 		else
 			free(data->parsing.line);
 	}

@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/05 11:47:45 by anfouger          #+#    #+#             */
-/*   Updated: 2026/05/13 09:01:59 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/05/15 11:09:43 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,20 @@ static t_hit	who_hit(t_ray ray, t_data* data, t_object *obj)
 	return (hit);
 }
 
+static void	calc_light_impact(t_hit *hit, t_light light)
+{
+	hit->light_dir = vec_normalize(vec_sub(light.pos, hit->point));
+	hit->diffuse = double_clamp(vec_dot(hit->normal, hit->light_dir), 0, 1);
+	hit->color = color_mult(hit->color, hit->diffuse);
+}
+
 /*Give the color for each pixel*/
 static int	get_color(t_ray ray, t_data* data)
 {
 	t_hit	hit;
 
 	hit = who_hit(ray, data, data->objects);
-	// calc_light_impact
+	calc_light_impact(&hit, data->scene.light);
 	// calc_al_impact
 	return (hit.color.hex);
 }

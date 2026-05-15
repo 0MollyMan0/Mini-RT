@@ -6,11 +6,24 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/07 13:20:07 by anfouger          #+#    #+#             */
-/*   Updated: 2026/05/13 14:58:06 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/05/15 10:39:57 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <minirt.h>
+
+double	double_clamp(double in, double min, double max)
+{
+	double	result;
+
+	if (in < min)
+		result = min;
+	else if (in > max)
+		result = max;
+	else
+		result = in;
+	return (result);
+}
 
 int	ft_strlen_until(char *str, char c)
 {

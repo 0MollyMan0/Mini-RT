@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 14:04:04 by anfouger          #+#    #+#             */
-/*   Updated: 2026/05/13 14:58:13 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/05/15 11:15:06 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,7 @@
 # define WIN_WIDTH 800
 # define WIN_HEIGHT 600
 # define M_PI 3.14159265358979323846
-# define MOUSE_SENSI 0.1
-# define KEY_SENSI 0.1
+# define KEY_SENSI 0.3
 
 typedef enum e_parse_error
 {
@@ -166,8 +165,12 @@ typedef struct s_is
 
 typedef struct s_hit
 {
-	t_color		color;
-	double		dst;
+	t_color	color;
+	t_vec3	point;
+	t_vec3	normal;
+	t_vec3	light_dir;
+	double	diffuse;
+	double	dst;
 }				t_hit;
 
 typedef struct s_parsing
@@ -237,6 +240,9 @@ double		vec_length(t_vec3 v);
 double		vec_dot(t_vec3 a, t_vec3 b);
 double		vec_distance(t_vec3 a, t_vec3 b);
 
+// --- Color Utils --- //
+t_color color_mult(t_color color, double mult);
+
 // --- Rays --- //
 t_ray		calc_ray(double sx, double sy, t_data *data);
 t_vec3		calc_up(t_vec3 forward, t_vec3 right);
@@ -266,5 +272,6 @@ int			print_error(t_parse_error concerned, t_parse_error problem, char *str);
 int			ft_strlen_until(char *str, char c);
 int			is_double_in_range(double x, double min, double max);
 int			is_int_in_range(int x, int min, int max);
+double		double_clamp(double in, double min, double max);
 
 #endif

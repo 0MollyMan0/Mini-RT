@@ -77,6 +77,7 @@ SRC = $(SRC_DIR)/main.c \
 		$(GRAPH_DIR)/controls.c \
 		$(GRAPH_DIR)/vec_utils.c \
 		$(GRAPH_DIR)/vec_utils_2.c \
+		$(GRAPH_DIR)/color_utils.c \
 		$(GNL_SRC)
 
 OBJ = $(SRC:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
