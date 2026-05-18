@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/05 11:47:45 by anfouger          #+#    #+#             */
-/*   Updated: 2026/05/18 10:33:01 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/05/18 13:24:33 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,18 @@ static t_hit	who_hit(t_ray ray, t_data* data, t_object *obj)
 	return (hit);
 }
 
-static void	calc_light_impact(t_hit *hit, t_light light)
-{
+static void	calc_light_impact(t_hit *hit, t_light light, t_data *data)
+{	
+	t_ray	shadow_ray;
+	t_hit	shadow_hit;
+
+	shadow_ray = calc_ray(hit->point, light.pos);
+	shadow_hit = who_hit(shadow_ray, data, data->objects);
+	if (shadow_hit.is_hit)
+	{
+		hit->col_final = init_color(0, 0, 0);
+		return ;
+	}
 	hit->light_dir = vec_normalize(vec_sub(light.pos, hit->point));
 	hit->diffuse = double_clamp(vec_dot(hit->normal, hit->light_dir), 0, 1);
 	hit->col_final = color_mix(hit->col_obj, light.color, light.brightness);
@@ -52,12 +62,14 @@ static int	get_color(t_ray ray, t_data* data)
 {
 	t_hit	hit;
 
-	hit = who_hit(ray, data, data->objects);
-	if (!hit.is_hit)
+	hit = who_hit(ray, data, data->objects); // tells if ray it an obj
+	if (!hit.is_hit) // if no obj hit return background color
 		return (hit.col_obj.hex);
-	hit.col_ambient = color_mix(hit.col_obj,
+
+	hit.col_ambient = color_mix(hit.col_obj, // calc impact of ambient light
 		data->scene.al.color, data->scene.al.brightness);
-	calc_light_impact(&hit, data->scene.light);
+
+	calc_light_impact(&hit, data->scene.light, data); // calc impact of direct light
 	hit.col_final = color_add(hit.col_final, hit.col_ambient);
 	return (hit.col_final.hex);
 }
@@ -75,7 +87,7 @@ void	render(t_data *data)
 		x = 0;
 		while (x < WIN_WIDTH)
 		{
-			ray = calc_ray(x_to_sx(x, data->scene.cam.fov),
+			ray = calc_ray_cam(x_to_sx(x, data->scene.cam.fov),
 				y_to_sy(y, data->scene.cam.fov), data);
 			put_pixel(data->mlx->img, x, y, get_color(ray, data));
 			x++;

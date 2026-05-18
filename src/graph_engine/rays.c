@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 10:49:13 by anfouger          #+#    #+#             */
-/*   Updated: 2026/05/13 14:52:26 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/05/18 12:02:46 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,16 @@ t_vec3	calc_right(t_vec3 forward, t_vec3 up)
 	return (vec_normalize(vec_cross(forward, up)));
 }
 
-t_ray	calc_ray(double sx, double sy, t_data *data)
+t_ray	calc_ray(t_vec3 origin, t_vec3	goal)
+{
+	t_ray	ray;
+
+	ray.origin = origin;
+	ray.dir = vec_normalize(vec_sub(goal, origin));
+	return (ray);
+}
+
+t_ray	calc_ray_cam(double sx, double sy, t_data *data)
 {
 	t_ray	ray;
 
