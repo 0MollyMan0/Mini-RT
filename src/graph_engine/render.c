@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/05 11:47:45 by anfouger          #+#    #+#             */
-/*   Updated: 2026/05/15 14:26:48 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/05/18 09:41:07 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ static t_hit	who_hit(t_ray ray, t_data* data, t_object *obj)
 	
 	ptr = obj;
 	hit.dst = INFINITY;
-	hit.color = init_color(50, 50, 50);
+	hit.is_hit = 0;
+	hit.col_obj = init_color(10, 10, 10);
 	while (ptr)
 	{
 		if (ptr->type == SPHERE)
@@ -42,15 +43,16 @@ static void	calc_light_impact(t_hit *hit, t_light light)
 {
 	hit->light_dir = vec_normalize(vec_sub(light.pos, hit->point));
 	hit->diffuse = double_clamp(vec_dot(hit->normal, hit->light_dir), 0, 1);
-	hit->color = color_mix(hit->color, light.color, light.brightness);
-	hit->color = color_mult(hit->color, hit->diffuse);
-	// printf("Normale = %f, %f, %f\n", hit->normal.x, hit->normal.y, hit->normal.z);
-	// printf("Diffuse = %f\n", hit->diffuse);
+	hit->col_final = color_mix(&hit->col_obj, &light.color, light.brightness);
+	color_mult(&hit->col_final, hit->diffuse);
 }
-// static void	calc_al_impact(t_hit *hit, t_al al)
-// {
-// 	hit->color = color_mult(hit->color, (al.brightness));
-// }
+static void	calc_al_impact(t_hit *hit, t_al al)
+{
+	t_color	ambient;
+	
+	ambient = color_mix(&hit->col_obj, &al.color, (al.brightness + 0.5));
+	hit->col_final = color_mix(&hit->col_final, &ambient, 1);
+}
 
 /*Give the color for each pixel*/
 static int	get_color(t_ray ray, t_data* data)
@@ -59,10 +61,10 @@ static int	get_color(t_ray ray, t_data* data)
 
 	hit = who_hit(ray, data, data->objects);
 	if (!hit.is_hit)
-		return (hit.color.hex);
+		return (hit.col_obj.hex);
 	calc_light_impact(&hit, data->scene.light);
-	// calc_al_impact(&hit, data->scene.al);
-	return (hit.color.hex);
+	calc_al_impact(&hit, data->scene.al);
+	return (hit.col_final.hex);
 }
 
 /*main loop to render*/

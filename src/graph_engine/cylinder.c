@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/13 08:47:45 by anfouger          #+#    #+#             */
-/*   Updated: 2026/05/13 08:57:01 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/05/18 09:40:29 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,6 @@ t_hit hit_cylinder(t_ray ray, t_cy *cylinder)
 	t_hit	hit;
 
 	hit.dst = -1;
-	hit.color = init_color(0,0,0);
+	hit.col_obj = init_color(0,0,0);
 	return (hit);
 }

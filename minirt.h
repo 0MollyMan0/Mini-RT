@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 14:04:04 by anfouger          #+#    #+#             */
-/*   Updated: 2026/05/15 13:51:25 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/05/18 09:40:18 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -165,7 +165,9 @@ typedef struct s_is
 
 typedef struct s_hit
 {
-	t_color	color;
+	t_color	col_final;
+	t_color	col_obj;
+	t_color	col_ambient;
 	t_vec3	point;
 	t_vec3	normal;
 	t_vec3	light_dir;
@@ -242,8 +244,8 @@ double		vec_dot(t_vec3 a, t_vec3 b);
 double		vec_distance(t_vec3 a, t_vec3 b);
 
 // --- Color Utils --- //
-t_color		color_mix(t_color color1, t_color color2, double brightness);
-t_color color_mult(t_color color, double mult);
+t_color		color_mix(t_color *color1, t_color *color2, double brightness);
+void		color_mult(t_color *color, double mult);
 
 // --- Rays --- //
 t_ray		calc_ray(double sx, double sy, t_data *data);

@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/09 14:53:04 by anfouger          #+#    #+#             */
-/*   Updated: 2026/05/15 14:27:21 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/05/18 09:40:06 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ t_hit	hit_sphere(t_ray ray, t_sp *sphere)
 		hit.is_hit = 0;
 		return (hit);	
 	}
-	hit.color = sphere->color;
+	hit.col_obj = sphere->color;
 	hit.point = vec_add(ray.origin, vec_mult(ray.dir, hit.dst));
 	hit.normal = vec_normalize(vec_sub(hit.point, sphere->c));
 	hit.is_hit = 1;
