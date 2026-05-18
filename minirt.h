@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 14:04:04 by anfouger          #+#    #+#             */
-/*   Updated: 2026/05/18 09:40:18 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/05/18 10:05:13 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -244,8 +244,10 @@ double		vec_dot(t_vec3 a, t_vec3 b);
 double		vec_distance(t_vec3 a, t_vec3 b);
 
 // --- Color Utils --- //
-t_color		color_mix(t_color *color1, t_color *color2, double brightness);
-void		color_mult(t_color *color, double mult);
+t_color		color_mix(t_color color1, t_color color2, double brightness);
+t_color		color_mult(t_color color, double mult);
+void		color_clamp(t_color *color);
+t_color		color_add(t_color color1, t_color color2);
 
 // --- Rays --- //
 t_ray		calc_ray(double sx, double sy, t_data *data);
