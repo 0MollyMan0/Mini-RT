@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/07 15:28:37 by anfouger          #+#    #+#             */
-/*   Updated: 2026/05/13 08:41:29 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/05/19 09:01:52 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,9 @@ int	verif_file_name(char *name)
 	int	i;
 
 	i = 0;
-	while (name[i+3])
+	while (name[i + 3])
 		i++;
-	if (name[i] == '.' && name[i+1] == 'r' && name[i+2] == 't')
+	if (name[i] == '.' && name[i + 1] == 'r' && name[i + 2] == 't')
 		return (1);
 	else
 	{

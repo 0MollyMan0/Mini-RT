@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/09 14:53:04 by anfouger          #+#    #+#             */
-/*   Updated: 2026/05/19 08:50:38 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/05/19 09:05:46 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static double	calc_c(t_ray ray, t_sp sphere)
 	x = (ray.origin.x - sphere.c.x) * (ray.origin.x - sphere.c.x);
 	y = (ray.origin.y - sphere.c.y) * (ray.origin.y - sphere.c.y);
 	z = (ray.origin.z - sphere.c.z) * (ray.origin.z - sphere.c.z);
-	return (x + y + z - ((sphere.dia/2) * (sphere.dia/2)));
+	return (x + y + z - ((sphere.dia / 2) * (sphere.dia / 2)));
 }
 
 double	is_hit_sphere(t_ray ray, t_sp *sphere)

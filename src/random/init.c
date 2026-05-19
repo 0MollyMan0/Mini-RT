@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/05 10:41:24 by anfouger          #+#    #+#             */
-/*   Updated: 2026/05/13 15:00:15 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/05/19 09:11:59 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static t_is	init_is(void)
 	return (is);
 }
 
-t_data *init_data(void)
+t_data	*init_data(void)
 {
 	t_data	*data;
 
@@ -50,14 +50,13 @@ static int	init_img(t_mlx *mlx_data)
 	if (!mlx_data->img->img)
 	{
 		free(mlx_data->img);
-		return (0);	
+		return (0);
 	}
 	mlx_data->img->addr = mlx_get_data_addr(
-		mlx_data->img->img,
-		&mlx_data->img->bpp,
-		&mlx_data->img->line_len,
-		&mlx_data->img->endian
-	);
+			mlx_data->img->img,
+			&mlx_data->img->bpp,
+			&mlx_data->img->line_len,
+			&mlx_data->img->endian);
 	if (!mlx_data->img->addr)
 	{
 		free(mlx_data->img);
@@ -72,8 +71,8 @@ static int	init_t_mlx(t_mlx *mlx_data)
 	mlx_data->mlx = mlx_init();
 	if (!mlx_data->mlx)
 		return (0);
-	mlx_data->win = mlx_new_window(mlx_data->mlx, 
-		WIN_WIDTH, WIN_HEIGHT, "miniRT");
+	mlx_data->win = mlx_new_window(mlx_data->mlx,
+			WIN_WIDTH, WIN_HEIGHT, "miniRT");
 	if (!mlx_data->win)
 	{
 		free(mlx_data->mlx);
@@ -83,12 +82,12 @@ static int	init_t_mlx(t_mlx *mlx_data)
 	{
 		free(mlx_data->mlx);
 		mlx_destroy_window(mlx_data->mlx, mlx_data->win);
-		return (0);	
+		return (0);
 	}
 	return (1);
 }
 
-t_mlx *init_mlx(void)
+t_mlx	*init_mlx(void)
 {
 	t_mlx	*mlx_data;
 

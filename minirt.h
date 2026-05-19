@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 14:04:04 by anfouger          #+#    #+#             */
-/*   Updated: 2026/05/18 12:03:04 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/05/19 08:59:34 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,19 +34,19 @@ typedef enum e_parse_error
 	ERR_FILE_NAME,
 	ERR_SPECIAL,
 	ERR_SYNTAX,
-    ERR_SPHERE,
+	ERR_SPHERE,
 	ERR_PLANE,
 	ERR_CYLINDER,
 	ERR_AMBIENT_LIGHT,
 	ERR_LIGHT,
 	ERR_CAM,
-    ERR_RGB,
-    ERR_FOV,
+	ERR_RGB,
+	ERR_FOV,
 	ERR_LIGHT_RATIO,
-    ERR_N_VECTOR,
+	ERR_N_VECTOR,
 	ERR_NONE,
 	ERR_TOO_MUCH,
-} t_parse_error;
+}	t_parse_error;
 
 typedef enum e_object_type
 {
@@ -73,23 +73,23 @@ typedef struct s_mlx
 
 typedef struct s_vec3
 {
-    double	x;
-    double	y;
-    double	z;
+	double	x;
+	double	y;
+	double	z;
 }				t_vec3;
 
 typedef struct s_color
 {
-    double	r;
-    double	g;
-    double	b;
+	double	r;
+	double	g;
+	double	b;
 	int		hex;
-} t_color;
+}	t_color;
 
 typedef struct s_ray
 {
-    t_vec3 origin;
-    t_vec3 dir;
+	t_vec3	origin;
+	t_vec3	dir;
 }				t_ray;
 
 typedef struct s_sp
@@ -192,93 +192,93 @@ typedef struct s_data
 }				t_data;
 
 // --- Init --- //
-t_mlx		*init_mlx(void);
-t_data		*init_data(void);
+t_mlx	*init_mlx(void);
+t_data	*init_data(void);
 
 // --- Init Helpers --- //
-t_vec3		init_vec(double x, double y, double z);
-t_color		init_color(double r, double g, double b);
+t_vec3	init_vec(double x, double y, double z);
+t_color	init_color(double r, double g, double b);
 
 // --- Parsing --- //
-void		parse_file(char *name, t_data *data);
-void		parse_scene(t_data *data, char **tab);
-void		parse_objects(t_data *data, char **tab);
+void	parse_file(char *name, t_data *data);
+void	parse_scene(t_data *data, char **tab);
+void	parse_objects(t_data *data, char **tab);
 // - Utils - //
-t_color		parse_color(char *str);
-t_vec3		parse_vec(char *str);
+t_color	parse_color(char *str);
+t_vec3	parse_vec(char *str);
 
 // --- Verif Parsing --- //
-int			verif_line(char **tab);
-int			verif_file_name(char *str);
-int			verif_complete(t_is is);
-int			verif_cylinder(char **tab);
-int			verif_sphere(char **tab);
-int			verif_plane(char **tab);
-int			verif_al(char **tab);
-int			verif_light(char **tab);
-int			verif_cam(char **tab);
+int		verif_line(char **tab);
+int		verif_file_name(char *str);
+int		verif_complete(t_is is);
+int		verif_cylinder(char **tab);
+int		verif_sphere(char **tab);
+int		verif_plane(char **tab);
+int		verif_al(char **tab);
+int		verif_light(char **tab);
+int		verif_cam(char **tab);
 // - Utils - //
-int			verif_n_vec(char *str);
-int			verif_rgb(char *str);
-int			verif_fov(char *str);
-int			verif_light_ratio(char *str);
+int		verif_n_vec(char *str);
+int		verif_rgb(char *str);
+int		verif_fov(char *str);
+int		verif_light_ratio(char *str);
 // - Syntax - //
-int			verif_vec_syntax(char *str);
-int			verif_rgb_syntax(char *str);
+int		verif_vec_syntax(char *str);
+int		verif_rgb_syntax(char *str);
 
 // --- Shapes --- //
-t_hit		hit_sphere(t_ray ray, t_sp *sphere);
-t_hit		hit_plane(t_ray ray, t_pl *plane);
-t_hit		hit_cylinder(t_ray ray, t_cy *cylinder);
+t_hit	hit_sphere(t_ray ray, t_sp *sphere);
+t_hit	hit_plane(t_ray ray, t_pl *plane);
+t_hit	hit_cylinder(t_ray ray, t_cy *cylinder);
 
 // --- Vector Utils --- //
-t_vec3		vec_add(t_vec3 a, t_vec3 b);
-t_vec3		vec_sub(t_vec3 a, t_vec3 b);
-t_vec3		vec_normalize(t_vec3 v);
-t_vec3		vec_mult(t_vec3 v, double k);
-t_vec3		vec_negate(t_vec3 vec);
-t_vec3		vec_clamp(t_vec3 vec, double min, double max);
-t_vec3		vec_cross(t_vec3 a, t_vec3 b);
-double		vec_length(t_vec3 v);
-double		vec_dot(t_vec3 a, t_vec3 b);
-double		vec_distance(t_vec3 a, t_vec3 b);
+t_vec3	vec_add(t_vec3 a, t_vec3 b);
+t_vec3	vec_sub(t_vec3 a, t_vec3 b);
+t_vec3	vec_normalize(t_vec3 v);
+t_vec3	vec_mult(t_vec3 v, double k);
+t_vec3	vec_negate(t_vec3 vec);
+t_vec3	vec_clamp(t_vec3 vec, double min, double max);
+t_vec3	vec_cross(t_vec3 a, t_vec3 b);
+double	vec_length(t_vec3 v);
+double	vec_dot(t_vec3 a, t_vec3 b);
+double	vec_distance(t_vec3 a, t_vec3 b);
 
 // --- Color Utils --- //
-t_color		color_mix(t_color color1, t_color color2, double brightness);
-t_color		color_mult(t_color color, double mult);
-void		color_clamp(t_color *color);
-t_color		color_add(t_color color1, t_color color2);
+t_color	color_mix(t_color color1, t_color color2, double brightness);
+t_color	color_mult(t_color color, double mult);
+void	color_clamp(t_color *color);
+t_color	color_add(t_color color1, t_color color2);
 
 // --- Rays --- //
-t_ray		calc_ray_cam(double sx, double sy, t_data *data);
-t_ray		calc_ray(t_vec3 origin, t_vec3	goal);
-t_vec3		calc_up(t_vec3 forward, t_vec3 right);
-t_vec3		calc_right(t_vec3 forward, t_vec3 up);
+t_ray	calc_ray_cam(double sx, double sy, t_data *data);
+t_ray	calc_ray(t_vec3 origin, t_vec3	goal);
+t_vec3	calc_up(t_vec3 forward, t_vec3 right);
+t_vec3	calc_right(t_vec3 forward, t_vec3 up);
 
 // --- Objects ---//
-void		obj_add_back(t_object **lst, t_object *new);
+void	obj_add_back(t_object **lst, t_object *new);
 
 // --- Render --- //
-void		render(t_data *data);
+void	render(t_data *data);
 // - Utils - //
-int			rgb_to_hex(int red, int green, int blue);
-void		put_pixel(t_img *img, int x, int y, int color);
-double		x_to_sx(int x, int FOV);
-double		y_to_sy(int y, int FOV);
+int		rgb_to_hex(int red, int green, int blue);
+void	put_pixel(t_img *img, int x, int y, int color);
+double	x_to_sx(int x, int FOV);
+double	y_to_sy(int y, int FOV);
 
 // --- Controls --- //
-void		set_controls(t_data *data);
+void	set_controls(t_data *data);
 
 // --- Exit --- //
-int			ft_exit(t_data *data);
+int		ft_exit(t_data *data);
 
 // --- Error Handling --- //
-int			print_error(t_parse_error concerned, t_parse_error problem, char *str);
+int		print_error(t_parse_error concerned, t_parse_error problem, char *str);
 
 // --- Random Utils --- //
-int			ft_strlen_until(char *str, char c);
-int			is_double_in_range(double x, double min, double max);
-int			is_int_in_range(int x, int min, int max);
-double		double_clamp(double in, double min, double max);
+int		ft_strlen_until(char *str, char c);
+int		is_double_in_range(double x, double min, double max);
+int		is_int_in_range(int x, int min, int max);
+double	double_clamp(double in, double min, double max);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/07 13:20:07 by anfouger          #+#    #+#             */
-/*   Updated: 2026/05/15 10:39:57 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/05/19 09:18:03 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ double	double_clamp(double in, double min, double max)
 int	ft_strlen_until(char *str, char c)
 {
 	int	i;
-	
+
 	if (!str || !str[0] || !c)
 		return (-1);
 	i = 0;

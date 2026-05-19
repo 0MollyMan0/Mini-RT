@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/05 12:02:00 by anfouger          #+#    #+#             */
-/*   Updated: 2026/05/13 14:58:26 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/05/19 09:06:04 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static void	update_pos(t_vec3 *pos, t_vec3 dir, int sign)
 	}
 }
 
-static void move_cam(int keycode, t_cam *cam)
+static void	move_cam(int keycode, t_cam *cam)
 {
 	if (keycode == 's')
 		update_pos(&cam->pos, cam->forward, -1);

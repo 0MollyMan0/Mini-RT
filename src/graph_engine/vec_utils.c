@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/13 09:22:27 by anfouger          #+#    #+#             */
-/*   Updated: 2026/05/13 14:26:29 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/05/19 09:07:28 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,12 +42,12 @@ t_vec3	vec_mult(t_vec3 v, double k)
 	return (result);
 }
 
-double vec_length(t_vec3 v)
+double	vec_length(t_vec3 v)
 {
 	return (sqrt(
-		v.x * v.x +
-		v.y * v.y +
-		v.z * v.z));
+			v.x * v.x
+			+ v.y * v.y
+			+ v.z * v.z));
 }
 
 t_vec3	vec_normalize(t_vec3 v)

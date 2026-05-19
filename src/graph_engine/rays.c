@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 10:49:13 by anfouger          #+#    #+#             */
-/*   Updated: 2026/05/18 12:02:46 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/05/19 09:05:23 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,12 @@ t_ray	calc_ray_cam(double sx, double sy, t_data *data)
 	ray.origin = data->scene.cam.pos;
 	data->scene.cam.forward = vec_normalize(data->scene.cam.n_orientation);
 	data->scene.cam.up = init_vec(0, 1, 0);
-	data->scene.cam.right = calc_right(data->scene.cam.forward, 
-		data->scene.cam.up);
-	data->scene.cam.up = calc_up(data->scene.cam.forward, 
-		data->scene.cam.right);
+	data->scene.cam.right = calc_right(data->scene.cam.forward,
+			data->scene.cam.up);
+	data->scene.cam.up = calc_up(data->scene.cam.forward,
+			data->scene.cam.right);
 	ray.dir = vec_normalize(vec_add(data->scene.cam.forward, vec_add(vec_mult
-		(data->scene.cam.right, sx), vec_mult(data->scene.cam.up, sy))));
+					(data->scene.cam.right, sx),
+					vec_mult(data->scene.cam.up, sy))));
 	return (ray);
 }

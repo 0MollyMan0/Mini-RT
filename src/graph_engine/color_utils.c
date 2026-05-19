@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/15 10:53:55 by anfouger          #+#    #+#             */
-/*   Updated: 2026/05/18 10:04:34 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/05/19 09:10:19 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,22 +27,22 @@ t_color	color_mult(t_color color, double mult)
 {
 	t_color	result;
 
-	result.r = color.r *= mult;
-	result.g = color.g *= mult;
-	result.b = color.b *= mult;
-	result.hex = color.hex = rgb_to_hex((int)color.r, (int)color.g, (int)color.b);
+	result.r = color.r * mult;
+	result.g = color.g * mult;
+	result.b = color.b * mult;
+	result.hex = rgb_to_hex((int)color.r, (int)color.g, (int)color.b);
 	color_clamp(&result);
-	return(result);
+	return (result);
 }
 
 static t_color	color_div(t_color color, double div)
 {
 	t_color	result;
 
-	result.r = color.r /= div;
-	result.g = color.g /= div;
-	result.b = color.b /= div;
-	result.hex = color.hex = rgb_to_hex((int)color.r, (int)color.g, (int)color.b);
+	result.r = color.r / div;
+	result.g = color.g / div;
+	result.b = color.b / div;
+	result.hex = rgb_to_hex((int)color.r, (int)color.g, (int)color.b);
 	color_clamp(&result);
 	return (result);
 }

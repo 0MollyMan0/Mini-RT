@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/07 16:10:41 by anfouger          #+#    #+#             */
-/*   Updated: 2026/05/12 10:22:42 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/05/19 09:17:37 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,72 +14,54 @@
 
 static void	print_error_concerned(t_parse_error concerned)
 {
-	switch (concerned)
-	{
-	case ERR_SPHERE:
+	if (concerned == ERR_SPHERE)
 		ft_putstr_fd("Sphere problem: ", 2);
-		break;
-	case ERR_PLANE:
+	else if (concerned == ERR_PLANE)
 		ft_putstr_fd("Plane problem: ", 2);
-		break;
-	case ERR_CYLINDER:
+	else if (concerned == ERR_CYLINDER)
 		ft_putstr_fd("Cylinder problem: ", 2);
-		break;
-	case ERR_AMBIENT_LIGHT:
+	else if (concerned == ERR_AMBIENT_LIGHT)
 		ft_putstr_fd("Ambient Light problem: ", 2);
-		break;
-	case ERR_LIGHT:
+	else if (concerned == ERR_LIGHT)
 		ft_putstr_fd("Light problem: ", 2);
-		break;
-	case ERR_CAM:
+	else if (concerned == ERR_CAM)
 		ft_putstr_fd("Camera problem: ", 2);
-		break;
-	default:
-		break;
-	}
 }
 
 static void	print_error_problem_2(t_parse_error problem)
 {
-	switch (problem)
-	{
-	case ERR_NONE:
+	if (problem == ERR_NONE)
 		ft_putstr_fd("Not enougth\n", 2);
-		break;
-	case ERR_TOO_MUCH:
+	else if (problem == ERR_TOO_MUCH)
 		ft_putstr_fd("Too much\n", 2);
-		break;
-	default:
-		break;
-	}
 }
 
 static void	print_error_problem(t_parse_error problem)
 {
 	print_error_problem_2(problem);
-	switch (problem)
+	if (problem == ERR_RGB)
 	{
-	case ERR_RGB:
 		ft_putstr_fd("Color has to be in the range "
 			"\e[0;32m[0,255]\n", 2);
-		break;
-	case ERR_FOV:
+	}
+	else if (problem == ERR_FOV)
+	{
 		ft_putstr_fd("FOV has to be in the range "
 			"\e[0;32m[0,180]\n", 2);
-		break;
-	case ERR_N_VECTOR:
+	}
+	else if (problem == ERR_N_VECTOR)
+	{
 		ft_putstr_fd("3D normalized orientation vector "
 			"has to be in the range \e[0;32m[-1,1]\n", 2);
-		break;
-	case ERR_LIGHT_RATIO:
+	}
+	else if (problem == ERR_LIGHT_RATIO)
+	{
 		ft_putstr_fd("Light ratio has to be in the range"
 			" \e[0;32m[0.0,1.0]\n", 2);
-		break;
-	case ERR_SYNTAX:
+	}
+	else if (problem == ERR_SYNTAX)
+	{
 		ft_putstr_fd("Syntax problem\n", 2);
-		break;
-	default:
-		break;
 	}
 }
 

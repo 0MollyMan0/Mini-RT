@@ -6,22 +6,22 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/13 09:48:57 by anfouger          #+#    #+#             */
-/*   Updated: 2026/05/13 14:26:24 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/05/19 09:08:29 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <minirt.h>
 
-double vec_dot(t_vec3 a, t_vec3 b)
+double	vec_dot(t_vec3 a, t_vec3 b)
 {
 	return (
-		a.x * b.x +
-		a.y * b.y +
-		a.z * b.z
+		a.x * b.x
+		+ a.y * b.y
+		+ a.z * b.z
 	);
 }
 
-t_vec3 vec_cross(t_vec3 a, t_vec3 b)
+t_vec3	vec_cross(t_vec3 a, t_vec3 b)
 {
 	return ((t_vec3){
 		a.y * b.z - a.z * b.y,
@@ -30,7 +30,7 @@ t_vec3 vec_cross(t_vec3 a, t_vec3 b)
 	});
 }
 
-double vec_distance(t_vec3 a, t_vec3 b)
+double	vec_distance(t_vec3 a, t_vec3 b)
 {
 	return (vec_length(vec_sub(b, a)));
 }
@@ -42,7 +42,7 @@ t_vec3	vec_negate(t_vec3 vec)
 	result.x = vec.x * -1;
 	result.y = vec.y * -1;
 	result.z = vec.z * -1;
-	return(result);
+	return (result);
 }
 
 t_vec3	vec_clamp(t_vec3 vec, double min, double max)
