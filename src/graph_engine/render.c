@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/05 11:47:45 by anfouger          #+#    #+#             */
-/*   Updated: 2026/05/18 13:24:33 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/05/19 08:56:18 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,20 +39,31 @@ static t_hit	who_hit(t_ray ray, t_data* data, t_object *obj)
 	return (hit);
 }
 
-static void	calc_light_impact(t_hit *hit, t_light light, t_data *data)
-{	
+static int	calc_shadow(t_hit *hit, t_light light, t_data *data)
+{
 	t_ray	shadow_ray;
 	t_hit	shadow_hit;
+	t_vec3	shadow_origin;
 
-	shadow_ray = calc_ray(hit->point, light.pos);
+	shadow_origin = vec_add(hit->point, vec_mult(hit->normal, 0.0001));
+	shadow_ray = calc_ray(shadow_origin, light.pos);
 	shadow_hit = who_hit(shadow_ray, data, data->objects);
-	if (shadow_hit.is_hit)
+	if (shadow_hit.is_hit
+		&& shadow_hit.dst < vec_length(vec_sub(light.pos, hit->point)))
+		return (1);
+	else
+		return (0);
+}
+
+static void	calc_light_impact(t_hit *hit, t_light light, t_data *data)
+{	
+	if (calc_shadow(hit, light, data))
+		hit->diffuse = 0;
+	else
 	{
-		hit->col_final = init_color(0, 0, 0);
-		return ;
+		hit->light_dir = vec_normalize(vec_sub(light.pos, hit->point));
+		hit->diffuse = double_clamp(vec_dot(hit->normal, hit->light_dir), 0, 1);	
 	}
-	hit->light_dir = vec_normalize(vec_sub(light.pos, hit->point));
-	hit->diffuse = double_clamp(vec_dot(hit->normal, hit->light_dir), 0, 1);
 	hit->col_final = color_mix(hit->col_obj, light.color, light.brightness);
 	hit->col_final = color_mult(hit->col_final, hit->diffuse);
 }
