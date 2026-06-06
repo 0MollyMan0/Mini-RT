@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/13 08:48:00 by anfouger          #+#    #+#             */
-/*   Updated: 2026/06/06 09:36:53 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/06/06 09:54:00 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,15 +29,13 @@ static double calc_dst(t_ray ray, t_pl *plane)
 t_hit	hit_plane(t_ray ray, t_pl *plane)
 {
 	t_hit	hit;
-	double	dst;
 
-	dst = calc_dst(ray, plane);
-	if (dst <= 0) 
+	hit.dst = calc_dst(ray, plane);
+	if (hit.dst <= 0) 
 	{
 		hit.is_hit = 0;
 		return (hit);
 	}
-	hit.dst = dst;
 	hit.col_obj = plane->color;
 	hit.point = vec_add(ray.origin, vec_mult(ray.dir, hit.dst));
 	hit.normal = plane->n_vec;
