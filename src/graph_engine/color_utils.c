@@ -6,13 +6,13 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/15 10:53:55 by anfouger          #+#    #+#             */
-/*   Updated: 2026/05/19 09:10:19 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/06/03 11:03:48 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <minirt.h>
 
-static t_color	color_inter_mult(t_color color1, t_color color2)
+static t_color	color_modulation(t_color color1, t_color color2)
 {
 	t_color	result;
 
@@ -30,7 +30,6 @@ t_color	color_mult(t_color color, double mult)
 	result.r = color.r * mult;
 	result.g = color.g * mult;
 	result.b = color.b * mult;
-	result.hex = rgb_to_hex((int)color.r, (int)color.g, (int)color.b);
 	color_clamp(&result);
 	return (result);
 }
@@ -42,7 +41,6 @@ static t_color	color_div(t_color color, double div)
 	result.r = color.r / div;
 	result.g = color.g / div;
 	result.b = color.b / div;
-	result.hex = rgb_to_hex((int)color.r, (int)color.g, (int)color.b);
 	color_clamp(&result);
 	return (result);
 }
@@ -61,7 +59,7 @@ t_color	color_mix(t_color color1, t_color color2, double brightness)
 
 	color1 = color_div(color1, 255);
 	color2 = color_div(color2, 255);
-	result = color_inter_mult(color1, color2);
+	result = color_modulation(color1, color2);
 	result = color_mult(result, brightness);
 	result = color_mult(result, 255);
 	color_clamp(&result);
