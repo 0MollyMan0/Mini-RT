@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/13 08:47:45 by anfouger          #+#    #+#             */
-/*   Updated: 2026/06/11 09:59:50 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/06/11 10:10:17 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ double	is_hit_cylinder(t_ray ray, t_cy *cylinder)
 t_hit	hit_cylinder(t_ray ray, t_cy *cylinder)
 {
 	t_hit	hit;
+	double	height_pos;
 
 	hit.dst = is_hit_cylinder(ray, cylinder);
 	if (hit.dst <= 0.001)
@@ -76,6 +77,13 @@ t_hit	hit_cylinder(t_ray ray, t_cy *cylinder)
 		return (hit);
 	}
 	hit.point = vec_add(ray.origin, vec_mult(ray.dir, hit.dst));
-	hit.col_obj = init_color(0, 0, 0);
+	height_pos = vec_dot(vec_sub(hit.point, cylinder->pos), cylinder->n_vec);
+	if (height_pos < -cylinder->height/2 || height_pos > cylinder->height/2)
+	{
+		hit.is_hit = 0;
+		return (hit);
+	}
+	hit.col_obj = cylinder->color;
+	hit.is_hit = 1;
 	return (hit);
 }
