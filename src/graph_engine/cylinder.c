@@ -6,44 +6,13 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/13 08:47:45 by anfouger          #+#    #+#             */
-/*   Updated: 2026/06/11 10:23:57 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/06/11 10:50:58 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <minirt.h>
 
-static double	calc_delta(double a, double b, t_ray ray, t_cy *cy)
-{
-	double	c;
-	t_vec3	m;
-	double	r;
-
-	r = cy->dia * 0.5;
-	m = vec_sub(ray.origin, cy->pos);
-	c = vec_dot(m, m) - pow(vec_dot(m, cy->n_vec), 2) - r * r;
-	return (b * b - 4 * a * c);
-}
-
-static double	calc_b(t_ray ray, t_cy *cy)
-{
-	t_vec3	m;
-	double	b;
-
-	m = vec_sub(ray.origin, cy->pos);
-	b = 2 * ((vec_dot(m, ray.dir)) -
-		vec_dot(m, cy->n_vec) * vec_dot(ray.dir, cy->n_vec)); 
-	return (b);
-}
-
-static double	calc_a(t_ray ray, t_cy *cy)
-{
-	double	a;
-
-	a = vec_dot(ray.dir, ray.dir) - pow(vec_dot(ray.dir, cy->n_vec), 2);
-	return (a);
-}
-
-static double	is_hit_cylinder(t_ray ray, t_cy *cylinder)
+double	calc_t_cy(t_ray ray, t_cy *cylinder)
 {
 	double	delta;
 	double	t1;
@@ -65,25 +34,36 @@ static double	is_hit_cylinder(t_ray ray, t_cy *cylinder)
 	return (-1);
 }
 
-t_hit	hit_cylinder(t_ray ray, t_cy *cylinder)
+static t_hit	is_hit_cylinder(t_ray ray, t_cy *cylinder)
 {
 	t_hit	hit;
-	double	height_pos;
+	double	p_height;
 
-	hit.dst = is_hit_cylinder(ray, cylinder);
+	hit.dst = calc_t_cy(ray, cylinder);
 	if (hit.dst <= 0.001)
 	{
 		hit.is_hit = 0;
 		return (hit);
 	}
 	hit.point = vec_add(ray.origin, vec_mult(ray.dir, hit.dst));
-	height_pos = vec_dot(vec_sub(hit.point, cylinder->pos), cylinder->n_vec);
-	if (height_pos < -cylinder->height/2 || height_pos > cylinder->height/2)
+	p_height = vec_dot(vec_sub(hit.point, cylinder->pos), cylinder->n_vec);
+	if (p_height >= -cylinder->height / 2 &&
+		p_height <= cylinder->height / 2)
 	{
-		hit.is_hit = 0;
+		hit.is_hit = 1;
 		return (hit);
 	}
+	hit.is_hit = 0;
+	return (hit);
+}
+
+t_hit	hit_cylinder(t_ray ray, t_cy *cylinder)
+{
+	t_hit	hit;
+
+	hit = is_hit_cylinder(ray, cylinder);
+	if (!hit.is_hit)
+		return (hit);
 	hit.col_obj = cylinder->color;
-	hit.is_hit = 1;
 	return (hit);
 }
