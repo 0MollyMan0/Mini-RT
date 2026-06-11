@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 14:04:04 by anfouger          #+#    #+#             */
-/*   Updated: 2026/06/11 13:53:55 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/06/11 15:35:21 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -232,6 +232,7 @@ t_hit	hit_plane(t_ray ray, t_pl *plane);
 t_hit	hit_cylinder(t_ray ray, t_cy *cylinder);
 // - Utils - //
 double	calc_t_cy(t_ray ray, t_cy *cylinder);
+double	calc_t_disk(t_ray ray, t_vec3 point, t_vec3 normal);
 
 // --- Vector Utils --- //
 t_vec3	vec_add(t_vec3 a, t_vec3 b);

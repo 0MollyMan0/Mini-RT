@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 10:31:41 by anfouger          #+#    #+#             */
-/*   Updated: 2026/06/11 13:53:07 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/06/11 15:35:26 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,4 +63,18 @@ double	calc_t_cy(t_ray ray, t_cy *cylinder)
 	if (t2 > 0.001)
 		return (t2);
 	return (-1);
+}
+
+double	calc_t_disk(t_ray ray, t_vec3 point, t_vec3 normal)
+{
+	double a;
+	double b;
+	double dst;
+
+	a = vec_dot(vec_sub(ray.origin, point), normal);
+	b = vec_dot(ray.dir, normal);
+	if (b == 0)
+		return (0);
+	dst = -a/b;
+	return (dst);
 }
