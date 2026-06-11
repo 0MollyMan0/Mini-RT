@@ -6,13 +6,13 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/13 08:47:45 by anfouger          #+#    #+#             */
-/*   Updated: 2026/06/11 10:10:17 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/06/11 10:23:57 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <minirt.h>
 
-double	calc_delta_cy(double a, double b, t_ray ray, t_cy *cy)
+static double	calc_delta(double a, double b, t_ray ray, t_cy *cy)
 {
 	double	c;
 	t_vec3	m;
@@ -20,11 +20,11 @@ double	calc_delta_cy(double a, double b, t_ray ray, t_cy *cy)
 
 	r = cy->dia * 0.5;
 	m = vec_sub(ray.origin, cy->pos);
-	c = vec_dot(m, m) - pow(vec_dot(m, cy->n_vec), 2) - pow(r, 2);
-	return (pow(b, 2) - 4 * a * c);
+	c = vec_dot(m, m) - pow(vec_dot(m, cy->n_vec), 2) - r * r;
+	return (b * b - 4 * a * c);
 }
 
-double	calc_b_cy(t_ray ray, t_cy *cy)
+static double	calc_b(t_ray ray, t_cy *cy)
 {
 	t_vec3	m;
 	double	b;
@@ -35,7 +35,7 @@ double	calc_b_cy(t_ray ray, t_cy *cy)
 	return (b);
 }
 
-double	calc_a_cy(t_ray ray, t_cy *cy)
+static double	calc_a(t_ray ray, t_cy *cy)
 {
 	double	a;
 
@@ -43,7 +43,7 @@ double	calc_a_cy(t_ray ray, t_cy *cy)
 	return (a);
 }
 
-double	is_hit_cylinder(t_ray ray, t_cy *cylinder)
+static double	is_hit_cylinder(t_ray ray, t_cy *cylinder)
 {
 	double	delta;
 	double	t1;
@@ -54,7 +54,7 @@ double	is_hit_cylinder(t_ray ray, t_cy *cylinder)
 	a = calc_a_cy(ray, cylinder);
 	b = calc_b_cy(ray, cylinder);
 	delta = calc_delta(a, b, ray, cylinder);
-	if (delta < 0)
+	if (delta < 0 || a == 0)
 		return (-1);
 	t1 = (-b - sqrt(delta)) / (2 * a);
 	t2 = (-b + sqrt(delta)) / (2 * a);
