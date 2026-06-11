@@ -6,20 +6,19 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/05 11:47:45 by anfouger          #+#    #+#             */
-/*   Updated: 2026/05/19 09:03:53 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/06/11 14:02:27 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <minirt.h>
 
 /*Tells who hit the ray*/
-static t_hit	who_hit(t_ray ray, t_data *data, t_object *obj)
+static t_hit	who_hit(t_ray ray, t_object *obj)
 {
 	t_object	*ptr;
 	t_hit		hit;
 	t_hit		tmp;
 
-	(void)data;
 	ptr = obj;
 	hit.dst = INFINITY;
 	hit.is_hit = 0;
@@ -47,7 +46,7 @@ static int	calc_shadow(t_hit *hit, t_light light, t_data *data)
 
 	shadow_origin = vec_add(hit->point, vec_mult(hit->normal, 0.0001));
 	shadow_ray = calc_ray(shadow_origin, light.pos);
-	shadow_hit = who_hit(shadow_ray, data, data->objects);
+	shadow_hit = who_hit(shadow_ray, data->objects);
 	if (shadow_hit.is_hit
 		&& shadow_hit.dst < vec_length(vec_sub(light.pos, hit->point)))
 		return (1);
@@ -73,7 +72,7 @@ static int	get_color(t_ray ray, t_data *data)
 {
 	t_hit	hit;
 
-	hit = who_hit(ray, data, data->objects); // tells if ray it an obj
+	hit = who_hit(ray, data->objects); // tells if ray it an obj
 	if (!hit.is_hit) // if no obj hit return background color
 		return (hit.col_obj.hex);
 

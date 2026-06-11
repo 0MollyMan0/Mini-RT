@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 14:04:04 by anfouger          #+#    #+#             */
-/*   Updated: 2026/05/19 08:59:34 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/06/11 13:53:55 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -230,6 +230,8 @@ int		verif_rgb_syntax(char *str);
 t_hit	hit_sphere(t_ray ray, t_sp *sphere);
 t_hit	hit_plane(t_ray ray, t_pl *plane);
 t_hit	hit_cylinder(t_ray ray, t_cy *cylinder);
+// - Utils - //
+double	calc_t_cy(t_ray ray, t_cy *cylinder);
 
 // --- Vector Utils --- //
 t_vec3	vec_add(t_vec3 a, t_vec3 b);
