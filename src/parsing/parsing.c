@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 10:52:04 by anfouger          #+#    #+#             */
-/*   Updated: 2026/06/03 09:54:44 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/06/13 12:55:22 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,6 @@ void	parse_file(char *name, t_data *data)
 		data->parsing.line = get_next_line(data->parsing.fd);
 		if (!data->parsing.line)
 			break ;
-		if (data->parsing.line[0] == '#') // FOR TEST PURPOSE
-			continue;
 		if (!is_empty(data->parsing.line))
 			process_line(data);
 		else
