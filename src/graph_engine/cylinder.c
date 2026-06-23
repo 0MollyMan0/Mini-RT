@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/13 08:47:45 by anfouger          #+#    #+#             */
-/*   Updated: 2026/06/12 14:49:28 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/06/23 17:58:20 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@ static t_hit	is_hit_side(t_ray ray, t_cy *cy)
 		hit.is_hit = 0;
 	else
 	{
-		hit.normal = vec_normalize(vec_sub(hit.point, 
-			vec_add(cy->pos, vec_mult(cy->n_vec, vec_dot(
-			vec_sub(hit.point, cy->pos), cy->n_vec)))));
+		hit.normal = vec_normalize(vec_sub(hit.point,
+					vec_add(cy->pos, vec_mult(cy->n_vec, vec_dot(
+								vec_sub(hit.point, cy->pos), cy->n_vec)))));
 		hit.col_obj = cy->color;
 		hit.is_hit = 1;
 	}
@@ -43,9 +43,9 @@ static t_hit	is_hit_top(t_ray ray, t_cy *cy)
 {
 	t_hit	hit;
 	t_vec3	top_center;
-	
-	top_center = vec_add(cy->pos, 
-		vec_mult(cy->n_vec, cy->height * 0.5));
+
+	top_center = vec_add(cy->pos,
+			vec_mult(cy->n_vec, cy->height * 0.5));
 	hit.dst = calc_t_disk(ray, top_center, cy->n_vec);
 	if (hit.dst <= 0.001)
 	{
@@ -72,7 +72,7 @@ static t_hit	is_hit_bottom(t_ray ray, t_cy *cy)
 	t_vec3	bottom_center;
 
 	bottom_center = vec_sub(cy->pos,
-		vec_mult(cy->n_vec, cy->height * 0.5));
+			vec_mult(cy->n_vec, cy->height * 0.5));
 	hit.dst = calc_t_disk(ray, bottom_center, vec_mult(cy->n_vec, -1));
 	if (hit.dst <= 0.001)
 	{
@@ -80,7 +80,7 @@ static t_hit	is_hit_bottom(t_ray ray, t_cy *cy)
 		hit.dst = -1;
 		return (hit);
 	}
-	hit.point = vec_add(ray.origin,vec_mult(ray.dir, hit.dst));
+	hit.point = vec_add(ray.origin, vec_mult(ray.dir, hit.dst));
 	if (vec_length(vec_sub(hit.point, bottom_center)) <= cy->dia / 2)
 	{
 		hit.is_hit = 1;
@@ -95,7 +95,7 @@ static t_hit	is_hit_bottom(t_ray ray, t_cy *cy)
 
 t_hit	closest_hit(t_hit hit_side, t_hit hit_bottom, t_hit hit_top)
 {
-	t_hit hit;
+	t_hit	hit;
 
 	hit.dst = -1;
 	hit.is_hit = 0;

@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/07 13:14:46 by anfouger          #+#    #+#             */
-/*   Updated: 2026/05/07 13:52:08 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/06/23 18:00:48 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,5 @@ char	*ft_strndup(char *str, int n)
 		i++;
 	}
 	new[i] = '\0';
-	return (new);	
+	return (new);
 }

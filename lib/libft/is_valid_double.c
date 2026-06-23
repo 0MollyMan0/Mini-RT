@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/10 14:38:34 by anfouger          #+#    #+#             */
-/*   Updated: 2026/05/10 15:24:01 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/06/23 18:01:51 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,15 +26,15 @@ static int	first_part(char *str, int *i)
 	while (ft_isdigit(str[*i]))
 	{
 		count_digits++;
-		(*i)++;	
+		(*i)++;
 	}
 	if (count_digits > 20)
 		return (0);
-	return (1);	
+	return (1);
 }
 
 static int	second_part(char *str, int *i)
-{	
+{
 	int		count_digits;
 
 	count_digits = 0;

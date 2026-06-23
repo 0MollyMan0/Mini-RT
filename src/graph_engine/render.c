@@ -6,13 +6,12 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/05 11:47:45 by anfouger          #+#    #+#             */
-/*   Updated: 2026/06/12 13:40:58 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/06/23 17:53:20 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <minirt.h>
 
-/*Tells who hit the ray*/
 static t_hit	who_hit(t_ray ray, t_object *obj)
 {
 	t_object	*ptr;
@@ -67,24 +66,20 @@ static void	calc_light_impact(t_hit *hit, t_light light, t_data *data)
 	hit->col_final = color_mult(hit->col_final, hit->diffuse);
 }
 
-/*Give the color for each pixel*/
 static int	get_color(t_ray ray, t_data *data)
 {
 	t_hit	hit;
 
-	hit = who_hit(ray, data->objects); // tells if ray it an obj
-	if (!hit.is_hit) // if no obj hit return background color
+	hit = who_hit(ray, data->objects);
+	if (!hit.is_hit)
 		return (hit.col_obj.hex);
-
-	hit.col_ambient = color_mix(hit.col_obj, // calc impact of ambient light
-		data->scene.al.color, data->scene.al.brightness);
-
-	calc_light_impact(&hit, data->scene.light, data); // calc impact of direct light
+	hit.col_ambient = color_mix(hit.col_obj, data->scene.al.color,
+			data->scene.al.brightness);
+	calc_light_impact(&hit, data->scene.light, data);
 	hit.col_final = color_add(hit.col_final, hit.col_ambient);
 	return (hit.col_final.hex);
 }
 
-/*main loop to render*/
 void	render(t_data *data)
 {
 	int			x;

@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 10:31:41 by anfouger          #+#    #+#             */
-/*   Updated: 2026/06/11 15:35:26 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/06/23 17:59:46 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ static double	calc_b(t_ray ray, t_cy *cy)
 	double	b;
 
 	m = vec_sub(ray.origin, cy->pos);
-	b = 2 * ((vec_dot(m, ray.dir)) -
-		vec_dot(m, cy->n_vec) * vec_dot(ray.dir, cy->n_vec)); 
+	b = 2 * ((vec_dot(m, ray.dir))
+			- vec_dot(m, cy->n_vec) * vec_dot(ray.dir, cy->n_vec));
 	return (b);
 }
 
@@ -67,14 +67,14 @@ double	calc_t_cy(t_ray ray, t_cy *cylinder)
 
 double	calc_t_disk(t_ray ray, t_vec3 point, t_vec3 normal)
 {
-	double a;
-	double b;
-	double dst;
+	double	a;
+	double	b;
+	double	dst;
 
 	a = vec_dot(vec_sub(ray.origin, point), normal);
 	b = vec_dot(ray.dir, normal);
 	if (b == 0)
 		return (0);
-	dst = -a/b;
+	dst = -a / b;
 	return (dst);
 }
