@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/05 12:02:00 by anfouger          #+#    #+#             */
-/*   Updated: 2026/05/19 09:06:04 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/07/08 10:10:03 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,10 @@ static int	ft_key_pressed(int keycode, t_data *data)
 	else if (keycode == 'a' || keycode == 'd' || keycode == 's'
 		|| keycode == 'w' || keycode == 'e' || keycode == 'q')
 		move_cam(keycode, &data->scene.cam);
+	else if (keycode == 'o' && data->pixelization > 0)
+		--data->pixelization;
+	else if (keycode == 'p' && data->pixelization <= 10)
+		++data->pixelization;
 	render(data);
 	return (0);
 }

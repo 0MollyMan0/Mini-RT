@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/05 11:47:45 by anfouger          #+#    #+#             */
-/*   Updated: 2026/06/23 17:53:20 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/07/08 10:04:17 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ static void	calc_light_impact(t_hit *hit, t_light light, t_data *data)
 	hit->col_final = color_mult(hit->col_final, hit->diffuse);
 }
 
-static int	get_color(t_ray ray, t_data *data)
+int	get_color(t_ray ray, t_data *data)
 {
 	t_hit	hit;
 
@@ -87,6 +87,11 @@ void	render(t_data *data)
 	t_ray		ray;
 
 	y = 0;
+	if (data->pixelization)
+	{
+		render_pixelate(data);
+		return ;
+	}
 	while (y < WIN_HEIGHT)
 	{
 		x = 0;

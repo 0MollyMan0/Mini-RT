@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/05 11:37:51 by anfouger          #+#    #+#             */
-/*   Updated: 2026/05/19 08:29:40 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/07/08 09:34:13 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,6 @@ int inline	rgb_to_hex(int red, int green, int blue)
 	return ((red << 16) | (green << 8) | blue);
 }
 
-/* Converts the x-coordinate of a pixel on the screen to
-the x-coordinate of a normalized mathematical plane*/
 double	x_to_sx(int x, int FOV)
 {
 	double	nx;
@@ -43,8 +41,6 @@ double	x_to_sx(int x, int FOV)
 	return (sx);
 }
 
-/* Converts the y-coordinate of a pixel on the screen to
-the y-coordinate of a normalized mathematical plane*/
 double	y_to_sy(int y, int FOV)
 {
 	double	ny;
@@ -56,4 +52,24 @@ double	y_to_sy(int y, int FOV)
 	fov_rad = (FOV * M_PI) / 180.0;
 	sy *= tan(fov_rad / 2.0);
 	return (sy);
+}
+
+void	fill_block(t_data *data, int x, int y, int color)
+{
+	int	yy;
+	int	xx;
+	int block;
+
+	block = data->pixelization + 1;
+	yy = y;
+	while (yy < y + block && yy < WIN_HEIGHT)
+	{
+		xx = x;
+		while (xx < x + block && xx < WIN_WIDTH)
+		{
+			put_pixel(data->mlx->img, xx, yy, color);
+			xx++;
+		}
+		yy++;
+	}
 }

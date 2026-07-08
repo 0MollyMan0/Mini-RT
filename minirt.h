@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 14:04:04 by anfouger          #+#    #+#             */
-/*   Updated: 2026/07/08 08:15:20 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/07/08 10:04:45 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -190,6 +190,7 @@ typedef struct s_data
 	t_object	*objects;
 	t_is		is;
 	t_parsing	parsing;
+	unsigned	pixelization;
 }				t_data;
 
 // --- Init --- //
@@ -264,11 +265,14 @@ void	obj_add_back(t_object **lst, t_object *new);
 
 // --- Render --- //
 void	render(t_data *data);
+void	render_pixelate(t_data *data);
+int		get_color(t_ray ray, t_data *data);
 // - Utils - //
 int		rgb_to_hex(int red, int green, int blue);
 void	put_pixel(t_img *img, int x, int y, int color);
 double	x_to_sx(int x, int FOV);
 double	y_to_sy(int y, int FOV);
+void	fill_block(t_data *data, int x, int y, int color);
 
 // --- Controls --- //
 void	set_controls(t_data *data);

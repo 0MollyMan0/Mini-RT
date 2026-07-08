@@ -71,6 +71,7 @@ SRC = $(SRC_DIR)/main.c \
 		$(GRAPH_DIR)/rays.c \
 		$(GRAPH_DIR)/render_utils.c \
 		$(GRAPH_DIR)/render.c \
+		$(GRAPH_DIR)/render_pixel.c \
 		$(GRAPH_DIR)/sphere.c \
 		$(GRAPH_DIR)/cylinder.c \
 		$(GRAPH_DIR)/cylinder_utils.c \
