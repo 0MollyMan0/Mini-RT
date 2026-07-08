@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 10:52:04 by anfouger          #+#    #+#             */
-/*   Updated: 2026/07/08 08:17:27 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/07/08 08:27:38 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,11 @@ static void	process_line(t_data *data)
 void	parse_file(char *name, t_data *data)
 {
 	data->parsing.fd = open(name, O_RDONLY);
-	if (data->parsing.fd < 0 || !verif_file_name(name))
+	if (data->parsing.fd < 0)
 		ft_exit(data);
 	data->is.fd_open = 1;
+	if (!verif_file_name(name))
+		ft_exit(data);
 	data->parsing.line = " ";
 	while (data->parsing.line)
 	{
