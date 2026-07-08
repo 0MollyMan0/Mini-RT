@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/10 08:59:16 by anfouger          #+#    #+#             */
-/*   Updated: 2026/05/12 14:20:32 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/07/08 08:22:08 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,8 @@ int	verif_fov(char *str)
 	int	i;
 
 	i = 0;
+	if (!str)
+		return (0);
 	while (str[i])
 	{
 		if (!ft_isdigit(str[i]))
