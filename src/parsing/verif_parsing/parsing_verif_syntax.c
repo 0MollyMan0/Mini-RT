@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/10 13:55:24 by anfouger          #+#    #+#             */
-/*   Updated: 2026/07/08 07:54:31 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/07/08 08:31:19 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int	verif_vec_syntax(char *str)
 	if (str_tab_len(tab) > 3)
 	{
 		free_str_tab(tab);
-		return (0);	
+		return (0);
 	}
 	while (tab[i])
 	{

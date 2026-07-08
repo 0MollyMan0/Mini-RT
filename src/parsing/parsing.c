@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 10:52:04 by anfouger          #+#    #+#             */
-/*   Updated: 2026/07/08 08:27:38 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/07/08 08:30:51 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	parse_file(char *name, t_data *data)
 		if (!is_empty(data->parsing.line))
 		{
 			process_line(data);
-			free(data->parsing.line);	
+			free(data->parsing.line);
 		}
 		else
 			free(data->parsing.line);
