@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/08 13:43:24 by anfouger          #+#    #+#             */
-/*   Updated: 2026/07/08 14:24:01 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/07/08 14:40:20 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,17 +28,17 @@ static t_vec3	rotate_vec(t_vec3 v, t_vec3 axis, double angle)
 void	rotate_camera_yaw(t_cam *cam, double angle)
 {
 	cam->forward = rotate_vec(cam->forward, cam->up, angle);
-	cam->right   = rotate_vec(cam->right,   cam->up, angle);
+	cam->right = rotate_vec(cam->right, cam->up, angle);
 	cam->forward = vec_normalize(cam->forward);
-	cam->right   = vec_normalize(cam->right);
-	cam->up      = vec_normalize(cam->up);
+	cam->right = vec_normalize(cam->right);
+	cam->up = vec_normalize(cam->up);
 }
 
 void	rotate_camera_pitch(t_cam *cam, double angle)
 {
 	cam->forward = rotate_vec(cam->forward, cam->right, angle);
-	cam->up      = rotate_vec(cam->up,      cam->right, angle);
+	cam->up = rotate_vec(cam->up, cam->right, angle);
 	cam->forward = vec_normalize(cam->forward);
-	cam->right   = vec_normalize(cam->right);
-	cam->up      = vec_normalize(cam->up);
+	cam->right = vec_normalize(cam->right);
+	cam->up = vec_normalize(cam->up);
 }

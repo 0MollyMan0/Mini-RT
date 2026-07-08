@@ -6,10 +6,9 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/08 13:20:36 by anfouger          #+#    #+#             */
-/*   Updated: 2026/07/08 13:21:26 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/07/08 14:56:45 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #ifndef STRUCT_H
 # define STRUCT_H
@@ -171,12 +170,12 @@ typedef struct s_parsing
 
 typedef struct s_data
 {
-	t_mlx		*mlx;
-	t_scene		scene;
-	t_object	*objects;
-	t_is		is;
-	t_parsing	parsing;
-	unsigned	pixelization;
+	t_mlx			*mlx;
+	t_scene			scene;
+	t_object		*objects;
+	t_is			is;
+	t_parsing		parsing;
+	unsigned int	pixelization;
 }				t_data;
 
 #endif

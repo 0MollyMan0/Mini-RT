@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/05 11:37:51 by anfouger          #+#    #+#             */
-/*   Updated: 2026/07/08 09:34:13 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/07/08 14:39:29 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	fill_block(t_data *data, int x, int y, int color)
 {
 	int	yy;
 	int	xx;
-	int block;
+	int	block;
 
 	block = data->pixelization + 1;
 	yy = y;
