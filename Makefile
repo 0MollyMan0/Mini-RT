@@ -16,6 +16,9 @@ SRC_DIR    = src
 GRAPH_DIR  = $(SRC_DIR)/graph_engine
 RANDOM_DIR  = $(SRC_DIR)/random
 PARSE_DIR  = $(SRC_DIR)/parsing
+CTRL_DIR  = $(SRC_DIR)/controls
+OBJS_DIR  = $(SRC_DIR)/objects
+MATH_DIR  = $(SRC_DIR)/math
 VERIF_PARSE_DIR = $(PARSE_DIR)/verif_parsing
 OBJ_DIR    = obj
 LIBFT_DIR  = lib/libft
@@ -68,19 +71,21 @@ SRC = $(SRC_DIR)/main.c \
 		$(VERIF_PARSE_DIR)/parsing_verif_syntax.c \
 		$(VERIF_PARSE_DIR)/parsing_verif_utils.c \
 		$(VERIF_PARSE_DIR)/parsing_verif.c \
+		$(MATH_DIR)/vec_utils.c \
+		$(MATH_DIR)/vec_utils_2.c \
+		$(MATH_DIR)/color_utils.c \
+		$(MATH_DIR)/color_utils_2.c \
+		$(OBJS_DIR)/sphere.c \
+		$(OBJS_DIR)/cylinder.c \
+		$(OBJS_DIR)/cylinder_utils.c \
+		$(OBJS_DIR)/plane.c \
 		$(GRAPH_DIR)/rays.c \
 		$(GRAPH_DIR)/render_utils.c \
 		$(GRAPH_DIR)/render.c \
 		$(GRAPH_DIR)/render_pixel.c \
-		$(GRAPH_DIR)/sphere.c \
-		$(GRAPH_DIR)/cylinder.c \
-		$(GRAPH_DIR)/cylinder_utils.c \
-		$(GRAPH_DIR)/plane.c \
-		$(GRAPH_DIR)/controls.c \
-		$(GRAPH_DIR)/vec_utils.c \
-		$(GRAPH_DIR)/vec_utils_2.c \
-		$(GRAPH_DIR)/color_utils.c \
-		$(GRAPH_DIR)/color_utils_2.c \
+		$(CTRL_DIR)/controls.c \
+		$(CTRL_DIR)/movement.c \
+		$(CTRL_DIR)/rotation.c \
 		$(GNL_SRC)
 
 OBJ = $(SRC:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)

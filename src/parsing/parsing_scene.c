@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 08:46:37 by anfouger          #+#    #+#             */
-/*   Updated: 2026/05/13 14:58:30 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/07/08 14:30:13 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ static void	parse_cam(t_cam *cam, char **tab)
 	cam->pos = parse_vec(tab[1]);
 	cam->n_orientation = parse_vec(tab[2]);
 	cam->fov = ft_atoi(tab[3]);
+	cam->forward = init_vec(0, 0, 0);
 }
 
 void	parse_scene(t_data *data, char **tab)

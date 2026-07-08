@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 14:04:04 by anfouger          #+#    #+#             */
-/*   Updated: 2026/07/08 13:23:19 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/07/08 14:30:54 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,11 @@
 # define WIN_HEIGHT 600
 # define M_PI 3.14159265358979323846
 # define KEY_SENSI 0.3
+# define KEY_LEFT   65361
+# define KEY_UP     65362
+# define KEY_RIGHT  65363
+# define KEY_DOWN   65364
+# define ROT_SPEED (2.0 * M_PI / 180.0)
 
 // --- Init --- //
 t_mlx	*init_mlx(void);
@@ -112,6 +117,10 @@ void	fill_block(t_data *data, int x, int y, int color);
 
 // --- Controls --- //
 void	set_controls(t_data *data);
+void	update_pos(t_vec3 *pos, t_vec3 dir, int sign);
+void	move_cam(int keycode, t_cam *cam);
+void	rotate_camera_pitch(t_cam *cam, double angle);
+void	rotate_camera_yaw(t_cam *cam, double angle);
 
 // --- Exit --- //
 int		ft_exit(t_data *data);
