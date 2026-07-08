@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 10:52:04 by anfouger          #+#    #+#             */
-/*   Updated: 2026/07/08 07:50:20 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/07/08 08:17:27 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,9 @@ static void	process_line(t_data *data)
 	if (!verif_line(tab))
 	{
 		free_str_tab(tab);
-		ft_exit(data);
+		if (!data->parsing.err)
+			data->parsing.err = 1;
+		return ;
 	}
 	if (!ft_strcmp(tab[0], "sp") || !ft_strcmp(tab[0], "pl")
 		|| !ft_strcmp(tab[0], "cy"))
@@ -55,7 +57,7 @@ void	parse_file(char *name, t_data *data)
 		else
 			free(data->parsing.line);
 	}
-	if (!verif_complete(data->is))
+	if (!verif_complete(data->is) || data->parsing.err == 1)
 		ft_exit(data);
 	close(data->parsing.fd);
 	data->is.fd_open = 0;

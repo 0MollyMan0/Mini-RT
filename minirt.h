@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 14:04:04 by anfouger          #+#    #+#             */
-/*   Updated: 2026/06/11 15:35:21 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/07/08 08:15:20 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -179,6 +179,7 @@ typedef struct s_hit
 typedef struct s_parsing
 {
 	int			fd;
+	int			err;
 	char		*line;
 }				t_parsing;
 

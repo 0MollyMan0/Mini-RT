@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/05 10:41:24 by anfouger          #+#    #+#             */
-/*   Updated: 2026/05/19 09:11:59 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/07/08 08:15:40 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ t_data	*init_data(void)
 	data->is = init_is();
 	data->parsing.line = NULL;
 	data->parsing.fd = -1;
+	data->parsing.err = 0;
 	return (data);
 }
 
