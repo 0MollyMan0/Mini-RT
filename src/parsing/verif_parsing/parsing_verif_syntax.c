@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/10 13:55:24 by anfouger          #+#    #+#             */
-/*   Updated: 2026/05/10 15:18:02 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/07/08 07:54:31 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,10 @@ int	verif_vec_syntax(char *str)
 	tab = ft_split(str, ',');
 	i = 0;
 	if (str_tab_len(tab) > 3)
-		return (0);
+	{
+		free_str_tab(tab);
+		return (0);	
+	}
 	while (tab[i])
 	{
 		if (!is_valid_double(tab[i]))
