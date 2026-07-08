@@ -74,6 +74,9 @@ Although the implementation in miniRT is **intentionally simple**, it introduces
 
 * ESC to quit the program
 * Window close button support
+* w - s - a - d to move forward backward left and right
+* q - e to move up and down
+* p - o to pixelate or depixelate
 
 ## 📸 Gallery
 
