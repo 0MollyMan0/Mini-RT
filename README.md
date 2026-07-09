@@ -77,6 +77,7 @@ Although the implementation in miniRT is **intentionally simple**, it introduces
 * w - s - a - d to move forward backward left and right
 * q - e to move up and down
 * p - o to pixelate or depixelate
+* Directional arrow to rotate camera
 
 ## 📸 Gallery
 
