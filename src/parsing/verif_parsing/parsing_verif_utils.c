@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/10 08:59:16 by anfouger          #+#    #+#             */
-/*   Updated: 2026/07/08 08:22:08 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/07/12 16:49:40 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,11 @@ int	verif_rgb(char *str)
 		return (0);
 	sub_tab = ft_split(str, ',');
 	i = 0;
+	if (str_tab_len(sub_tab) != 3)
+	{
+		free_str_tab(sub_tab);
+		return (0);
+	}
 	while (sub_tab[i])
 	{
 		if (!is_int_in_range(ft_atof(sub_tab[i]), 0, 255))
