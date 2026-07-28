@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/08 13:20:36 by anfouger          #+#    #+#             */
-/*   Updated: 2026/07/08 14:56:45 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/07/28 06:32:49 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ typedef enum e_parse_error
 	ERR_N_VECTOR,
 	ERR_NONE,
 	ERR_TOO_MUCH,
+	ERR_PARAMETER,
 }	t_parse_error;
 
 typedef enum e_object_type

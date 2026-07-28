@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/07 16:10:41 by anfouger          #+#    #+#             */
-/*   Updated: 2026/05/19 09:17:37 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/07/28 06:32:39 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ static void	print_error_problem_2(t_parse_error problem)
 		ft_putstr_fd("Not enougth\n", 2);
 	else if (problem == ERR_TOO_MUCH)
 		ft_putstr_fd("Too much\n", 2);
+	else if (problem == ERR_PARAMETER)
+		ft_putstr_fd("Not right number of parameter\n", 2);
 }
 
 static void	print_error_problem(t_parse_error problem)

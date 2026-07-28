@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/10 09:13:30 by anfouger          #+#    #+#             */
-/*   Updated: 2026/05/10 15:19:45 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/07/28 06:38:00 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,9 @@ int	verif_cylinder(char **tab)
 	int	res;
 
 	res = 1;
-	if (!verif_vec_syntax(tab[1]))
+	if (str_tab_len(tab) != 6)
+		res = print_error(ERR_CYLINDER, ERR_PARAMETER, " ");
+	else if (!verif_vec_syntax(tab[1]))
 		res = print_error(ERR_CYLINDER, ERR_SYNTAX, tab[1]);
 	else if (!verif_n_vec(tab[2]))
 		res = print_error(ERR_CYLINDER, ERR_N_VECTOR, tab[2]);
@@ -35,7 +37,9 @@ int	verif_sphere(char **tab)
 	int	res;
 
 	res = 1;
-	if (!verif_vec_syntax(tab[1]))
+	if (str_tab_len(tab) != 4)
+		res = print_error(ERR_SPHERE, ERR_PARAMETER, " ");
+	else if (!verif_vec_syntax(tab[1]))
 		res = print_error(ERR_SPHERE, ERR_SYNTAX, tab[1]);
 	else if (!is_valid_double(tab[2]))
 		res = print_error(ERR_SPHERE, ERR_SYNTAX, tab[2]);
@@ -49,6 +53,8 @@ int	verif_plane(char **tab)
 	int	res;
 
 	res = 1;
+	if (str_tab_len(tab) != 4)
+		res = print_error(ERR_PLANE, ERR_PARAMETER, " ");
 	if (!verif_vec_syntax(tab[1]))
 		res = print_error(ERR_PLANE, ERR_SYNTAX, tab[1]);
 	if (!verif_n_vec(tab[2]))

@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/10 13:55:24 by anfouger          #+#    #+#             */
-/*   Updated: 2026/07/08 08:31:19 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/07/28 06:46:52 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	verif_rgb_syntax(char *str)
 
 	sub_tab = ft_split(str, ',');
 	i = 0;
-	if (str_tab_len(sub_tab) > 3)
+	if (!str || !sub_tab ||str_tab_len(sub_tab) > 3)
 		return (0);
 	while (sub_tab[i])
 	{
@@ -47,7 +47,7 @@ int	verif_vec_syntax(char *str)
 
 	tab = ft_split(str, ',');
 	i = 0;
-	if (str_tab_len(tab) > 3)
+	if (str_tab_len(tab) != 3)
 	{
 		free_str_tab(tab);
 		return (0);
